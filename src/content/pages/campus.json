@@ -1,0 +1,60 @@
+{
+  "hero": {
+    "eyebrow": "Our campus",
+    "title": "A space built for curiosity",
+    "subtitle": "Every corner of The Trium School campus is designed to inspire learning, creativity, and growth."
+  },
+  "intro": {
+    "heading": "Where learning comes alive",
+    "body": "Nestled in the serene surroundings of Makhmalabad, Nashik, our campus blends thoughtful architecture with nature to create an environment where children thrive. From state-of-the-art labs to open green spaces, every facility is purpose-built for holistic development."
+  },
+  "facilities": [
+    {
+      "id": "fac-1",
+      "name": "Smart Classrooms",
+      "description": "Bright, airy classrooms equipped with interactive smart boards and flexible seating that adapts to collaborative and individual learning.",
+      "image_slot": "/airo-assets/images/pages/home/campus-classrooms",
+      "tag": "Learning spaces"
+    },
+    {
+      "id": "fac-2",
+      "name": "Science Laboratories",
+      "description": "Fully equipped science labs where students conduct hands-on experiments from primary school onwards, building scientific curiosity early.",
+      "image_slot": "/airo-assets/images/pages/home/campus-science-lab",
+      "tag": "STEM"
+    },
+    {
+      "id": "fac-3",
+      "name": "STEM & Robotics Studio",
+      "description": "A dedicated maker space with robotics kits, coding stations, and 3D printing tools — where ideas become prototypes.",
+      "image_slot": "/airo-assets/images/pages/home/campus-stem",
+      "tag": "Innovation"
+    },
+    {
+      "id": "fac-4",
+      "name": "Library & Reading Room",
+      "description": "A curated library of over 5,000 titles spanning fiction, non-fiction, and reference — a quiet haven for readers and researchers alike.",
+      "image_slot": "/airo-assets/images/pages/home/campus-library",
+      "tag": "Knowledge"
+    },
+    {
+      "id": "fac-5",
+      "name": "Sports Grounds",
+      "description": "Expansive outdoor grounds for cricket, football, athletics, and more — supporting physical fitness and team spirit.",
+      "image_slot": "/airo-assets/images/pages/home/campus-sports",
+      "tag": "Sports"
+    },
+    {
+      "id": "fac-6",
+      "name": "Performing Arts Centre",
+      "description": "A dedicated stage and rehearsal space for drama, music, and dance — nurturing every child's creative voice.",
+      "image_slot": "/airo-assets/images/pages/home/campus-arts",
+      "tag": "Arts"
+    }
+  ],
+  "cta": {
+    "heading": "See it for yourself",
+    "body": "Schedule a campus visit and experience The Trium School in person. We'd love to show you around.",
+    "button": "Book a campus visit"
+  }
+}

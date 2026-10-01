@@ -1,0 +1,99 @@
+{
+  "hero": {
+    "eyebrow": "Our story",
+    "title": "Building tomorrow's leaders, one child at a time",
+    "subtitle": "Founded on the belief that every child deserves an education that nurtures curiosity, character, and capability — The Trium School is Nashik's newest K-12 institution built for the future."
+  },
+  "vision_mission": {
+    "vision_label": "Our vision",
+    "vision": "To be a centre of excellence where every learner is empowered to think critically, act ethically, and contribute meaningfully to the world.",
+    "mission_label": "Our mission",
+    "mission": "To provide a holistic, inquiry-driven education that blends academic rigour with life skills, creativity, and values — preparing students not just for exams, but for life."
+  },
+  "values": {
+    "heading": "The values we live by",
+    "items": [
+      {
+        "id": "v1",
+        "title": "Curiosity",
+        "description": "We nurture a love of learning and encourage students to ask questions, explore ideas, and think beyond the textbook."
+      },
+      {
+        "id": "v2",
+        "title": "Integrity",
+        "description": "We build character alongside academics — honesty, responsibility, and respect are woven into every aspect of school life."
+      },
+      {
+        "id": "v3",
+        "title": "Excellence",
+        "description": "We set high expectations and provide the support every student needs to reach their personal best."
+      },
+      {
+        "id": "v4",
+        "title": "Empathy",
+        "description": "We cultivate compassion and global awareness, helping students understand and appreciate diverse perspectives."
+      },
+      {
+        "id": "v5",
+        "title": "Innovation",
+        "description": "We embrace new ideas and approaches, preparing students for a rapidly changing world with creativity and adaptability."
+      },
+      {
+        "id": "v6",
+        "title": "Community",
+        "description": "We believe education is a partnership — between school, family, and society — and we invest in that relationship deeply."
+      }
+    ]
+  },
+  "leadership": {
+    "heading": "Leadership & faculty",
+    "subheading": "Our team brings together decades of experience from leading schools across India, united by a shared passion for transformative education.",
+    "members": [
+      {
+        "id": "l1",
+        "name": "Dr. Priya Sharma",
+        "role": "Principal & Co-Founder",
+        "bio": "With 20+ years in progressive education, Dr. Sharma has led curriculum reform initiatives across Maharashtra and is a TEDx speaker on child-centred learning."
+      },
+      {
+        "id": "l2",
+        "name": "Mr. Rahul Mehta",
+        "role": "Director — Academics",
+        "bio": "A Cambridge-trained educator and former IB coordinator, Mr. Mehta oversees curriculum design and ensures our programmes meet international benchmarks."
+      },
+      {
+        "id": "l3",
+        "name": "Ms. Anita Desai",
+        "role": "Head of Primary School",
+        "bio": "Specialising in early childhood development, Ms. Desai brings warmth and expertise to our youngest learners, creating a nurturing foundation for lifelong learning."
+      }
+    ]
+  },
+  "stats": [
+    {
+      "id": "s1",
+      "value": "K–12",
+      "label": "Full school journey"
+    },
+    {
+      "id": "s2",
+      "value": "25+",
+      "label": "Expert faculty members"
+    },
+    {
+      "id": "s3",
+      "value": "2024",
+      "label": "Year established"
+    },
+    {
+      "id": "s4",
+      "value": "Nashik",
+      "label": "Makhmalabad campus"
+    }
+  ],
+  "cta": {
+    "heading": "Ready to be part of the Trium family?",
+    "subheading": "Admissions are open for the 2027–28 academic year. We invite you to visit our campus and experience the Trium difference.",
+    "button": "Apply for admissions"
+  }
+}

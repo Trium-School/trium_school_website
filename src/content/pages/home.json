@@ -1,0 +1,246 @@
+{
+  "hero": {
+    "trust_badge": "Admissions Open 2027–28",
+    "tagline": "Where Every Child Triumphs",
+    "subtitle": "We believe every child grows through three forces held in balance: a curious Mind, a strong Body, and an expressive Soul",
+    "cta_primary": "Apply Now",
+    "cta_secondary": "Explore Campus"
+  },
+  "differentiators": {
+    "eyebrow": "The Trium Difference",
+    "heading": "What Makes Trium Truly Unique",
+    "subheading": "Five pillars that set our students apart — for life.",
+    "items": [
+      {
+        "id": "diff-1",
+        "number": "01",
+        "title": "Academic Excellence And Beyond",
+        "subtitle": "Mind, Body and Soul",
+        "description": "At Trium, we believe true excellence is holistic. Our curriculum goes far beyond textbooks — weaving together rigorous academics, physical wellness, and character development into a seamless daily experience. Students don't just score well; they grow into well-rounded, resilient individuals ready for the world.",
+        "highlights": [
+          "Holistic curriculum",
+          "Physical & mental wellness",
+          "Character-first education"
+        ]
+      },
+      {
+        "id": "diff-2",
+        "number": "02",
+        "title": "World Class Teachers",
+        "subtitle": "Mentors Who Inspire",
+        "description": "Our faculty are hand-picked from the finest institutions and trained continuously in the latest pedagogical methods. They bring global perspectives into every classroom, building deep, trust-based relationships with students. At Trium, a great teacher doesn't just teach a subject — they ignite a lifelong love of learning.",
+        "highlights": [
+          "Globally trained educators",
+          "Low student-teacher ratio",
+          "Continuous professional development"
+        ]
+      },
+      {
+        "id": "diff-3",
+        "number": "03",
+        "title": "Trium Orator",
+        "subtitle": "The Art of Confident Communication",
+        "description": "Trium Orator is our signature communication and public speaking programme — unique to our school. From structured debates and Model UN to storytelling workshops and presentation masterclasses, every Trium student graduates as a confident, articulate communicator. Because in today's world, how you speak matters as much as what you know.",
+        "highlights": [
+          "Signature speaking programme",
+          "Debates & Model UN",
+          "Presentation masterclasses"
+        ]
+      },
+      {
+        "id": "diff-4",
+        "number": "04",
+        "title": "Trium Innovator",
+        "subtitle": "Building Tomorrow's Problem-Solvers",
+        "description": "Trium Innovator is our dedicated STEM and entrepreneurship programme that puts students in the driver's seat of creation. From robotics and coding to design thinking and startup pitches, students learn to identify real problems and build real solutions — developing the mindset of an innovator from an early age.",
+        "highlights": [
+          "Robotics & coding labs",
+          "Design thinking workshops",
+          "Student startup pitches"
+        ]
+      },
+      {
+        "id": "diff-5",
+        "number": "05",
+        "title": "Real-World Education Model",
+        "subtitle": "Learning That Goes Beyond the Classroom",
+        "description": "At Trium, education doesn't stop at the school gate. Our Real-World Education model integrates industry visits, community projects, live case studies, and expert-in-residence sessions into the curriculum. Students don't just learn about the world — they engage with it, building practical skills, empathy, and a sense of purpose that no textbook can teach.",
+        "highlights": [
+          "Industry visits & internships",
+          "Community impact projects",
+          "Expert-in-residence sessions"
+        ]
+      }
+    ]
+  },
+  "founders_message": {
+    "eyebrow": "A Message from Our Founder",
+    "pull_quote": "We don't see our role as simply educating children. We see our role as awakening the three forces within them — Mind, Body and Soul.",
+    "paragraphs": [
+      {
+        "id": "fp-1",
+        "text": "Education has always claimed to develop the whole child. Our ancient gurukuls trained students on 'sastra' (warriorship) and 'shastra' (scholarship) alike. And yet, at present, if we're honest, most schools still measure only one thing: what a child can recall on a test."
+      },
+      {
+        "id": "fp-2",
+        "text": "The world our children inherit will not reward a strong mind housed in a neglected body, or a disciplined body driving an unexamined soul. It will reward integration — the ability to think clearly, move with strength and resilience, and act from a place of purpose and values."
+      },
+      {
+        "id": "fp-3",
+        "text": "Our responsibility is not to produce high scorers but to raise whole human beings. Not minds trained only for exams, but minds that can think, question, and adapt. Not souls left untended, but children who grow up knowing what they value and why."
+      },
+      {
+        "id": "fp-4",
+        "text": "Intelligence without ethical grounding is brittle. Strength without direction is wasted. And neither means anything without a soul that knows why it's doing what it's doing."
+      }
+    ],
+    "closing": "Trium — 'of three' — is not a metaphor to us. It's our architecture.",
+    "attribution": "Founder, The Trium School"
+  },
+  "programs": {
+    "heading": "Academic Programmes",
+    "subheading": "A learning journey designed for every stage of growth",
+    "items": [
+      {
+        "id": "prog-1",
+        "name": "Early Years",
+        "grades": "Nursery – KG",
+        "highlight": "Ages 3–6",
+        "description": "Play-based learning that sparks curiosity, builds language, and lays the foundation for a lifelong love of discovery."
+      },
+      {
+        "id": "prog-2",
+        "name": "Primary School",
+        "grades": "Grades 1–5",
+        "highlight": "Ages 6–11",
+        "description": "Core academics blended with arts, sports, and values education to develop well-rounded young learners."
+      }
+    ]
+  },
+  "why_trium": {
+    "heading": "The World Demands Leaders, Not Test-Takers",
+    "features": [
+      {
+        "id": "wt-1",
+        "title": "Faculty Who Are Mentors First",
+        "description": "Our teachers are selected not just for subject mastery but for their ability to connect, inspire, and challenge. With a low student-to-teacher ratio, every child receives the attention they deserve.",
+        "stat": "1:25 Student-Teacher Ratio"
+      },
+      {
+        "id": "wt-2",
+        "title": "A Campus Built for Exploration",
+        "description": "From state-of-the-art science labs and a dedicated maker space to sprawling sports fields and a performing arts theatre — our campus is designed to let every passion flourish.",
+        "stat": "2-acre World-Class Campus"
+      }
+    ]
+  },
+  "stats": {
+    "heading": "",
+    "items": [
+      {
+        "id": "st-1",
+        "value": "20+",
+        "label": "Years of Excellence"
+      },
+      {
+        "id": "st-2",
+        "value": "2400+",
+        "label": "Alumni Worldwide"
+      },
+      {
+        "id": "st-3",
+        "value": "180+",
+        "label": "Qualified Faculty"
+      },
+      {
+        "id": "st-4",
+        "value": "45+",
+        "label": "Co-curricular Clubs"
+      }
+    ]
+  },
+  "testimonials": {
+    "heading": "Voices from Our Community",
+    "subheading": "What parents and alumni say about The Trium School",
+    "items": [
+      {
+        "id": "tm-1",
+        "quote": "Trium didn't just prepare my daughter academically — it gave her the confidence to speak her mind, lead a team, and face challenges with grace. The teachers genuinely care.",
+        "name": "Priya Menon",
+        "detail": "Parent, Grade 10"
+      },
+      {
+        "id": "tm-2",
+        "quote": "The Trium Orator programme changed everything for me. I went from dreading presentations to winning a national debate championship. This school builds real-world skills.",
+        "name": "Arjun Sharma",
+        "detail": "Alumni, Batch of 2022"
+      },
+      {
+        "id": "tm-3",
+        "quote": "As a parent, what struck me most was how the school balances rigour with joy. My son loves going to school every single day — and his results speak for themselves.",
+        "name": "Rahul & Deepa Nair",
+        "detail": "Parents, Grade 7"
+      }
+    ]
+  },
+  "admissions_process": {
+    "eyebrow": "Admissions",
+    "heading": "Admissions Open",
+    "steps": [
+      {
+        "id": "ap-1",
+        "title": "Visit & Discover Trium",
+        "description": "Schedule a campus visit or join an online session to experience Trium's learning approach, meet the team, and explore the campus."
+      },
+      {
+        "id": "ap-2",
+        "title": "Apply & Assessment",
+        "description": "Submit the online application with required documents. Shortlisted families are invited for the next step:",
+        "sub_items": [
+          {
+            "id": "ap-2a",
+            "label": "Early Years",
+            "detail": "a playful classroom observation with our educators"
+          },
+          {
+            "id": "ap-2b",
+            "label": "Primary & above",
+            "detail": "the Trium Spark assessment"
+          }
+        ]
+      },
+      {
+        "id": "ap-3",
+        "title": "Admission Offer & Enrollment",
+        "description": "Selected families receive an offer and complete enrollment. Our team supports onboarding for a smooth, confident start at Trium."
+      }
+    ]
+  },
+  "admissions": {
+    "heading": "Begin Your Child's Triumph Story",
+    "subheading": "Seats for 2027–28 are filling fast. Take the first step towards a transformative education — applications are open now.",
+    "cta": "Start Your Application",
+    "steps": [
+      {
+        "id": "step-1",
+        "number": "1",
+        "label": "Fill the form"
+      },
+      {
+        "id": "step-2",
+        "number": "2",
+        "label": "Campus visit"
+      },
+      {
+        "id": "step-3",
+        "number": "3",
+        "label": "Interaction"
+      },
+      {
+        "id": "step-4",
+        "number": "4",
+        "label": "Enrolment"
+      }
+    ]
+  }
+}

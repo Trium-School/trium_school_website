@@ -1,0 +1,707 @@
+{
+  "pages/home/hero": {
+    "mediaType": "image",
+    "currentUrl": "/airo-assets/uploads/pages-home-hero-74a74be1.jpg",
+    "searchQuery": "modern school building with sports field",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2246490776",
+      "https://img1.wsimg.com/isteam/getty/2245657187",
+      "https://img1.wsimg.com/isteam/getty/2245651671",
+      "https://img1.wsimg.com/isteam/getty/2245651674",
+      "https://img1.wsimg.com/isteam/getty/2246490784"
+    ],
+    "userModified": true,
+    "createdAt": "2026-07-03T17:50:06.050Z",
+    "lastUpdated": "2026-07-30T19:04:06.104Z",
+    "alternativeGettyIds": [
+      "2246490776",
+      "2245657187",
+      "2245651671",
+      "2245651674",
+      "2246490784"
+    ],
+    "requestedSize": {
+      "width": 1920,
+      "height": 1080,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "compositions": "wide_shot",
+    "numberOfPeople": "group",
+    "minimumSize": "x_large",
+    "uploadSources": {
+      "/airo-assets/uploads/pages-home-hero-74a74be1.jpg": "ttt3pzqshe_1785436632116_file_Hgxjll0kSL.jpg"
+    },
+    "uploadContentHash": "dd5d30c2ed1c6e82f3b003d8e06296b91396dc29e80641673c92a24a7afd565d",
+    "caption": "modern school building with sports field"
+  },
+  "pages/home/programs-early-years": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2175940775",
+    "searchQuery": "young children kindergarten early learning playful classroom",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2224235754",
+      "https://img1.wsimg.com/isteam/getty/2149241127"
+    ],
+    "userModified": false,
+    "createdAt": "2026-07-03T17:50:06.889Z",
+    "lastUpdated": "2026-07-03T17:50:06.889Z",
+    "gettyId": "2175940775",
+    "alternativeGettyIds": [
+      "2224235754",
+      "2149241127"
+    ],
+    "requestedSize": {
+      "width": 600,
+      "height": 400,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "numberOfPeople": "group",
+    "ageOfPeople": "child"
+  },
+  "pages/home/programs-primary": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2248223413",
+    "searchQuery": "primary school children reading books engaged learning",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1160929127",
+      "https://img1.wsimg.com/isteam/getty/1937157444"
+    ],
+    "userModified": false,
+    "createdAt": "2026-07-03T17:50:08.230Z",
+    "lastUpdated": "2026-07-03T17:50:08.230Z",
+    "gettyId": "2248223413",
+    "alternativeGettyIds": [
+      "1160929127",
+      "1937157444"
+    ],
+    "requestedSize": {
+      "width": 600,
+      "height": 400,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "ageOfPeople": "child"
+  },
+  "pages/home/programs-middle": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/871328280",
+    "searchQuery": "middle school students science lab experiment teamwork",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2227835969",
+      "https://img1.wsimg.com/isteam/getty/1486749167"
+    ],
+    "userModified": false,
+    "createdAt": "2026-07-03T17:50:09.986Z",
+    "lastUpdated": "2026-07-03T17:50:09.986Z",
+    "gettyId": "871328280",
+    "alternativeGettyIds": [
+      "2227835969",
+      "1486749167"
+    ],
+    "requestedSize": {
+      "width": 600,
+      "height": 400,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "ageOfPeople": "teenager"
+  },
+  "pages/home/programs-senior": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2255278217",
+    "searchQuery": "senior high school students studying graduation academic excellence",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1810972895",
+      "https://img1.wsimg.com/isteam/getty/2198649990"
+    ],
+    "userModified": false,
+    "createdAt": "2026-07-03T17:50:10.548Z",
+    "lastUpdated": "2026-07-03T17:50:10.548Z",
+    "gettyId": "2255278217",
+    "alternativeGettyIds": [
+      "1810972895",
+      "2198649990"
+    ],
+    "requestedSize": {
+      "width": 600,
+      "height": 400,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "ageOfPeople": "teenager"
+  },
+  "pages/home/why-trium-faculty": {
+    "mediaType": "image",
+    "currentUrl": "/airo-assets/uploads/pages-home-why-trium-faculty-c7396b29.png",
+    "searchQuery": "teacher instructing students at classroom table",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2216510306",
+      "https://img1.wsimg.com/isteam/getty/976323038",
+      "https://img1.wsimg.com/isteam/getty/1421644905"
+    ],
+    "userModified": true,
+    "createdAt": "2026-07-03T17:50:13.103Z",
+    "lastUpdated": "2026-08-04T18:25:16.789Z",
+    "alternativeGettyIds": [
+      "2216510306",
+      "976323038",
+      "1421644905"
+    ],
+    "requestedSize": {
+      "width": 800,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "numberOfPeople": "two",
+    "uploadSources": {
+      "/airo-assets/uploads/pages-home-why-trium-faculty-c7396b29.png": "ttt3pzqshe_1785867428526_file_mT3Tc_lyVr.png"
+    },
+    "uploadContentHash": "61b3309979e3ff2ce973dedd61127611e4fbd71226cebdd5d74e321c7d8b36c2",
+    "caption": "teacher instructing students at classroom table"
+  },
+  "pages/home/why-trium-campus": {
+    "mediaType": "image",
+    "currentUrl": "/airo-assets/uploads/pages-home-why-trium-campus-5b2a24be.jpg",
+    "searchQuery": "modern school building sports field campus",
+    "alternatives": [
+      "/airo-assets/uploads/pages-home-why-trium-campus-335efd3a.jpg",
+      "https://img1.wsimg.com/isteam/getty/1460718390",
+      "https://img1.wsimg.com/isteam/getty/1540177419",
+      "https://img1.wsimg.com/isteam/getty/186859567"
+    ],
+    "userModified": true,
+    "createdAt": "2026-07-03T17:50:14.012Z",
+    "lastUpdated": "2026-07-30T19:03:36.385Z",
+    "alternativeGettyIds": [
+      "",
+      "1460718390",
+      "1540177419",
+      "186859567"
+    ],
+    "requestedSize": {
+      "width": 800,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "uploadSources": {
+      "/airo-assets/uploads/pages-home-why-trium-campus-335efd3a.jpg": "ttt3pzqshe_1785436632117_file_rLjW_IvlEh.jpg",
+      "/airo-assets/uploads/pages-home-why-trium-campus-5b2a24be.jpg": "ttt3pzqshe_1785436372136_file_Y_lhx3m9mW.jpg"
+    },
+    "uploadContentHash": "02fae5803fc5f896fce1723ca03f7567ea582d44378439425873932cd0c2aa67",
+    "caption": "modern school building sports field campus"
+  },
+  "pages/home/admissions-cta": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1441753836",
+    "searchQuery": "school children happy smiling diverse group bright sunny day",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/640205124",
+      "https://img1.wsimg.com/isteam/getty/1822664311"
+    ],
+    "userModified": false,
+    "createdAt": "2026-07-03T17:50:15.079Z",
+    "lastUpdated": "2026-07-03T17:50:15.079Z",
+    "gettyId": "1441753836",
+    "alternativeGettyIds": [
+      "640205124",
+      "1822664311"
+    ],
+    "requestedSize": {
+      "width": 1200,
+      "height": 700,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "numberOfPeople": "group",
+    "ageOfPeople": "child"
+  },
+  "logo/horizontal": {
+    "mediaType": "logo",
+    "currentUrl": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/bd6a501b-b511-4453-908f-8175982e913c/session/a68ff5bb-e78d-4da5-b3d5-2c5d4fe02e46/horizontal-transparent-ffdef94a-e650-4cb3-8041-2bc9db2f29b1/logo-logo.png",
+    "searchQuery": "A modern school emblem logo for \"The Trium School\" — a clean, refined crest feat",
+    "alternatives": [],
+    "solidUrlMap": {},
+    "mockupUrlMap": {
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/bd6a501b-b511-4453-908f-8175982e913c/session/a68ff5bb-e78d-4da5-b3d5-2c5d4fe02e46/horizontal-transparent-ffdef94a-e650-4cb3-8041-2bc9db2f29b1/logo-logo.png": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/bd6a501b-b511-4453-908f-8175982e913c/session/a68ff5bb-e78d-4da5-b3d5-2c5d4fe02e46/horizontal-mockup-ffdef94a-e650-4cb3-8041-2bc9db2f29b1/logo-logo.png"
+    },
+    "landscapeMockupUrlMap": {},
+    "logoSourceMap": {
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/bd6a501b-b511-4453-908f-8175982e913c/session/a68ff5bb-e78d-4da5-b3d5-2c5d4fe02e46/horizontal-transparent-ffdef94a-e650-4cb3-8041-2bc9db2f29b1/logo-logo.png": {
+        "sessionId": "a68ff5bb-e78d-4da5-b3d5-2c5d4fe02e46",
+        "logoId": "ffdef94a-e650-4cb3-8041-2bc9db2f29b1",
+        "groupId": "e1c27197-b183-4f61-8933-178b393cba9f"
+      }
+    },
+    "userModified": false,
+    "createdAt": "2026-07-03T17:50:22.603Z",
+    "lastUpdated": "2026-07-03T17:51:14.429Z",
+    "logoGroupId": "e1c27197-b183-4f61-8933-178b393cba9f"
+  },
+  "logo/favicon": {
+    "mediaType": "logo",
+    "currentUrl": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/bd6a501b-b511-4453-908f-8175982e913c/session/bd2e2772-054b-4248-8862-b3e20e56573a/favicon-transparent-25400685-b177-4832-baa7-730bce141f55/logo-logo.png",
+    "searchQuery": "favicon",
+    "alternatives": [
+      "/airo-assets/uploads/airo-logo-shimmer-square.svg"
+    ],
+    "logoSourceMap": {
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/bd6a501b-b511-4453-908f-8175982e913c/session/bd2e2772-054b-4248-8862-b3e20e56573a/favicon-transparent-25400685-b177-4832-baa7-730bce141f55/logo-logo.png": {
+        "sessionId": "bd2e2772-054b-4248-8862-b3e20e56573a",
+        "logoId": "25400685-b177-4832-baa7-730bce141f55",
+        "groupId": "e1c27197-b183-4f61-8933-178b393cba9f"
+      }
+    },
+    "logoGroupId": "e1c27197-b183-4f61-8933-178b393cba9f",
+    "userModified": false,
+    "createdAt": "2026-07-03T17:50:44.165Z",
+    "lastUpdated": "2026-07-03T17:51:14.503Z"
+  },
+  "pages/home/differentiators-3": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2246157675",
+    "searchQuery": "student presenting to classmates in classroom",
+    "alternatives": [
+      "/airo-assets/uploads/pages-home-differentiators-3-b3963686.jpg"
+    ],
+    "userModified": true,
+    "createdAt": "2026-07-30T17:34:00.347Z",
+    "lastUpdated": "2026-07-30T18:57:14.611Z",
+    "uploadSources": {
+      "/airo-assets/uploads/pages-home-differentiators-3-b3963686.jpg": "ttt3pzqshe_1785432817714_file_q7iCR5nHnX.jpg"
+    },
+    "uploadContentHash": "bbcf748a02a7df9e5b2f13309fbe39d2d073c25c2afb14d6bfc3e9bfb51cb229",
+    "gettyId": "2246157675",
+    "caption": "student presenting to classmates in classroom"
+  },
+  "pages/home/differentiators-2": {
+    "mediaType": "image",
+    "currentUrl": "/airo-assets/uploads/pages-home-differentiators-2-0e3aa2a1.png",
+    "searchQuery": "teacher engaging students around classroom table",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2218971169",
+      "/airo-assets/uploads/pages-home-differentiators-2-7e08f162.jpg"
+    ],
+    "userModified": true,
+    "createdAt": "2026-07-30T17:34:00.516Z",
+    "lastUpdated": "2026-08-04T18:17:19.655Z",
+    "uploadSources": {
+      "/airo-assets/uploads/pages-home-differentiators-2-7e08f162.jpg": "ttt3pzqshe_1785432764178_file_ou8uAgO3Ce.jpg",
+      "/airo-assets/uploads/pages-home-differentiators-2-0e3aa2a1.png": "ttt3pzqshe_1785867428540_file_386FdzWxEU.png"
+    },
+    "uploadContentHash": "13397bf62289ab835b8f86306322f1b73304a777326c209e3f29a7cf5fea7620",
+    "alternativeGettyIds": [
+      "2218971169",
+      ""
+    ],
+    "caption": "teacher engaging students around classroom table"
+  },
+  "pages/home/differentiators-1": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2243595492",
+    "searchQuery": "hand drawing glowing lightbulb business concept",
+    "alternatives": [
+      "/airo-assets/uploads/pages-home-differentiators-1-4c7b243a.jpg"
+    ],
+    "userModified": true,
+    "createdAt": "2026-07-30T17:34:00.690Z",
+    "lastUpdated": "2026-07-30T18:56:34.619Z",
+    "uploadSources": {
+      "/airo-assets/uploads/pages-home-differentiators-1-4c7b243a.jpg": "ttt3pzqshe_1785432738338_file_fKH23t4DJX.jpg"
+    },
+    "uploadContentHash": "b41acacadeb64bd2354506a0e6f6bed285be61e8f7430e5091a3155b997658eb",
+    "gettyId": "2243595492",
+    "caption": "hand drawing glowing lightbulb business concept"
+  },
+  "pages/home/differentiators-5": {
+    "orientations": "horizontal",
+    "mediaType": "image",
+    "currentUrl": "/airo-assets/uploads/pages-home-differentiators-5-0232a906.png",
+    "searchQuery": "teacher showing children wildlife specimen outdoors",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2185608513",
+      "https://img1.wsimg.com/isteam/getty/518114890",
+      "https://img1.wsimg.com/isteam/getty/1939499353",
+      "https://img1.wsimg.com/isteam/getty/1389037754",
+      "https://img1.wsimg.com/isteam/getty/1427848193"
+    ],
+    "userModified": true,
+    "createdAt": "2026-07-30T17:37:56.375Z",
+    "lastUpdated": "2026-08-04T18:19:16.465Z",
+    "alternativeGettyIds": [
+      "2185608513",
+      "518114890",
+      "1939499353",
+      "1389037754",
+      "1427848193"
+    ],
+    "uploadSources": {
+      "/airo-assets/uploads/pages-home-differentiators-5-0232a906.png": "ttt3pzqshe_1785867428531_file_6iWj6x_8gi.png"
+    },
+    "uploadContentHash": "3348a427f7dce3f8bc88026535eb0ba8dc035ee0f9caef29a67ff7ab541849f9",
+    "caption": "teacher showing children wildlife specimen outdoors"
+  },
+  "pages/home/differentiators-4": {
+    "orientations": "horizontal",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2226813113",
+    "searchQuery": "students innovation technology robotics STEM school lab",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1448502341",
+      "https://img1.wsimg.com/isteam/getty/2241324990",
+      "https://img1.wsimg.com/isteam/getty/2228260786",
+      "https://img1.wsimg.com/isteam/getty/1805432936"
+    ],
+    "userModified": false,
+    "createdAt": "2026-07-30T17:37:57.569Z",
+    "lastUpdated": "2026-07-30T17:37:57.569Z",
+    "gettyId": "2226813113",
+    "alternativeGettyIds": [
+      "1448502341",
+      "2241324990",
+      "2228260786",
+      "1805432936"
+    ]
+  },
+  "pages/home/campus-stem": {
+    "orientations": "horizontal",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1910284384",
+    "searchQuery": "school STEM robotics maker space technology lab students",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2264488444",
+      "https://img1.wsimg.com/isteam/getty/999232412",
+      "https://img1.wsimg.com/isteam/getty/2182037322"
+    ],
+    "userModified": false,
+    "createdAt": "2026-07-30T19:29:51.503Z",
+    "lastUpdated": "2026-07-30T19:29:51.503Z",
+    "gettyId": "1910284384",
+    "alternativeGettyIds": [
+      "2264488444",
+      "999232412",
+      "2182037322"
+    ]
+  },
+  "pages/home/campus-arts": {
+    "orientations": "horizontal",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1468187875",
+    "searchQuery": "school performing arts theatre stage auditorium students",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/200522687-001",
+      "https://img1.wsimg.com/isteam/getty/867392030",
+      "https://img1.wsimg.com/isteam/getty/1601514686"
+    ],
+    "userModified": false,
+    "createdAt": "2026-07-30T19:29:52.334Z",
+    "lastUpdated": "2026-07-30T19:29:52.334Z",
+    "gettyId": "1468187875",
+    "alternativeGettyIds": [
+      "200522687-001",
+      "867392030",
+      "1601514686"
+    ]
+  },
+  "pages/home/campus-sports": {
+    "orientations": "horizontal",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1346163746",
+    "searchQuery": "school sports field cricket football ground outdoor",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/117183975",
+      "https://img1.wsimg.com/isteam/getty/961428658",
+      "https://img1.wsimg.com/isteam/getty/1365378209"
+    ],
+    "userModified": false,
+    "createdAt": "2026-07-30T19:29:52.885Z",
+    "lastUpdated": "2026-07-30T19:29:52.885Z",
+    "gettyId": "1346163746",
+    "alternativeGettyIds": [
+      "117183975",
+      "961428658",
+      "1365378209"
+    ]
+  },
+  "pages/home/campus-library": {
+    "orientations": "horizontal",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2258437191",
+    "searchQuery": "modern school library reading room books students",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/871461580",
+      "https://img1.wsimg.com/isteam/getty/988670896",
+      "https://img1.wsimg.com/isteam/getty/650330888"
+    ],
+    "userModified": false,
+    "createdAt": "2026-07-30T19:29:53.894Z",
+    "lastUpdated": "2026-07-30T19:29:53.894Z",
+    "gettyId": "2258437191",
+    "alternativeGettyIds": [
+      "871461580",
+      "988670896",
+      "650330888"
+    ]
+  },
+  "pages/home/campus-science-lab": {
+    "orientations": "horizontal",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2271462170",
+    "searchQuery": "school science laboratory students experiments equipment",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2221098073",
+      "https://img1.wsimg.com/isteam/getty/1492537698",
+      "https://img1.wsimg.com/isteam/getty/2227835970"
+    ],
+    "userModified": false,
+    "createdAt": "2026-07-30T19:29:55.567Z",
+    "lastUpdated": "2026-07-30T19:29:55.567Z",
+    "gettyId": "2271462170",
+    "alternativeGettyIds": [
+      "2221098073",
+      "1492537698",
+      "2227835970"
+    ]
+  },
+  "pages/home/campus-classrooms": {
+    "orientations": "horizontal",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2150684083",
+    "searchQuery": "modern bright school classroom smart board interactive learning",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2165333362",
+      "https://img1.wsimg.com/isteam/getty/1498506722",
+      "https://img1.wsimg.com/isteam/getty/1299156063"
+    ],
+    "userModified": false,
+    "createdAt": "2026-07-30T19:29:55.909Z",
+    "lastUpdated": "2026-07-30T19:29:55.909Z",
+    "gettyId": "2150684083",
+    "alternativeGettyIds": [
+      "2165333362",
+      "1498506722",
+      "1299156063"
+    ]
+  },
+  "layouts/header/the-trium-school": {
+    "mediaType": "image",
+    "currentUrl": "/airo-assets/uploads/layouts-header-the-trium-school-f75d6fe0.png",
+    "searchQuery": "",
+    "alternatives": [
+      "/airo-assets/uploads/layouts-header-the-trium-school-f75d6fe0.png"
+    ],
+    "userModified": false,
+    "sourceRef": "src/layouts/parts/Header.tsx:86",
+    "createdAt": "2026-08-04T18:36:54.943Z",
+    "lastUpdated": "2026-08-04T18:36:54.943Z"
+  },
+  "pages/academics/hero": {
+    "requestedSize": {
+      "width": 1440,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "compositions": "wide_shot",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2246490763",
+    "searchQuery": "students engaged classroom learning discussion teacher India school",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1330255700",
+      "https://img1.wsimg.com/isteam/getty/2170334004"
+    ],
+    "userModified": false,
+    "createdAt": "2026-08-05T15:33:28.886Z",
+    "lastUpdated": "2026-08-05T15:33:28.886Z",
+    "gettyId": "2246490763",
+    "alternativeGettyIds": [
+      "1330255700",
+      "2170334004"
+    ]
+  },
+  "pages/contact/hero": {
+    "requestedSize": {
+      "width": 1440,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "compositions": "wide_shot",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2127644067",
+    "searchQuery": "school reception entrance welcoming bright modern India",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1144524486",
+      "https://img1.wsimg.com/isteam/getty/2153548237"
+    ],
+    "userModified": false,
+    "createdAt": "2026-08-05T15:33:29.528Z",
+    "lastUpdated": "2026-08-05T15:33:29.528Z",
+    "gettyId": "2127644067",
+    "alternativeGettyIds": [
+      "1144524486",
+      "2153548237"
+    ]
+  },
+  "pages/about/leadership-director": {
+    "requestedSize": {
+      "width": 400,
+      "height": 400,
+      "fit": "cover"
+    },
+    "orientations": "square",
+    "compositions": "headshot",
+    "numberOfPeople": "one",
+    "ethnicity": "south_asian",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1347543891",
+    "searchQuery": "professional Indian man educator academic director portrait",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/488438878",
+      "https://img1.wsimg.com/isteam/getty/660150468"
+    ],
+    "userModified": false,
+    "createdAt": "2026-08-05T15:33:32.265Z",
+    "lastUpdated": "2026-08-05T15:33:32.265Z",
+    "gettyId": "1347543891",
+    "alternativeGettyIds": [
+      "488438878",
+      "660150468"
+    ]
+  },
+  "pages/about/leadership-principal": {
+    "requestedSize": {
+      "width": 400,
+      "height": 400,
+      "fit": "cover"
+    },
+    "orientations": "square",
+    "compositions": "headshot",
+    "numberOfPeople": "one",
+    "ethnicity": "south_asian",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1296154460",
+    "searchQuery": "confident Indian woman school principal educator professional portrait",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/622970756",
+      "https://img1.wsimg.com/isteam/getty/499229513"
+    ],
+    "userModified": false,
+    "createdAt": "2026-08-05T15:33:33.414Z",
+    "lastUpdated": "2026-08-05T15:33:33.414Z",
+    "gettyId": "1296154460",
+    "alternativeGettyIds": [
+      "622970756",
+      "499229513"
+    ]
+  },
+  "pages/about/leadership-head": {
+    "requestedSize": {
+      "width": 400,
+      "height": 400,
+      "fit": "cover"
+    },
+    "orientations": "square",
+    "compositions": "headshot",
+    "numberOfPeople": "one",
+    "ethnicity": "south_asian",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/499229513",
+    "searchQuery": "warm professional Indian woman teacher educator portrait smiling",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1296154460",
+      "https://img1.wsimg.com/isteam/getty/622970756"
+    ],
+    "userModified": false,
+    "createdAt": "2026-08-05T15:33:36.718Z",
+    "lastUpdated": "2026-08-05T15:33:36.718Z",
+    "gettyId": "499229513",
+    "alternativeGettyIds": [
+      "1296154460",
+      "622970756"
+    ]
+  },
+  "pages/academics/cocurricular-sports": {
+    "requestedSize": {
+      "width": 600,
+      "height": 400,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2247160423",
+    "searchQuery": "school children playing cricket football outdoor sports field India",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2258979849",
+      "https://img1.wsimg.com/isteam/getty/1316738223"
+    ],
+    "userModified": false,
+    "createdAt": "2026-08-05T15:33:38.560Z",
+    "lastUpdated": "2026-08-05T15:33:38.560Z",
+    "gettyId": "2247160423",
+    "alternativeGettyIds": [
+      "2258979849",
+      "1316738223"
+    ]
+  },
+  "pages/about/hero": {
+    "requestedSize": {
+      "width": 1440,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "compositions": "wide_shot",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1294338291",
+    "searchQuery": "child building wooden structure blocks",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2213870195",
+      "https://img1.wsimg.com/isteam/getty/1175025296",
+      "https://img1.wsimg.com/isteam/getty/1440777791"
+    ],
+    "userModified": true,
+    "createdAt": "2026-08-05T15:33:39.684Z",
+    "lastUpdated": "2026-08-05T15:47:17.337Z",
+    "gettyId": "1294338291",
+    "alternativeGettyIds": [
+      "2213870195",
+      "1175025296",
+      "1440777791"
+    ],
+    "caption": "child building wooden structure blocks"
+  },
+  "pages/careers/hero": {
+    "requestedSize": {
+      "width": 1440,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1469940914",
+    "searchQuery": "Indian school teachers educators staff meeting collaboration professional",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1430078498",
+      "https://img1.wsimg.com/isteam/getty/1152019414",
+      "https://img1.wsimg.com/isteam/getty/1362739729",
+      "https://img1.wsimg.com/isteam/getty/1431705535"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-27T10:38:26.959Z",
+    "lastUpdated": "2026-09-29T05:14:10.046Z",
+    "gettyId": "1469940914",
+    "alternativeGettyIds": [
+      "1430078498",
+      "1152019414",
+      "1362739729",
+      "1431705535"
+    ]
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "hero": {
+    "eyebrow": "Get in touch",
+    "title": "We'd love to hear from you",
+    "subtitle": "Whether you have a question about admissions, want to schedule a visit, or simply want to learn more about The Trium School — our team is here to help."
+  },
+  "details": {
+    "address_label": "Campus address",
+    "address": "The Trium School Campus, Makhmalabad, Nashik, Maharashtra",
+    "phone_label": "Phone",
+    "phone": "+91 98765 43210",
+    "email_label": "Email",
+    "email": "admissions@triumschool.in",
+    "hours_label": "Office hours",
+    "hours": "Monday – Saturday, 8:00 AM – 4:00 PM"
+  },
+  "form": {
+    "heading": "Send us a message",
+    "name_label": "Your name",
+    "name_placeholder": "Full name",
+    "email_label": "Email address",
+    "email_placeholder": "you@example.com",
+    "phone_label": "Phone number",
+    "phone_placeholder": "+91 XXXXX XXXXX",
+    "subject_label": "Subject",
+    "subject_placeholder": "What is your enquiry about?",
+    "message_label": "Message",
+    "message_placeholder": "Tell us how we can help…",
+    "submit_button": "Send message",
+    "success_heading": "Message sent!",
+    "success_body": "Thank you for reaching out. We'll get back to you within one business day."
+  },
+  "map_note": "Located in the scenic Makhmalabad area of Nashik, our campus is easily accessible from the city centre."
+}

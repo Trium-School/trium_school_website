@@ -1,0 +1,135 @@
+{
+  "hero": {
+    "eyebrow": "Academics",
+    "title": "A curriculum designed for the whole child",
+    "subtitle": "From Nursery to Grade 5, our programmes blend academic rigour with creativity, critical thinking, and real-world skills — giving every student the foundation to thrive."
+  },
+  "philosophy": {
+    "heading": "Our teaching philosophy",
+    "body": [
+      {
+        "id": "p1",
+        "text": "At Trium, we believe learning happens best when students are active participants — not passive recipients. Our inquiry-based approach encourages children to ask questions, make connections, and construct their own understanding of the world."
+      },
+      {
+        "id": "p2",
+        "text": "Every lesson is designed with purpose: to build knowledge, develop skills, and nurture the dispositions that make a lifelong learner. We balance structured academic content with open-ended exploration, ensuring students are both prepared for assessments and genuinely excited about learning."
+      }
+    ],
+    "pillars": [
+      {
+        "id": "ph1",
+        "title": "Inquiry-based learning",
+        "description": "Students explore concepts through questions, investigation, and reflection rather than rote memorisation."
+      },
+      {
+        "id": "ph2",
+        "title": "Differentiated instruction",
+        "description": "Teachers adapt their approach to meet each student where they are, ensuring no child is left behind or unchallenged."
+      },
+      {
+        "id": "ph3",
+        "title": "Integrated curriculum",
+        "description": "Subjects are connected meaningfully — a science unit might incorporate maths, writing, and art — reflecting how the real world works."
+      },
+      {
+        "id": "ph4",
+        "title": "Assessment for learning",
+        "description": "We use ongoing, formative assessment to guide teaching and give students actionable feedback, not just grades."
+      }
+    ]
+  },
+  "programmes": [
+    {
+      "id": "pr1",
+      "name": "Early Years",
+      "grades": "Nursery – KG",
+      "age_range": "Ages 3–6",
+      "description": "A play-based, nurturing environment that builds foundational literacy, numeracy, and social skills through exploration and structured play.",
+      "highlights": [
+        {
+          "id": "pr1h1",
+          "text": "Phonics-based reading programme"
+        },
+        {
+          "id": "pr1h2",
+          "text": "Hands-on maths with manipulatives"
+        },
+        {
+          "id": "pr1h3",
+          "text": "Social-emotional learning (SEL)"
+        },
+        {
+          "id": "pr1h4",
+          "text": "Music, movement, and creative arts"
+        }
+      ]
+    },
+    {
+      "id": "pr2",
+      "name": "Primary School",
+      "grades": "Grade 1 – Grade 5",
+      "age_range": "Ages 6–11",
+      "description": "A rigorous yet joyful programme that builds strong academic foundations across all subjects while developing critical thinking and collaboration skills.",
+      "highlights": [
+        {
+          "id": "pr2h1",
+          "text": "English, Maths, Science, Social Studies"
+        },
+        {
+          "id": "pr2h2",
+          "text": "Hindi & second language options"
+        },
+        {
+          "id": "pr2h3",
+          "text": "STEM projects and maker activities"
+        },
+        {
+          "id": "pr2h4",
+          "text": "Reading culture and library programme"
+        }
+      ]
+    }
+  ],
+  "cocurricular": {
+    "heading": "Co-curricular & beyond the classroom",
+    "subheading": "We believe education extends far beyond textbooks. Our co-curricular programme is designed to discover and develop every student's unique talents.",
+    "areas": [
+      {
+        "id": "cc1",
+        "title": "Sports & physical education",
+        "description": "Cricket, football, athletics, yoga, and more — building fitness, teamwork, and resilience."
+      },
+      {
+        "id": "cc2",
+        "title": "Performing arts",
+        "description": "Drama, music, and dance programmes that build confidence, expression, and creativity."
+      },
+      {
+        "id": "cc3",
+        "title": "Visual arts & craft",
+        "description": "Painting, sculpture, and design projects that develop aesthetic sensibility and fine motor skills."
+      },
+      {
+        "id": "cc4",
+        "title": "STEM & robotics",
+        "description": "Coding, robotics, and maker projects that develop computational thinking and problem-solving."
+      },
+      {
+        "id": "cc5",
+        "title": "Community service",
+        "description": "Age-appropriate service learning projects that build empathy and a sense of civic responsibility."
+      },
+      {
+        "id": "cc6",
+        "title": "Clubs & interest groups",
+        "description": "From debate to nature walks, students explore passions and develop leadership skills in a supportive setting."
+      }
+    ]
+  },
+  "cta": {
+    "heading": "See our curriculum in action",
+    "subheading": "Schedule a campus visit to meet our faculty and see how we bring learning to life every day.",
+    "button": "Book a campus visit"
+  }
+}

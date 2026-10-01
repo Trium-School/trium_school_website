@@ -1,0 +1,71 @@
+{
+  "hero": {
+    "eyebrow": "Admissions 2027–28",
+    "heading": "Begin Your Child's Triumph Story",
+    "subheading": "We are now accepting applications for the academic year 2027–28. Seats are limited — take the first step today."
+  },
+  "process": {
+    "heading": "",
+    "steps": [
+      {
+        "id": "s1",
+        "number": "01",
+        "title": "Campus Visit",
+        "description": "Schedule a visit to experience Trium's environment, meet our faculty, and see the campus firsthand."
+      },
+      {
+        "id": "s2",
+        "number": "02",
+        "title": "Submit Application",
+        "description": "Fill out the online enquiry form below. Our admissions team will reach out within 48 hours."
+      },
+      {
+        "id": "s3",
+        "number": "03",
+        "title": "Assessment",
+        "description": "Early Years: a playful classroom observation. Primary & above: the Trium Spark assessment."
+      },
+      {
+        "id": "s4",
+        "number": "04",
+        "title": "Offer & Enrolment",
+        "description": "Selected families receive an offer letter and are guided through a smooth onboarding process."
+      }
+    ]
+  },
+  "form": {
+    "heading": "Enquire Now",
+    "subheading": "Fill in your details and our admissions team will get in touch within 48 hours.",
+    "cta": "Submit Enquiry"
+  },
+  "faqs": {
+    "heading": "Frequently Asked Questions",
+    "items": [
+      {
+        "id": "faq-1",
+        "question": "What is the age criterion for Early Years?",
+        "answer": "Children aged 3–6 years are eligible for our Early Years programme (Nursery to KG). The child must turn 3 by June 1st of the admission year."
+      },
+      {
+        "id": "faq-2",
+        "question": "What documents are required for admission?",
+        "answer": "Birth certificate, previous school report card (if applicable), passport-size photographs, and address proof. Our team will share a complete checklist after your enquiry."
+      },
+      {
+        "id": "faq-3",
+        "question": "Is there a registration fee?",
+        "answer": "Yes, a non-refundable registration fee is applicable at the time of form submission. Details are shared during the campus visit."
+      },
+      {
+        "id": "faq-4",
+        "question": "Do you offer transport facilities?",
+        "answer": "Yes, we provide school bus services covering major areas of Nashik. Route details and fees are available from our admissions office."
+      },
+      {
+        "id": "faq-5",
+        "question": "Can I visit the campus before applying?",
+        "answer": "Absolutely. We encourage all prospective families to schedule a campus tour. You can request a visit through the enquiry form or by calling our admissions office."
+      }
+    ]
+  }
+}
