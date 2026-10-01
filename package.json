@@ -132,9 +132,6 @@
     "vite": "^6.4.2",
     "vitest": "^4.1.9"
   },
-  "engines": {
-    "node": ">=22.16.0"
-  },
   "overrides": {
     "cmdk": "^1.1.1",
     "react-day-picker": "^9.9.0"
