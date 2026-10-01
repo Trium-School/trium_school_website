@@ -1,5 +1,5 @@
 import { createReadStream, existsSync, statSync } from 'node:fs';
-import { readFile, stat } from 'node:fs/promises';
+import { readFile, stat, writeFile } from 'node:fs/promises';
 import type { IncomingMessage, ServerResponse } from 'node:http';
 import path from 'node:path';
 
@@ -17,6 +17,7 @@ const VIDEO_PREFIX = '/airo-assets/videos/';
 const UPLOAD_PREFIX = '/airo-assets/uploads/';
 
 export interface MediaSlot {
+  mediaType?: string;
   currentUrl?: string;
   lightSurfaceUrl?: string;
   darkSurfaceUrl?: string;
@@ -98,6 +99,57 @@ export function findUploadFile(searchPaths: string[], filename: string): string 
   }
 
   return null;
+}
+
+function findStaticUpload(root: string, slotPath: string, uploadUrl: string): string | null {
+  const extension = path.extname(uploadUrl);
+  const slotParts = slotPath.split('/');
+  const candidates = [
+    uploadUrl.slice(UPLOAD_PREFIX.length),
+    `${slotPath.replaceAll('/', '-')}${extension}`,
+    `${slotParts.slice(-2).join('-')}${extension}`,
+    `${slotParts.at(-1)}${extension}`,
+  ];
+
+  for (const filename of candidates) {
+    const filePath = findUploadFile(buildUploadSearchPaths(root), filename);
+    if (filePath) {
+      return `/${path.relative(path.join(root, 'public'), filePath).split(path.sep).join('/')}`;
+    }
+  }
+
+  return null;
+}
+
+async function buildCloudflareRedirects(root: string, manifest: MediaManifest): Promise<string> {
+  const rules: string[] = [];
+
+  for (const [slotPath, slot] of Object.entries(manifest)) {
+    if (slot.mediaType !== 'image' && slot.mediaType !== 'logo') continue;
+
+    for (const [surfaceVariant, suffix] of [[null, ''], ['light', '/light'], ['dark', '/dark']] as const) {
+      if (surfaceVariant === 'light' && !slot.lightSurfaceUrl) continue;
+      if (surfaceVariant === 'dark' && !slot.darkSurfaceUrl) continue;
+
+      let targetUrl = resolveSlotTargetUrl(slot, surfaceVariant, null);
+      if (targetUrl.startsWith(UPLOAD_PREFIX)) {
+        const staticUrl = findStaticUpload(root, slotPath, targetUrl);
+        if (staticUrl) {
+          targetUrl = staticUrl;
+        } else {
+          targetUrl = slot.alternatives?.find((alternative) =>
+            isAllowedRedirectUrl(alternative, ALLOWED_IMAGE_HOSTS),
+          ) ?? '';
+        }
+      }
+
+      if (targetUrl.startsWith('data:')) continue;
+      if (!targetUrl.startsWith('/') && !isAllowedRedirectUrl(targetUrl, ALLOWED_IMAGE_HOSTS)) continue;
+      rules.push(`${IMAGE_PREFIX}${slotPath}${suffix} ${targetUrl} 302`);
+    }
+  }
+
+  return rules.join('\n');
 }
 
 export function isAllowedRedirectUrl(targetUrl: string, allowedHosts: ReadonlySet<string>): boolean {
@@ -273,18 +325,33 @@ export function createMediaAssetsMiddleware(getRoot: () => string): (
 /** Standalone dev/preview middleware for exported AAB media slot URLs. */
 export function mediaAssetsPlugin(): Plugin {
   let root = process.cwd();
+  let outDir = '';
+  let isSsrBuild = false;
 
   return {
     name: 'export-media-assets',
     enforce: 'pre',
     configResolved(config) {
       root = config.root;
+      outDir = config.build.outDir;
+      isSsrBuild = Boolean(config.build.ssr);
     },
     configureServer(server) {
       server.middlewares.use(createMediaAssetsMiddleware(() => root));
     },
     configurePreviewServer(server) {
       server.middlewares.use(createMediaAssetsMiddleware(() => root));
+    },
+    async closeBundle() {
+      if (isSsrBuild) return;
+
+      const redirects = await buildCloudflareRedirects(root, await loadMediaManifest(root));
+      if (!redirects) return;
+
+      const redirectsPath = path.join(outDir, '_redirects');
+      const existing = await readFile(redirectsPath, 'utf8').catch(() => '');
+      const contents = [redirects, existing.trim()].filter(Boolean).join('\n');
+      await writeFile(redirectsPath, `${contents}\n`, 'utf8');
     },
   };
 }
