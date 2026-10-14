@@ -17,6 +17,7 @@ A modern, production-ready web application template built with Vite, React, and 
 ### Frontend
 
 - **React 19** - Modern React with hooks and concurrent features
+- **Node v22.20** - Node.JS environment 
 - **TypeScript 5** - Full type safety across the application
 - **Vite 6** - Fast build tool and dev server with HMR
 - **Tailwind CSS 3** - Utility-first CSS framework
