@@ -156,7 +156,7 @@ export default function AdmissionsPage() {
               <FadeUp className="lg:col-span-2">
                 <div className="sticky top-28">
                   <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-4">Get in Touch</p>
-                  <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 leading-tight" style={{ fontFamily: 'var(--font-heading)' }}>
+                  <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4 leading-tight" style={{ fontFamily: 'var(--font-heading)' }}>
                     {admissions.form.heading}
                   </h2>
                   <p className="text-muted-foreground leading-relaxed mb-8">
@@ -404,7 +404,7 @@ export default function AdmissionsPage() {
         <section className="py-24 bg-background">
           <div className="container mx-auto px-6 max-w-3xl">
             <FadeUp className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground" style={{ fontFamily: 'var(--font-heading)' }}>
+              <h2 className="text-3xl md:text-4xl font-bold text-primary" style={{ fontFamily: 'var(--font-heading)' }}>
                 {admissions.faqs.heading}
               </h2>
             </FadeUp>
