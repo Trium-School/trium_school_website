@@ -109,21 +109,43 @@ export default function AcademicsPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {academics.philosophy.pillars.map((pillar, i) => {
-              const Icon = pillarIcons[i];
-              return <FadeUp key={pillar.id} delay={i * 0.08}>
-                    <div className="bg-muted/30 rounded-2xl p-6 border border-border hover:border-primary/30 hover:shadow-md transition-all duration-300 h-full">
-                      <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                        <Icon size={20} className="text-primary" />
+                const Icon = pillarIcons[i];
+
+                const cardColors = [
+                  "#51aafd", // Blue
+                  "#69bb44", // Green
+                  "#fe584a", // Red
+                  "#fec132", // Yellow
+                ];
+
+                return (
+                  <FadeUp key={pillar.id} delay={i * 0.08}>
+                    <div
+                      className="rounded-2xl p-6 border border-transparent hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full"
+                      style={{
+                        backgroundColor: cardColors[i % cardColors.length],
+                      }}
+                    >
+                      <div className="w-11 h-11 rounded-xl bg-white/25 flex items-center justify-center mb-4">
+                        <Icon size={20} className="text-white" />
                       </div>
-                      <h3 className="font-bold text-primary mb-2" style={{
-                    fontFamily: 'var(--font-heading)'
-                  }}>
+
+                      <h3
+                        className="font-bold text-white mb-2"
+                        style={{
+                          fontFamily: "var(--font-heading)",
+                        }}
+                      >
                         {pillar.title}
                       </h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed">{pillar.description}</p>
+
+                      <p className="text-white text-sm leading-relaxed">
+                        {pillar.description}
+                      </p>
                     </div>
-                  </FadeUp>;
-            })}
+                  </FadeUp>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -194,17 +216,40 @@ export default function AcademicsPage() {
             </FadeUp>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {academics.cocurricular.areas.map((area, i) => <FadeUp key={area.id} delay={i * 0.07}>
-                  <div className="group bg-muted/30 rounded-2xl p-6 border border-border hover:border-accent/40 hover:bg-background hover:shadow-md transition-all duration-300 h-full">
-                    <div className="w-2 h-8 bg-accent rounded-full mb-4 group-hover:h-10 transition-all duration-300" />
-                    <h3 className="font-bold text-primary mb-2" style={{
-                  fontFamily: 'var(--font-heading)'
-                }}>
-                      {area.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{area.description}</p>
-                  </div>
-                </FadeUp>)}
+              {academics.cocurricular.areas.map((area, i) => {
+                const cardColors = [
+                  "#51aafd", // Blue
+                  "#69bb44", // Green
+                  "#fe584a", // Red
+                  "#fec132", // Yellow
+                ];
+
+                return (
+                  <FadeUp key={area.id} delay={i * 0.07}>
+                    <div
+                      className="group rounded-2xl p-6 border border-transparent hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full"
+                      style={{
+                        backgroundColor: cardColors[i % cardColors.length],
+                      }}
+                    >
+                      <div className="w-2 h-8 bg-white rounded-full mb-4 group-hover:h-10 transition-all duration-300" />
+
+                      <h3
+                        className="font-bold text-white mb-2"
+                        style={{
+                          fontFamily: "var(--font-heading)",
+                        }}
+                      >
+                        {area.title}
+                      </h3>
+
+                      <p className="text-white text-sm leading-relaxed">
+                        {area.description}
+                      </p>
+                    </div>
+                  </FadeUp>
+                );
+              })}
             </div>
 
             {/* Sports image accent */}
@@ -233,7 +278,8 @@ export default function AcademicsPage() {
             }}>
                 {academics.cta.heading}
               </h2>
-              <p className="text-white/75 text-lg mb-8">{academics.cta.subheading}</p>
+              <p className="text-white/75 text-sm md:text-base lg:text-lg mb-8 max-w-none mx-auto text-center lg:whitespace-nowrap">
+  {academics.cta.subheading}</p>
               <button onClick={() => navigate('/admissions')} className="inline-flex items-center gap-2 bg-accent text-white font-semibold px-8 py-4 rounded-full hover:bg-accent/90 transition-colors text-base">
                 {academics.cta.button}
                 <ArrowRight size={18} />

@@ -192,7 +192,7 @@ export default function CampusPage() {
               >
                 {campus.cta.heading}
               </h2>
-              <p className="text-white/75 text-lg mb-10">{campus.cta.body}</p>
+              <p className="text-white/75 whitespace-pre-line text-lg mb-10">{campus.cta.body}</p>
               <button
                 onClick={() => navigate("/admissions")}
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-accent font-bold text-sm shadow-xl hover:bg-accent/90 transition-colors"

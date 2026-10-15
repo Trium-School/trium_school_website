@@ -929,9 +929,15 @@ export default function HomePage() {
                 <div className="flex flex-wrap gap-4 mb-10">
                   {home.admissions.steps.map((step, i) => (
                     <div key={step.id} className="flex items-center gap-3">
-                      <div
-                        className="w-9 h-9 rounded-full bg-accent flex items-center justify-center text-xs font-bold shrink-0"
+                     <div
+                        className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
                         style={{
+                          backgroundColor: [
+                            "#51aafd", // Blue - Step 1
+                            "#69bb44", // Green - Step 2
+                            "#fe584a", // Red - Step 3
+                            "#fec132", // Yellow - Step 4
+                          ][(Number(step.number) - 1) % 4],
                           color: "#1a1a1a",
                         }}
                       >
