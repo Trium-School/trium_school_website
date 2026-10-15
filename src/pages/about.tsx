@@ -86,14 +86,32 @@ export default function AboutPage() {
         {/* ── Stats bar ────────────────────────────────────────────────── */}
         <section className="bg-primary py-8">
           <div className="max-w-5xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            {about.stats.map((stat, i) => <FadeUp key={stat.id} delay={i * 0.08}>
-                <p className="text-3xl font-bold text-accent" style={{
-              fontFamily: 'var(--font-heading)'
-            }}>
-                  {stat.value}
-                </p>
-                <p className="text-white/70 text-sm mt-1">{stat.label}</p>
-              </FadeUp>)}
+            {about.stats.map((stat, i) => {
+              const statColors = [
+                "#51aafd", // Blue
+                "#69bb44", // Green
+                "#fe584a", // Red
+                "#fec132", // Yellow
+              ];
+
+              return (
+                <FadeUp key={stat.id} delay={i * 0.08}>
+                  <p
+                    className="text-3xl font-bold"
+                    style={{
+                      fontFamily: "var(--font-heading)",
+                      color: statColors[i % statColors.length],
+                    }}
+                  >
+                    {stat.value}
+                  </p>
+
+                  <p className="text-white/70 text-sm mt-1">
+                    {stat.label}
+                  </p>
+                </FadeUp>
+              );
+            })}
           </div>
         </section>
 
@@ -101,7 +119,7 @@ export default function AboutPage() {
         <section className="py-20 bg-background">
           <div className="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-10">
             <FadeUp>
-              <div className="bg-primary rounded-2xl p-8 h-full">
+              <div className="bg-[var(--blue)] rounded-2xl p-8 h-full">
                 <p className="text-accent text-xs font-semibold uppercase tracking-widest mb-3">{about.vision_mission.vision_label}</p>
                 <p className="text-white text-xl md:text-2xl font-semibold leading-relaxed" style={{
                 fontFamily: 'var(--font-heading)'
@@ -111,9 +129,9 @@ export default function AboutPage() {
               </div>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <div className="border-2 border-primary/20 rounded-2xl p-8 h-full">
+              <div className="bg-[var(--green)] rounded-2xl p-8 h-full">
                 <p className="text-accent text-xs font-semibold uppercase tracking-widest mb-3">{about.vision_mission.mission_label}</p>
-                <p className="text-foreground text-xl md:text-2xl font-semibold leading-relaxed" style={{
+                <p className="text-white text-xl md:text-2xl font-semibold leading-relaxed" style={{
                 fontFamily: 'var(--font-heading)'
               }}>
                   "{about.vision_mission.mission}"
@@ -137,7 +155,6 @@ export default function AboutPage() {
               {about.values.items.map((val, i) => <FadeUp key={val.id} delay={i * 0.07}>
                   <div className="bg-background rounded-2xl p-7 border border-border hover:border-accent/40 hover:shadow-md transition-all duration-300 h-full">
                     <div className="flex items-center gap-3 mb-3">
-                      <span className="text-2xl" aria-hidden="true">{valueIcons[i]}</span>
                       <h3 className="text-lg font-bold text-primary" style={{
                     fontFamily: 'var(--font-heading)'
                   }}>
