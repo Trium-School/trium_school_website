@@ -49,6 +49,129 @@ function FadeUp({
     </motion.div>
   );
 }
+
+// ─── Brand colours used for decorative accents ────────────────────────────────
+const BRAND = {
+  blue: "#51aafd",
+  green: "#69bb44",
+  red: "#fe584a",
+  yellow: "#fec132",
+};
+// one colour per differentiator block (cycles if you add more)
+const DIFF_COLORS = [
+  BRAND.blue,
+  BRAND.green,
+  BRAND.red,
+  BRAND.yellow,
+  BRAND.blue,
+];
+
+// ─── Admissions process card styles (blue / green / red) ─────────────────────
+const ADMISSION_CARDS = [
+  {
+    Icon: FileText,
+    bar: "bg-[#51aafd]",
+    text: "text-[#51aafd]",
+    soft: "bg-[#51aafd]/15 group-hover:bg-[#51aafd]",
+    dot: "bg-[#51aafd]",
+    ring: "hover:shadow-[0_20px_40px_-12px_rgba(81,170,253,0.45)]",
+  },
+  {
+    Icon: CalendarCheck,
+    bar: "bg-[#69bb44]",
+    text: "text-[#69bb44]",
+    soft: "bg-[#69bb44]/15 group-hover:bg-[#69bb44]",
+    dot: "bg-[#69bb44]",
+    ring: "hover:shadow-[0_20px_40px_-12px_rgba(105,187,68,0.45)]",
+  },
+  {
+    Icon: GraduationCap,
+    bar: "bg-[#fe584a]",
+    text: "text-[#fe584a]",
+    soft: "bg-[#fe584a]/15 group-hover:bg-[#fe584a]",
+    dot: "bg-[#fe584a]",
+    ring: "hover:shadow-[0_20px_40px_-12px_rgba(254,88,74,0.45)]",
+  },
+];
+
+// ─── Text column with brush-stroke / colour-touch decoration ─────────────────
+function DiffText({
+  color,
+  className = "",
+  children,
+}: {
+  color: string;
+  className?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className={`relative isolate py-6 ${className}`}>
+      {/* Slowly rotating dashed ring, top right */}
+      <motion.svg
+        aria-hidden="true"
+        viewBox="0 0 100 100"
+        className="pointer-events-none absolute -z-10 top-0 right-0 w-16 h-16 opacity-70"
+        animate={{ rotate: 360 }}
+        transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+      >
+        <circle
+          cx="50"
+          cy="50"
+          r="44"
+          fill="none"
+          stroke={color}
+          strokeWidth="3"
+          strokeDasharray="4 9"
+          strokeLinecap="round"
+        />
+        <circle cx="50" cy="50" r="6" fill={color} />
+      </motion.svg>
+
+      {/* Dot grid, bottom right */}
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 100 100"
+        className="pointer-events-none absolute -z-10 bottom-0 right-0 w-24 h-24 opacity-50"
+      >
+        {Array.from({ length: 25 }).map((_, i) => (
+          <circle
+            key={i}
+            cx={10 + (i % 5) * 20}
+            cy={10 + Math.floor(i / 5) * 20}
+            r={3}
+            fill={color}
+          />
+        ))}
+      </svg>
+
+      {children}
+    </div>
+  );
+}
+
+// ─── Hand-painted underline that draws itself under the title ────────────────
+function BrushUnderline({ color }: { color: string }) {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 300 16"
+      className="-mt-3 mb-6 h-4 w-44 -rotate-1"
+      fill="none"
+    >
+      <motion.path
+        d="M4,10 C50,3 110,14 170,7 S262,5 296,9"
+        stroke={color}
+        strokeWidth="7"
+        strokeLinecap="round"
+        initial={{ pathLength: 0 }}
+        whileInView={{ pathLength: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" as const }}
+      />
+    </svg>
+  );
+}
+
 export default function HomePage() {
   const navigate = useNavigate();
   const site = "https://triumschool.in";
@@ -137,35 +260,6 @@ export default function HomePage() {
   }, [paused, next, current]); // `current` resets the timer after manual navigation
 
   const slide = slides[current];
-
-  const ADMISSION_CARDS = [
-    {
-      Icon: FileText,
-      bar: "bg-[#51aafd]",
-      text: "text-[#51aafd]",
-      soft: "bg-[#51aafd]/15 group-hover:bg-[#51aafd]",
-      dot: "bg-[#51aafd]",
-      ring: "hover:shadow-[0_20px_40px_-12px_rgba(81,170,253,0.45)]",
-    },
-    {
-      Icon: CalendarCheck,
-      bar: "bg-[#69bb44]",
-      text: "text-[#69bb44]",
-      soft: "bg-[#69bb44]/15 group-hover:bg-[#69bb44]",
-      dot: "bg-[#69bb44]",
-      ring: "hover:shadow-[0_20px_40px_-12px_rgba(105,187,68,0.45)]",
-    },
-    {
-      Icon: GraduationCap,
-      bar: "bg-[#fe584a]",
-      text: "text-[#fe584a]",
-      soft: "bg-[#fe584a]/15 group-hover:bg-[#fe584a]",
-      dot: "bg-[#fe584a]",
-      ring: "hover:shadow-[0_20px_40px_-12px_rgba(254,88,74,0.45)]",
-    },
-    // spare 4th colour if you ever have 4 steps:
-    // { Icon: Award, bar: "bg-[#fec132]", text: "text-[#fec132]", soft: "bg-[#fec132]/20 group-hover:bg-[#fec132]", dot: "bg-[#fec132]", ring: "hover:shadow-[0_20px_40px_-12px_rgba(254,193,50,0.5)]" },
-  ];
 
   return (
     <>
@@ -374,19 +468,8 @@ export default function HomePage() {
                         height={525}
                       />
                     </div>
-                    {/* Number badge */}
-                    <div className="absolute -top-5 -left-5 w-16 h-16 rounded-2xl bg-primary flex items-center justify-center shadow-xl">
-                      <span
-                        className="text-2xl font-bold text-accent"
-                        style={{
-                          fontFamily: "var(--font-heading)",
-                        }}
-                      >
-                        {home.differentiators.items[0].number}
-                      </span>
-                    </div>
                   </div>
-                  <div>
+                  <DiffText color={DIFF_COLORS[0]}>
                     <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">
                       {home.differentiators.items[0].subtitle}
                     </p>
@@ -398,6 +481,7 @@ export default function HomePage() {
                     >
                       {home.differentiators.items[0].title}
                     </h3>
+                    <BrushUnderline color={DIFF_COLORS[0]} />
                     <p className="text-muted-foreground text-lg leading-relaxed mb-8">
                       {home.differentiators.items[0].description}
                     </p>
@@ -405,7 +489,8 @@ export default function HomePage() {
                       <li className="flex items-center gap-3 text-foreground/80 text-sm font-medium">
                         <CheckCircle2
                           size={18}
-                          className="text-accent shrink-0"
+                          className="shrink-0"
+                          color={DIFF_COLORS[0]}
                         />
                         <span>
                           {home.differentiators.items[0].highlights[0]}
@@ -414,7 +499,8 @@ export default function HomePage() {
                       <li className="flex items-center gap-3 text-foreground/80 text-sm font-medium">
                         <CheckCircle2
                           size={18}
-                          className="text-accent shrink-0"
+                          className="shrink-0"
+                          color={DIFF_COLORS[0]}
                         />
                         <span>
                           {home.differentiators.items[0].highlights[1]}
@@ -423,14 +509,15 @@ export default function HomePage() {
                       <li className="flex items-center gap-3 text-foreground/80 text-sm font-medium">
                         <CheckCircle2
                           size={18}
-                          className="text-accent shrink-0"
+                          className="shrink-0"
+                          color={DIFF_COLORS[0]}
                         />
                         <span>
                           {home.differentiators.items[0].highlights[2]}
                         </span>
                       </li>
                     </ul>
-                  </div>
+                  </DiffText>
                 </div>
               </FadeUp>
 
@@ -448,18 +535,8 @@ export default function HomePage() {
                         height={525}
                       />
                     </div>
-                    <div className="absolute -top-5 -right-5 w-16 h-16 rounded-2xl bg-primary flex items-center justify-center shadow-xl">
-                      <span
-                        className="text-2xl font-bold text-accent"
-                        style={{
-                          fontFamily: "var(--font-heading)",
-                        }}
-                      >
-                        {home.differentiators.items[1].number}
-                      </span>
-                    </div>
                   </div>
-                  <div className="lg:order-1">
+                  <DiffText color={DIFF_COLORS[1]} className="lg:order-1">
                     <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">
                       {home.differentiators.items[1].subtitle}
                     </p>
@@ -471,6 +548,7 @@ export default function HomePage() {
                     >
                       {home.differentiators.items[1].title}
                     </h3>
+                    <BrushUnderline color={DIFF_COLORS[1]} />
                     <p className="text-muted-foreground text-lg leading-relaxed mb-8">
                       {home.differentiators.items[1].description}
                     </p>
@@ -478,7 +556,8 @@ export default function HomePage() {
                       <li className="flex items-center gap-3 text-foreground/80 text-sm font-medium">
                         <CheckCircle2
                           size={18}
-                          className="text-accent shrink-0"
+                          className="shrink-0"
+                          color={DIFF_COLORS[1]}
                         />
                         <span>
                           {home.differentiators.items[1].highlights[0]}
@@ -487,7 +566,8 @@ export default function HomePage() {
                       <li className="flex items-center gap-3 text-foreground/80 text-sm font-medium">
                         <CheckCircle2
                           size={18}
-                          className="text-accent shrink-0"
+                          className="shrink-0"
+                          color={DIFF_COLORS[1]}
                         />
                         <span>
                           {home.differentiators.items[1].highlights[1]}
@@ -496,14 +576,15 @@ export default function HomePage() {
                       <li className="flex items-center gap-3 text-foreground/80 text-sm font-medium">
                         <CheckCircle2
                           size={18}
-                          className="text-accent shrink-0"
+                          className="shrink-0"
+                          color={DIFF_COLORS[1]}
                         />
                         <span>
                           {home.differentiators.items[1].highlights[2]}
                         </span>
                       </li>
                     </ul>
-                  </div>
+                  </DiffText>
                 </div>
               </FadeUp>
 
@@ -521,18 +602,8 @@ export default function HomePage() {
                         height={525}
                       />
                     </div>
-                    <div className="absolute -top-5 -left-5 w-16 h-16 rounded-2xl bg-primary flex items-center justify-center shadow-xl">
-                      <span
-                        className="text-2xl font-bold text-accent"
-                        style={{
-                          fontFamily: "var(--font-heading)",
-                        }}
-                      >
-                        {home.differentiators.items[2].number}
-                      </span>
-                    </div>
                   </div>
-                  <div>
+                  <DiffText color={DIFF_COLORS[2]}>
                     <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">
                       {home.differentiators.items[2].subtitle}
                     </p>
@@ -544,6 +615,7 @@ export default function HomePage() {
                     >
                       {home.differentiators.items[2].title}
                     </h3>
+                    <BrushUnderline color={DIFF_COLORS[2]} />
                     <p className="text-muted-foreground text-lg leading-relaxed mb-8">
                       {home.differentiators.items[2].description}
                     </p>
@@ -551,7 +623,8 @@ export default function HomePage() {
                       <li className="flex items-center gap-3 text-foreground/80 text-sm font-medium">
                         <CheckCircle2
                           size={18}
-                          className="text-accent shrink-0"
+                          className="shrink-0"
+                          color={DIFF_COLORS[2]}
                         />
                         <span>
                           {home.differentiators.items[2].highlights[0]}
@@ -560,7 +633,8 @@ export default function HomePage() {
                       <li className="flex items-center gap-3 text-foreground/80 text-sm font-medium">
                         <CheckCircle2
                           size={18}
-                          className="text-accent shrink-0"
+                          className="shrink-0"
+                          color={DIFF_COLORS[2]}
                         />
                         <span>
                           {home.differentiators.items[2].highlights[1]}
@@ -569,14 +643,15 @@ export default function HomePage() {
                       <li className="flex items-center gap-3 text-foreground/80 text-sm font-medium">
                         <CheckCircle2
                           size={18}
-                          className="text-accent shrink-0"
+                          className="shrink-0"
+                          color={DIFF_COLORS[2]}
                         />
                         <span>
                           {home.differentiators.items[2].highlights[2]}
                         </span>
                       </li>
                     </ul>
-                  </div>
+                  </DiffText>
                 </div>
               </FadeUp>
 
@@ -594,18 +669,8 @@ export default function HomePage() {
                         height={525}
                       />
                     </div>
-                    <div className="absolute -top-5 -right-5 w-16 h-16 rounded-2xl bg-primary flex items-center justify-center shadow-xl">
-                      <span
-                        className="text-2xl font-bold text-accent"
-                        style={{
-                          fontFamily: "var(--font-heading)",
-                        }}
-                      >
-                        {home.differentiators.items[3].number}
-                      </span>
-                    </div>
                   </div>
-                  <div className="lg:order-1">
+                  <DiffText color={DIFF_COLORS[3]} className="lg:order-1">
                     <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">
                       {home.differentiators.items[3].subtitle}
                     </p>
@@ -617,6 +682,7 @@ export default function HomePage() {
                     >
                       {home.differentiators.items[3].title}
                     </h3>
+                    <BrushUnderline color={DIFF_COLORS[3]} />
                     <p className="text-muted-foreground text-lg leading-relaxed mb-8">
                       {home.differentiators.items[3].description}
                     </p>
@@ -624,7 +690,8 @@ export default function HomePage() {
                       <li className="flex items-center gap-3 text-foreground/80 text-sm font-medium">
                         <CheckCircle2
                           size={18}
-                          className="text-accent shrink-0"
+                          className="shrink-0"
+                          color={DIFF_COLORS[3]}
                         />
                         <span>
                           {home.differentiators.items[3].highlights[0]}
@@ -633,7 +700,8 @@ export default function HomePage() {
                       <li className="flex items-center gap-3 text-foreground/80 text-sm font-medium">
                         <CheckCircle2
                           size={18}
-                          className="text-accent shrink-0"
+                          className="shrink-0"
+                          color={DIFF_COLORS[3]}
                         />
                         <span>
                           {home.differentiators.items[3].highlights[1]}
@@ -642,14 +710,15 @@ export default function HomePage() {
                       <li className="flex items-center gap-3 text-foreground/80 text-sm font-medium">
                         <CheckCircle2
                           size={18}
-                          className="text-accent shrink-0"
+                          className="shrink-0"
+                          color={DIFF_COLORS[3]}
                         />
                         <span>
                           {home.differentiators.items[3].highlights[2]}
                         </span>
                       </li>
                     </ul>
-                  </div>
+                  </DiffText>
                 </div>
               </FadeUp>
 
@@ -667,18 +736,8 @@ export default function HomePage() {
                         height={525}
                       />
                     </div>
-                    <div className="absolute -top-5 -left-5 w-16 h-16 rounded-2xl bg-primary flex items-center justify-center shadow-xl">
-                      <span
-                        className="text-2xl font-bold text-accent"
-                        style={{
-                          fontFamily: "var(--font-heading)",
-                        }}
-                      >
-                        {home.differentiators.items[4].number}
-                      </span>
-                    </div>
                   </div>
-                  <div>
+                  <DiffText color={DIFF_COLORS[4]}>
                     <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">
                       {home.differentiators.items[4].subtitle}
                     </p>
@@ -690,6 +749,7 @@ export default function HomePage() {
                     >
                       {home.differentiators.items[4].title}
                     </h3>
+                    <BrushUnderline color={DIFF_COLORS[4]} />
                     <p className="text-muted-foreground text-lg leading-relaxed mb-8">
                       {home.differentiators.items[4].description}
                     </p>
@@ -697,7 +757,8 @@ export default function HomePage() {
                       <li className="flex items-center gap-3 text-foreground/80 text-sm font-medium">
                         <CheckCircle2
                           size={18}
-                          className="text-accent shrink-0"
+                          className="shrink-0"
+                          color={DIFF_COLORS[4]}
                         />
                         <span>
                           {home.differentiators.items[4].highlights[0]}
@@ -706,7 +767,8 @@ export default function HomePage() {
                       <li className="flex items-center gap-3 text-foreground/80 text-sm font-medium">
                         <CheckCircle2
                           size={18}
-                          className="text-accent shrink-0"
+                          className="shrink-0"
+                          color={DIFF_COLORS[4]}
                         />
                         <span>
                           {home.differentiators.items[4].highlights[1]}
@@ -715,14 +777,15 @@ export default function HomePage() {
                       <li className="flex items-center gap-3 text-foreground/80 text-sm font-medium">
                         <CheckCircle2
                           size={18}
-                          className="text-accent shrink-0"
+                          className="shrink-0"
+                          color={DIFF_COLORS[4]}
                         />
                         <span>
                           {home.differentiators.items[4].highlights[2]}
                         </span>
                       </li>
                     </ul>
-                  </div>
+                  </DiffText>
                 </div>
               </FadeUp>
             </div>
@@ -786,7 +849,7 @@ export default function HomePage() {
                   <div className="w-2 h-2 rounded-full bg-[#51aafd]" />
                   <div className="w-2 h-2 rounded-full bg-[#69bb44]" />
                   <div className="w-2 h-2 rounded-full bg-[#fe584a]" />
-                  <div className="w-2 h-2 rounded-full bg-[#fec123]" />
+                  <div className="w-2 h-2 rounded-full bg-[#fec132]" />
 
                   <div className="flex-1 h-px bg-white/20" />
                 </div>
