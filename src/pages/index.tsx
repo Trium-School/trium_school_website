@@ -116,7 +116,7 @@ export default function HomePage() {
         >
           <div className="absolute inset-0">
             <img
-              src="media\hero.jpg"
+              src="media/Collaborative-Robotics-Lesson-in-STEM-Lab.png"
               alt="The Trium School Campus"
               className="w-full h-full object-cover object-center"
               loading="eager"
@@ -249,7 +249,7 @@ export default function HomePage() {
           <div className="container mx-auto px-6">
             <FadeUp className="text-center mb-16">
               <h2
-                className="text-4xl md:text-5xl font-bold text-foreground mb-4"
+                className="text-4xl md:text-5xl font-bold text-primary mb-4"
                 style={{
                   fontFamily: "var(--font-heading)",
                 }}
@@ -293,7 +293,7 @@ export default function HomePage() {
                       {home.differentiators.items[0].subtitle}
                     </p>
                     <h3
-                      className="text-3xl md:text-4xl font-bold text-foreground mb-5 leading-tight"
+                      className="text-3xl md:text-4xl font-bold text-primary mb-5 leading-tight"
                       style={{
                         fontFamily: "var(--font-heading)",
                       }}
@@ -366,7 +366,7 @@ export default function HomePage() {
                       {home.differentiators.items[1].subtitle}
                     </p>
                     <h3
-                      className="text-3xl md:text-4xl font-bold text-foreground mb-5 leading-tight"
+                      className="text-3xl md:text-4xl font-bold text-primary mb-5 leading-tight"
                       style={{
                         fontFamily: "var(--font-heading)",
                       }}
@@ -439,7 +439,7 @@ export default function HomePage() {
                       {home.differentiators.items[2].subtitle}
                     </p>
                     <h3
-                      className="text-3xl md:text-4xl font-bold text-foreground mb-5 leading-tight"
+                      className="text-3xl md:text-4xl font-bold text-primary mb-5 leading-tight"
                       style={{
                         fontFamily: "var(--font-heading)",
                       }}
@@ -512,7 +512,7 @@ export default function HomePage() {
                       {home.differentiators.items[3].subtitle}
                     </p>
                     <h3
-                      className="text-3xl md:text-4xl font-bold text-foreground mb-5 leading-tight"
+                      className="text-3xl md:text-4xl font-bold text-primary mb-5 leading-tight"
                       style={{
                         fontFamily: "var(--font-heading)",
                       }}
@@ -585,7 +585,7 @@ export default function HomePage() {
                       {home.differentiators.items[4].subtitle}
                     </p>
                     <h3
-                      className="text-3xl md:text-4xl font-bold text-foreground mb-5 leading-tight"
+                      className="text-3xl md:text-4xl font-bold text-primary mb-5 leading-tight"
                       style={{
                         fontFamily: "var(--font-heading)",
                       }}
@@ -680,15 +680,20 @@ export default function HomePage() {
               </FadeUp>
 
               {/* Divider */}
-              <FadeUp delay={0.15}>
-                <div className="flex items-center gap-4 mb-14">
-                  <div className="flex-1 h-px bg-white/20" />
-                  <div className="w-2 h-2 rounded-full bg-accent" />
-                  <div className="w-2 h-2 rounded-full bg-accent/50" />
-                  <div className="w-2 h-2 rounded-full bg-accent/25" />
-                  <div className="flex-1 h-px bg-white/20" />
-                </div>
-              </FadeUp>
+             
+            <FadeUp delay={0.15}>
+              <div className="flex items-center gap-4 mb-14">
+                <div className="flex-1 h-px bg-white/20" />
+
+                <div className="w-2 h-2 rounded-full bg-[#51aafd]" />
+                <div className="w-2 h-2 rounded-full bg-[#69bb44]" />
+                <div className="w-2 h-2 rounded-full bg-[#fe584a]" />
+                <div className="w-2 h-2 rounded-full bg-[#fec123]" />
+
+                <div className="flex-1 h-px bg-white/20" />
+              </div>
+            </FadeUp>
+
 
               {/* Body paragraphs */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-14 gap-y-7 mb-14">
@@ -739,7 +744,7 @@ export default function HomePage() {
           <div className="container mx-auto px-6">
             <FadeUp className="text-center mb-16">
               <h2
-                className="text-4xl md:text-5xl font-bold text-foreground mb-4"
+                className="text-4xl md:text-5xl font-bold text-primary mb-4"
                 style={{
                   fontFamily: "var(--font-heading)",
                 }}
@@ -791,7 +796,7 @@ export default function HomePage() {
                     </div>
                     <div className="p-6 flex flex-col flex-1">
                       <h3
-                        className="text-xl font-bold text-foreground mb-1"
+                        className="text-xl font-bold text-primary mb-1"
                         style={{
                           fontFamily: "var(--font-heading)",
                         }}
