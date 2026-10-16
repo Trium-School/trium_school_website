@@ -212,13 +212,36 @@ export default function AdmissionsPage() {
                   <div className="p-5 bg-primary/5 border border-primary/10 rounded-2xl">
                     <p className="text-sm font-bold text-primary mb-3" style={{ fontFamily: 'var(--font-heading)' }}>Documents to Keep Ready</p>
                     <ul className="space-y-2">
-                      {['Birth certificate', 'Previous school report card', 'Passport-size photographs (4)', 'Address proof'].map((doc) =>
-                      <li key={doc} className="flex items-center gap-2 text-sm text-foreground/75">
-                          <CheckCircle2 size={14} className="text-accent shrink-0" />
-                          <span>{doc}</span>
-                        </li>
-                      )}
-                    </ul>
+                        {[
+                          "Birth certificate",
+                          "Previous school report card",
+                          "Passport-size photographs (4)",
+                          "Address proof",
+                        ].map((doc, i) => {
+                          const bulletColors = [
+                            "#51aafd", // Blue
+                            "#69bb44", // Green
+                            "#fe584a", // Red
+                            "#fec132", // Yellow
+                          ];
+
+                          return (
+                            <li
+                              key={doc}
+                              className="flex items-center gap-2 text-sm text-foreground/75"
+                            >
+                              <CheckCircle2
+                                size={14}
+                                className="shrink-0"
+                                style={{
+                                  color: bulletColors[i % bulletColors.length],
+                                }}
+                              />
+                              <span>{doc}</span>
+                            </li>
+                          );
+                        })}
+                     </ul>
                   </div>
                 </div>
               </FadeUp>
