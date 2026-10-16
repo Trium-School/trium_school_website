@@ -165,17 +165,41 @@ export default function AdmissionsPage() {
 
                   {/* Quick process steps */}
                   <div className="mb-8 space-y-4">
-                    {admissions.process.steps.map((step, i) => (
-                      <div key={step.id} className="flex items-start gap-3">
-                        <div className="w-7 h-7 rounded-full bg-primary flex items-center justify-center shrink-0 mt-0.5">
-                          <span className="text-accent font-bold text-xs">{step.number}</span>
+                    {admissions.process.steps.map((step, i) => {
+                      const stepColors = [
+                        "#51aafd", // Blue - Step 1
+                        "#69bb44", // Green - Step 2
+                        "#fe584a", // Red - Step 3
+                        "#fec132", // Yellow - Step 4
+                      ];
+
+                      return (
+                        <div key={step.id} className="flex items-start gap-3">
+                          <div
+                            className="w-7 h-7 rounded-full flex items-center justify-center shrink-0 mt-0.5"
+                            style={{
+                              backgroundColor: stepColors[i % stepColors.length],
+                            }}
+                          >
+                            <span
+                              className="font-bold text-xs"
+                              style={{ color: "#1a1a1a" }}
+                            >
+                              {step.number}
+                            </span>
+                          </div>
+
+                          <div>
+                            <p className="text-sm font-semibold text-foreground">
+                              {step.title}
+                            </p>
+                            <p className="text-xs text-muted-foreground leading-relaxed">
+                              {step.description}
+                            </p>
+                          </div>
                         </div>
-                        <div>
-                          <p className="text-sm font-semibold text-foreground">{step.title}</p>
-                          <p className="text-xs text-muted-foreground leading-relaxed">{step.description}</p>
-                        </div>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
 
                   <div className="space-y-4 mb-8">
