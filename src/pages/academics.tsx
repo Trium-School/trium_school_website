@@ -189,10 +189,29 @@ export default function AcademicsPage() {
                       <p className="text-muted-foreground leading-relaxed mb-6">{prog.description}</p>
                       <h4 className="font-bold text-foreground mb-4">What students learn:</h4>
                       <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        {prog.highlights.map(h => <li key={h.id} className="flex items-start gap-2.5">
-                            <CheckCircle2 size={17} className="text-accent mt-0.5 shrink-0" />
-                            <span className="text-sm text-foreground">{h.text}</span>
-                          </li>)}
+                        {prog.highlights.map((h, i) => {
+                          const bulletColors = [
+                            "#51aafd", // Blue
+                            "#69bb44", // Green
+                            "#fe584a", // Red
+                            "#fec132", // Yellow
+                          ];
+
+                          return (
+                            <li key={h.id} className="flex items-start gap-2.5">
+                              <CheckCircle2
+                                size={17}
+                                className="mt-0.5 shrink-0"
+                                style={{
+                                  color: bulletColors[i % bulletColors.length],
+                                }}
+                              />
+                              <span className="text-sm text-foreground">
+                                {h.text}
+                              </span>
+                            </li>
+                          );
+                        })}
                       </ul>
                     </div>
                   </div>

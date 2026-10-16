@@ -120,7 +120,7 @@ export default function AboutPage() {
           <div className="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-10">
             <FadeUp>
               <div className="bg-[var(--blue)] rounded-2xl p-8 h-full">
-                <p className="text-accent text-xs font-semibold uppercase tracking-widest mb-3">{about.vision_mission.vision_label}</p>
+                <p className="text-white text-xs font-semibold uppercase tracking-widest mb-3">{about.vision_mission.vision_label}</p>
                 <p className="text-white text-xl md:text-2xl font-semibold leading-relaxed" style={{
                 fontFamily: 'var(--font-heading)'
               }}>
@@ -130,7 +130,7 @@ export default function AboutPage() {
             </FadeUp>
             <FadeUp delay={0.1}>
               <div className="bg-[var(--green)] rounded-2xl p-8 h-full">
-                <p className="text-accent text-xs font-semibold uppercase tracking-widest mb-3">{about.vision_mission.mission_label}</p>
+                <p className="text-white text-xs font-semibold uppercase tracking-widest mb-3">{about.vision_mission.mission_label}</p>
                 <p className="text-white text-xl md:text-2xl font-semibold leading-relaxed" style={{
                 fontFamily: 'var(--font-heading)'
               }}>
