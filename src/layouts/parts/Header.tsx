@@ -82,6 +82,11 @@ export default function Header() {
       action: () => goToPage("/campus"),
     },
     {
+      id: "careers",
+      label: "Careers",
+      action: () => goToPage("/careers"),
+    },
+    {
       id: "contact",
       label: "Contact",
       action: () => goToPage("/contact"),

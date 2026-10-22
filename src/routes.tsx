@@ -5,6 +5,7 @@ import AboutPage from "./pages/about";
 import AcademicsPage from "./pages/academics";
 import ContactPage from "./pages/contact";
 import CampusPage from "./pages/campus";
+import CareersPage from "./pages/careers";
 import AdminLoginPage from "./pages/admin/login";
 import AdminEnquiriesPage from "./pages/admin/enquiries";
 // Eager import so renderToString doesn't hit a Suspense boundary on 404 routes
@@ -39,6 +40,10 @@ export const routes: RouteObject[] = [
     element: <CampusPage />,
   },
   {
+    path: "/careers",
+    element: <CareersPage />,
+  },
+  {
     path: "/admin/login",
     element: <AdminLoginPage />,
   },
@@ -59,6 +64,7 @@ export type Path =
   | "/about"
   | "/academics"
   | "/contact"
+  | "/careers"
   | "/admin/login"
   | "/admin/enquiries";
 export type Params = Record<string, string | undefined>;
