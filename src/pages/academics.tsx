@@ -107,14 +107,14 @@ export default function AcademicsPage() {
                 {academics.hero.eyebrow}
               </p>
               <h1
-                className="text-3xl md:text-5xl font-bold text-white max-w-3xl leading-tight"
+                className="text-3xl md:text-5xl font-bold text-white max-w-4xl leading-tight"
                 style={{
                   fontFamily: "var(--font-heading)",
                 }}
               >
                 {academics.hero.title}
               </h1>
-              <p className="mt-4 text-white/80 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+              <p className="mt-4 text-white/80 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
                 {academics.hero.subtitle}
               </p>
             </FadeUp>

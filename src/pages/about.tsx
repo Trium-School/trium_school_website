@@ -3,7 +3,7 @@ import { Helmet } from '@dr.pogodin/react-helmet';
 import { motion } from 'motion/react';
 import { useNavigate } from "react-router";
 import { ArrowRight } from 'lucide-react';
-import { about } from 'virtual:content';
+import { about, home } from 'virtual:content';
 const site = 'https://triumschool.in';
 const url = `${site}/about`;
 function FadeUp({
@@ -214,8 +214,90 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* ── FOUNDER'S MESSAGE ────────────────────────────────────────────── */}
+        <section className="py-28 bg-primary overflow-hidden relative">
+          <div
+            className="absolute inset-0 opacity-5 pointer-events-none"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle at 20% 50%, white 1px, transparent 1px), radial-gradient(circle at 80% 20%, white 1px, transparent 1px)",
+              backgroundSize: "60px 60px",
+            }}
+          />
+
+          <div className="container mx-auto px-6 relative">
+            <div className="max-w-4xl mx-auto">
+              <FadeUp>
+                <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-10 text-center">
+                  {home.founders_message.eyebrow}
+                </p>
+              </FadeUp>
+
+              <FadeUp delay={0.1}>
+                <blockquote className="relative mb-14">
+                  <span
+                    className="absolute -top-6 -left-4 text-accent/30 select-none pointer-events-none"
+                    style={{
+                      fontFamily: "var(--font-heading)",
+                      fontSize: "10rem",
+                      lineHeight: 1,
+                    }}
+                  >
+                    "
+                  </span>
+                  <p
+                    className="relative text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-snug text-center px-8"
+                    style={{
+                      fontFamily: "var(--font-heading)",
+                    }}
+                  >
+                    {home.founders_message.pull_quote}
+                  </p>
+                </blockquote>
+              </FadeUp>
+
+              <FadeUp delay={0.15}>
+                <div className="flex items-center gap-4 mb-14">
+                  <div className="flex-1 h-px bg-white/20" />
+                  <div className="w-2 h-2 rounded-full bg-[#51aafd]" />
+                  <div className="w-2 h-2 rounded-full bg-[#69bb44]" />
+                  <div className="w-2 h-2 rounded-full bg-[#fe584a]" />
+                  <div className="w-2 h-2 rounded-full bg-[#fec132]" />
+                  <div className="flex-1 h-px bg-white/20" />
+                </div>
+              </FadeUp>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-14 gap-y-7 mb-14">
+                {home.founders_message.paragraphs.map((paragraph, i) => (
+                  <FadeUp key={paragraph.id} delay={0.2 + i * 0.05}>
+                    <p className="text-white/75 text-base leading-relaxed">
+                      {paragraph.text}
+                    </p>
+                  </FadeUp>
+                ))}
+              </div>
+
+              <FadeUp delay={0.4}>
+                <div className="border-l-4 border-accent pl-6">
+                  <p
+                    className="text-white text-lg font-semibold italic mb-3"
+                    style={{
+                      fontFamily: "var(--font-heading)",
+                    }}
+                  >
+                    {home.founders_message.closing}
+                  </p>
+                  <p className="text-accent text-sm font-semibold uppercase tracking-widest">
+                    {home.founders_message.attribution}
+                  </p>
+                </div>
+              </FadeUp>
+            </div>
+          </div>
+        </section>
+
         {/* ── CTA ──────────────────────────────────────────────────────── */}
-        <section className="py-20 bg-primary">
+        <section className="py-20 bg-[#69bb44]">
           <div className="max-w-3xl mx-auto px-4 text-center">
             <FadeUp>
               <h2
