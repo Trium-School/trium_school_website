@@ -386,7 +386,9 @@ export default function HomePage() {
                       onClick={() => navigate(slide.link)}
                       role="button"
                       tabIndex={0}
-                      onKeyDown={(e) => e.key === "Enter" && navigate(slide.link)}
+                      onKeyDown={(e) =>
+                        e.key === "Enter" && navigate(slide.link)
+                      }
                     >
                       {slide.cta}
                       <ChevronRight size={16} />
@@ -672,7 +674,7 @@ export default function HomePage() {
                   <div className="lg:order-2 relative">
                     <div className="rounded-3xl overflow-hidden aspect-[4/3] shadow-2xl">
                       <img
-                        src="/airo-assets/images/pages/home/differentiators-4"
+                        src="media/trium_innovator.png"
                         alt={home.differentiators.items[3].title}
                         className="w-full h-full object-cover"
                         loading="lazy"
@@ -945,8 +947,8 @@ export default function HomePage() {
                       <img
                         src={
                           i === 0
-                            ? "/airo-assets/images/pages/home/programs-early-years"
-                            : "/airo-assets/images/pages/home/programs-primary"
+                            ? "media/Creative Classroom Crafts at Trium School.png"
+                            : "media/Joyful Toddler Reading in a Sunny Classroom.png"
                         }
                         alt={prog.name}
                         className="w-full h-full object-cover"
@@ -1128,7 +1130,7 @@ export default function HomePage() {
                 <div className="flex flex-wrap gap-4 mb-10">
                   {home.admissions.steps.map((step, i) => (
                     <div key={step.id} className="flex items-center gap-3">
-                     <div
+                      <div
                         className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
                         style={{
                           backgroundColor: [
