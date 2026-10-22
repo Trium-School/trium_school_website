@@ -230,7 +230,16 @@ export default function HomePage() {
       link: "/admissions",
     },
     {
-      image: "media/hero-banner2.png",
+      image: "media/1.png",
+      alt: "Collaborative robotics lesson in the STEM lab",
+      badge: home.hero.trust_badge,
+      tagline: home.hero.tagline,
+      subtitle: home.hero.subtitle,
+      cta: home.hero.cta_primary,
+      link: "/admissions",
+    },
+    {
+      image: "media/2.png",
       alt: "Collaborative robotics lesson in the STEM lab",
       badge: home.hero.trust_badge,
       tagline: home.hero.tagline,
