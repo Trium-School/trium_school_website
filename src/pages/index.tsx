@@ -947,8 +947,8 @@ export default function HomePage() {
                       <img
                         src={
                           i === 0
-                            ? "media/Creative Classroom Crafts at Trium School.png"
-                            : "media/Joyful Toddler Reading in a Sunny Classroom.png"
+                            ? "media/Joyful Toddler Reading in a Sunny Classroom.png"
+                            : "media/Creative Classroom Crafts at Trium School.png"
                         }
                         alt={prog.name}
                         className="w-full h-full object-cover"
