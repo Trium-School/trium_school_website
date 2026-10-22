@@ -13,28 +13,28 @@
       "id": "fac-1",
       "name": "Smart Classrooms",
       "description": "Bright, airy classrooms equipped with interactive smart boards and flexible seating that adapts to collaborative and individual learning.",
-      "image_slot": "/airo-assets/images/pages/home/campus-classrooms",
+      "image_slot": "media/Seamless Modern Classroom Lesson.png",
       "tag": "Learning spaces"
     },
     {
       "id": "fac-2",
       "name": "Science Laboratories",
       "description": "Fully equipped science labs where students conduct hands-on experiments from primary school onwards, building scientific curiosity early.",
-      "image_slot": "/airo-assets/images/pages/home/campus-science-lab",
+      "image_slot": "media/Young Scientists Exploring a Colourful Lab.png",
       "tag": "STEM"
     },
     {
       "id": "fac-3",
       "name": "STEM & Robotics Studio",
       "description": "A dedicated maker space with robotics kits, coding stations, and 3D printing tools — where ideas become prototypes.",
-      "image_slot": "/airo-assets/images/pages/home/campus-stem",
+      "image_slot": "media/Collaborative Robotics Lab Workshop.png",
       "tag": "Innovation"
     },
     {
       "id": "fac-4",
       "name": "Library & Reading Room",
       "description": "A curated library of over 5,000 titles spanning fiction, non-fiction, and reference — a quiet haven for readers and researchers alike.",
-      "image_slot": "/airo-assets/images/pages/home/campus-library",
+      "image_slot": "media/Brighter Minds in the School Library.png",
       "tag": "Knowledge"
     },
     {
@@ -48,7 +48,7 @@
       "id": "fac-6",
       "name": "Performing Arts Centre",
       "description": "A dedicated stage and rehearsal space for drama, music, and dance — nurturing every child's creative voice.",
-      "image_slot": "/airo-assets/images/pages/home/campus-arts",
+      "image_slot": "media/Creative Arts Rehearsal at Trium School.png",
       "tag": "Arts"
     }
   ],

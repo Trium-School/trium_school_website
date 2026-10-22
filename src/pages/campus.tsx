@@ -84,7 +84,7 @@ export default function CampusPage() {
         {/* ── Hero ─────────────────────────────────────────────────────── */}
         <section className="relative h-[360px] md:h-[460px] overflow-hidden">
           <img
-            src="media\why-trium-campus.jpg"
+            src="media\Creative School Activities Showcase.png"
             alt="The Trium School campus"
             className="absolute inset-0 w-full h-full object-cover"
             loading="eager"
