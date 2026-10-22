@@ -337,61 +337,63 @@ export default function HomePage() {
           {/* Content */}
           <div className="relative container mx-auto px-6 min-[992px]:pl-24 py-24">
             <AnimatePresence mode="wait">
-              <motion.div
-                key={current}
-                className="max-w-2xl"
-                exit={{ opacity: 0, y: -12, transition: { duration: 0.3 } }}
-              >
+              {current === 0 && (
                 <motion.div
-                  initial={{ opacity: 0, y: -16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
-                  className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full px-4 py-2 mb-8"
+                  key="hero-content"
+                  className="max-w-2xl"
+                  exit={{ opacity: 0, y: -12, transition: { duration: 0.3 } }}
                 >
-                  <Award size={14} className="text-accent" />
-                  <span className="text-white/90 text-xs font-medium">
-                    {slide.badge}
-                  </span>
-                </motion.div>
-
-                <motion.h1
-                  initial={{ opacity: 0, y: 32 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-                  className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6"
-                  style={{ fontFamily: "var(--font-heading)" }}
-                >
-                  {slide.tagline}
-                </motion.h1>
-
-                <motion.p
-                  initial={{ opacity: 0, y: 24 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.7, delay: 0.25, ease: "easeOut" }}
-                  className="text-white/85 text-lg md:text-xl leading-relaxed mb-10 max-w-xl"
-                >
-                  {slide.subtitle}
-                </motion.p>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-                  className="flex flex-wrap gap-4"
-                >
-                  <span
-                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-accent font-semibold text-sm shadow-lg cursor-pointer"
-                    style={{ color: "#1a1a1a" }}
-                    onClick={() => navigate(slide.link)}
-                    role="button"
-                    tabIndex={0}
-                    onKeyDown={(e) => e.key === "Enter" && navigate(slide.link)}
+                  <motion.div
+                    initial={{ opacity: 0, y: -16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full px-4 py-2 mb-8"
                   >
-                    {slide.cta}
-                    <ChevronRight size={16} />
-                  </span>
+                    <Award size={14} className="text-accent" />
+                    <span className="text-white/90 text-xs font-medium">
+                      {slide.badge}
+                    </span>
+                  </motion.div>
+
+                  <motion.h1
+                    initial={{ opacity: 0, y: 32 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
+                    className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6"
+                    style={{ fontFamily: "var(--font-heading)" }}
+                  >
+                    {slide.tagline}
+                  </motion.h1>
+
+                  <motion.p
+                    initial={{ opacity: 0, y: 24 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, delay: 0.25, ease: "easeOut" }}
+                    className="text-white/85 text-lg md:text-xl leading-relaxed mb-10 max-w-xl"
+                  >
+                    {slide.subtitle}
+                  </motion.p>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+                    className="flex flex-wrap gap-4"
+                  >
+                    <span
+                      className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-accent font-semibold text-sm shadow-lg cursor-pointer"
+                      style={{ color: "#1a1a1a" }}
+                      onClick={() => navigate(slide.link)}
+                      role="button"
+                      tabIndex={0}
+                      onKeyDown={(e) => e.key === "Enter" && navigate(slide.link)}
+                    >
+                      {slide.cta}
+                      <ChevronRight size={16} />
+                    </span>
+                  </motion.div>
                 </motion.div>
-              </motion.div>
+              )}
             </AnimatePresence>
           </div>
 
@@ -469,7 +471,7 @@ export default function HomePage() {
                   <div className="relative">
                     <div className="rounded-3xl overflow-hidden aspect-[4/3] shadow-2xl">
                       <img
-                        src="/airo-assets/images/pages/home/differentiators-1"
+                        src="media/academics.png"
                         alt={home.differentiators.items[0].title}
                         className="w-full h-full object-cover"
                         loading="lazy"
@@ -536,7 +538,7 @@ export default function HomePage() {
                   <div className="lg:order-2 relative">
                     <div className="rounded-3xl overflow-hidden aspect-[4/3] shadow-2xl">
                       <img
-                        src="media\differentiators-2.png"
+                        src="media\worldclass_teachers.png"
                         alt={home.differentiators.items[1].title}
                         className="w-full h-full object-cover"
                         loading="lazy"
