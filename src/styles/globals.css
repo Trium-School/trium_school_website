@@ -4,6 +4,62 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Surgena";
+  src: url("/surgena-font/surgena-light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Surgena";
+  src: url("/surgena-font/surgena-regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Surgena";
+  src: url("/surgena-font/surgena-medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Surgena";
+  src: url("/surgena-font/surgena-semibold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Surgena";
+  src: url("/surgena-font/surgena-bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Surgena";
+  src: url("/surgena-font/surgena-italic.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Surgena";
+  src: url("/surgena-font/surgena-bolditalic.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+}
+
 @layer base {
   :root {
     /* Core Colors */
@@ -45,9 +101,9 @@
     --sidebar-ring: 229 60% 26%;
 
     /* Typography */
-    --font-sans: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
-    --font-heading: "Playfair Display", Georgia, serif;
-    --font-serif: ui-serif, Georgia, "Times New Roman", serif;
+    --font-sans: sans-serif;
+    --font-heading: "Surgena", sans-serif;
+    --font-serif: "Surgena", serif;
     --font-mono: ui-monospace, "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
 
     /* Border Radius */

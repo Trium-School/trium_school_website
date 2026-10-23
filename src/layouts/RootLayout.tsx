@@ -21,19 +21,32 @@ interface RootLayoutProps {
 export default function RootLayout({
   children
 }: RootLayoutProps) {
-  return <Website>
+  return (
+    <Website>
       <Helmet>
         <title>The Trium School — K–12 School in Nashik</title>
-        <meta name="description" content="The Trium School is a K–12 institution in Makhmalabad, Nashik, dedicated to nurturing curious minds and compassionate hearts through inquiry-based education." />
-        <meta property="og:image" content="https://triumschool.in/airo-assets/images/pages/home/hero" />
+        <meta
+          name="description"
+          content="The Trium School is a K–12 institution in Makhmalabad, Nashik, dedicated to nurturing curious minds and compassionate hearts through inquiry-based education."
+        />
+        <meta
+          property="og:image"
+          content="https://triumschool.in/airo-assets/images/pages/home/hero"
+        />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://triumschool.in/airo-assets/images/pages/home/hero" />
+        <meta
+          name="twitter:image"
+          content="https://triumschool.in/airo-assets/images/pages/home/hero"
+        />
       </Helmet>
       <HomepageSameAsJsonLd />
       <ScrollRestoration />
       <Header />
       {children}
-      <section aria-label="The Trium School location" className="relative w-full">
+      <section
+        aria-label="The Trium School location"
+        className="relative w-full"
+      >
         <iframe
           title="The Trium School location on Google Maps"
           src="https://www.google.com/maps?q=20.050451,73.767564&z=15&output=embed"
@@ -43,11 +56,13 @@ export default function RootLayout({
           referrerPolicy="no-referrer-when-downgrade"
         />
         <div className="absolute left-6 top-6 max-w-sm rounded-xl bg-white/95 p-5 shadow-lg backdrop-blur-sm">
-          <h2 className="text-lg font-semibold text-primary">The Trium School</h2>
+          <h2 className="text-lg font-semibold text-primary">
+            The Trium School
+          </h2>
           <address className="mt-3 not-italic text-sm leading-relaxed text-foreground/75">
             The Trium School Campus,
             <br />
-            Makhmalabad, Nashik
+            Sulewadi Road, Makhmalabad, Nashik
           </address>
           <a
             href="tel:+917588804351"
@@ -74,5 +89,6 @@ export default function RootLayout({
       >
         View Brochure
       </a>
-    </Website>;
+    </Website>
+  );
 }

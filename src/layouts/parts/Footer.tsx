@@ -146,7 +146,7 @@ export default function Footer() {
                 <span className="text-sm text-primary-foreground/70 leading-relaxed">
                   The Trium School Campus,
                   <br />
-                  Makhmalabad, Nashik
+                  Sulewadi Road, Makhmalabad, Nashik
                 </span>
               </li>
               <li className="flex items-center gap-3">
