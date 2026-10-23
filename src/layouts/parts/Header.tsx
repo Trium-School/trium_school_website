@@ -176,9 +176,7 @@ export default function Header() {
               <button
                 onClick={goToAdmissions}
                 className="px-5 py-2.5 rounded-full bg-accent text-sm font-semibold hover:bg-accent/90 transition-all duration-200 shadow-sm hover:shadow-md"
-                style={{
-                  color: "#1a1a1a",
-                }}
+                style={{ backgroundColor: "var(--yellow)" }}
               >
                 Apply Now
               </button>
@@ -221,9 +219,7 @@ export default function Header() {
               <button
                 onClick={goToAdmissions}
                 className="mt-3 py-3 px-3 rounded-full bg-accent text-center text-sm font-semibold transition-colors"
-                style={{
-                  color: "#1a1a1a",
-                }}
+                style={{ backgroundColor: "var(--yellow)", color: "#1a1a1a" }}
               >
                 Apply Now
               </button>

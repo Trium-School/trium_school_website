@@ -26,7 +26,7 @@
       {
         "id": "diff-2",
         "number": "02",
-        "title": "World Class Teachers",
+        "title": "AI Powered Teachers",
         "subtitle": "Mentors Who Inspire",
         "description": "Exceptional educators, continuous training and personal attention to help every child learn with confidence. They bring global perspectives into every classroom, building deep, trust-based relationships with students.",
         "highlights": [
@@ -114,6 +114,13 @@
         "grades": "Grades 1–5",
         "highlight": "Ages 6–11",
         "description": "Core academics blended with arts, sports, and values education to develop well-rounded young learners."
+      },
+      {
+        "id": "prog-3",
+        "name": "Secondary School",
+        "grades": "Grades 6–10",
+        "highlight": "Ages 11–16",
+        "description": "A rigorous, balanced curriculum that connects disciplines and sparks bold thinking — building the skills, resilience, and self-awareness students carry into senior school."
       }
     ]
   },
@@ -217,7 +224,7 @@
     ]
   },
   "admissions": {
-    "heading": "Begin Your Child's Triumph Story",
+    "heading": "Begin your child’s academic journey",
     "subheading": "Seats for 2027–28 are filling fast. Take the first step towards a transformative education — applications are open now.",
     "cta": "Start Your Application",
     "steps": [
