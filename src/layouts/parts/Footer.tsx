@@ -122,6 +122,7 @@ export default function Footer() {
               {[
                 "Early Years (Pre-K)",
                 "Primary School (Gr. 1–5)",
+                "Secondary School (Gr. 6–10)",
                 "Co-Curricular Activities",
                 "Sports & Athletics",
               ].map((item) => (
@@ -173,9 +174,7 @@ export default function Footer() {
               <Link
                 to="/admissions"
                 className="inline-block px-5 py-2.5 rounded-full bg-accent text-sm font-semibold hover:bg-accent/90 transition-all duration-200"
-                style={{
-                  color: "#1a1a1a",
-                }}
+                style={{ backgroundColor: "var(--yellow)", color: "#1a1a1a" }}
               >
                 Enquire Now
               </Link>

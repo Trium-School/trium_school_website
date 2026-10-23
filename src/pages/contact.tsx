@@ -95,7 +95,7 @@ export default function ContactPage() {
         {/* ── Hero ─────────────────────────────────────────────────────── */}
         <section className="relative h-[340px] md:h-[420px] overflow-hidden">
           <img
-            src="/airo-assets/images/pages/contact/hero"
+            src="media/Trium Contact Us.png"
             alt="The Trium School entrance"
             className="absolute inset-0 w-full h-full object-cover"
             loading="eager"

@@ -84,7 +84,7 @@ export default function RootLayout({
         target="_blank"
         rel="noopener noreferrer"
         aria-label="View brochure"
-        className="fixed right-0 top-1/2 z-50 -translate-y-1/2 rounded-full px-3 py-10 text-sm font-semibold text-foreground shadow-lg transition-transform hover:-translate-x-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+        className="fixed right-0 top-1/3 z-50 -translate-y-1/2 rounded-full px-3 py-10 text-sm font-semibold shadow-lg transition-transform hover:-translate-x-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
         style={{ backgroundColor: "var(--yellow)", writingMode: "vertical-rl" }}
       >
         View Brochure

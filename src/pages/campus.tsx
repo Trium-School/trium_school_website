@@ -153,6 +153,7 @@ export default function CampusPage() {
                       <span
                         className="absolute top-3 left-3 bg-accent text-xs font-semibold px-3 py-1 rounded-full"
                         style={{
+                          backgroundColor: "#fcd34d",
                           color: "#1a1a1a",
                         }}
                       >
@@ -197,6 +198,7 @@ export default function CampusPage() {
                 onClick={() => navigate("/admissions")}
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-accent font-bold text-sm shadow-xl hover:bg-accent/90 transition-colors"
                 style={{
+                  backgroundColor: "var(--yellow)",
                   color: "#1a1a1a",
                 }}
               >

@@ -382,7 +382,10 @@ export default function HomePage() {
                   >
                     <span
                       className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-accent font-semibold text-sm shadow-lg cursor-pointer"
-                      style={{ color: "#1a1a1a" }}
+                      style={{
+                        backgroundColor: "var(--yellow)",
+                        color: "#1a1a1a",
+                      }}
                       onClick={() => navigate(slide.link)}
                       role="button"
                       tabIndex={0}
@@ -926,7 +929,7 @@ export default function HomePage() {
               </h2>
             </FadeUp>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-3xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mx-auto">
               {home.programs.items.map((prog, i) => (
                 <FadeUp key={prog.id} delay={i * 0.1}>
                   <motion.div
@@ -948,7 +951,7 @@ export default function HomePage() {
                         src={
                           i === 0
                             ? "media/Joyful Toddler Reading in a Sunny Classroom.png"
-                            : "media/Creative Classroom Crafts at Trium School.png"
+                            : "media/Trium kids.png"
                         }
                         alt={prog.name}
                         className="w-full h-full object-cover"
@@ -961,6 +964,7 @@ export default function HomePage() {
                       <span
                         className="absolute top-4 left-4 bg-accent text-xs font-semibold px-3 py-1 rounded-full"
                         style={{
+                          backgroundColor: "var(--yellow)",
                           color: "#1a1a1a",
                         }}
                       >
@@ -1091,6 +1095,27 @@ export default function HomePage() {
                 },
               )}
             </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+              className="flex flex-wrap gap-4 mt-12 items-center justify-center rounded-full"
+            >
+              <span
+                className="inline-flex items-center gap-2 px-16 py-4 rounded-full bg-accent font-semibold text-lg shadow-lg cursor-pointer"
+                style={{
+                  backgroundColor: "var(--yellow)",
+                  color: "#1a1a1a",
+                }}
+                onClick={() => navigate(slide.link)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => e.key === "Enter" && navigate(slide.link)}
+              >
+                {slide.cta}
+              </span>
+            </motion.div>
+
           </div>
         </section>
 
@@ -1159,9 +1184,7 @@ export default function HomePage() {
 
                 <span
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-accent font-bold text-sm shadow-xl cursor-pointer"
-                  style={{
-                    color: "#1a1a1a",
-                  }}
+                  style={{ backgroundColor: "var(--yellow)", color: "#1a1a1a" }}
                   onClick={() => navigate("/admissions")}
                   role="button"
                   tabIndex={0}
