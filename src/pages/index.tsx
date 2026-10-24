@@ -11,6 +11,7 @@ import {
   FileText,
   CalendarCheck,
   GraduationCap,
+  X,
 } from "lucide-react";
 import { home } from "virtual:content";
 
@@ -65,6 +66,59 @@ const DIFF_COLORS = [
   BRAND.yellow,
   BRAND.blue,
 ];
+
+const REAL_WORLD_PROJECTS = [
+  {
+    id: "kitchen-garden",
+    eyebrow: "Grade 4 · Science field project",
+    title: "The Kitchen Garden Investigators",
+    color: BRAND.blue,
+    problem: "Where does our food come from, and can we grow some ourselves?",
+    duration: "6 weeks",
+    description:
+      "Students design and grow a kitchen garden, tracking how seeds become food. They observe what plants need to thrive, care for crops daily, and harvest ingredients for a class meal — connecting science observations to what lands on their own plate.",
+    ageGroup: "Grade 4",
+    mentor: "Urban Farming Educators",
+    focus: "Growing & Observing",
+    focusDescription:
+      "Daily care and observation of the garden, watching how plants respond to sun, water, and soil.",
+    fieldConcepts: ["Plant care routines", "Observation journaling", "Solving pests & wilting"],
+    academicConcepts: ["Science: parts of a plant", "EVS: recording & measuring", "Science: what plants need"],
+    realWorldConnections: ["Visit from a school gardener", "Comparing plots with classmates", "Talking to a local nursery owner"],
+    phases: [
+      ["Week 1–2", "Seeds & Soil"],
+      ["Week 3–4", "Growing & Observing"],
+      ["Week 5", "Harvest & Cook"],
+      ["Week 6", "Reflection & Showcase"],
+    ],
+  },
+  {
+    id: "map-neighbourhood",
+    eyebrow: "Grade 5 · Social studies field project",
+    title: "Map My Neighbourhood",
+    color: BRAND.green,
+    problem: "How does our own neighbourhood work, and who keeps it running?",
+    duration: "8 weeks",
+    description:
+      "Students survey their neighbourhood, mapping homes, shops, parks, and public services, then interview a local representative to understand how community resources and local government decisions shape the place they live.",
+    ageGroup: "Grade 5",
+    mentor: "Ward Councillors, Civil servants",
+    focus: "Meet Local Government",
+    focusDescription:
+      "Students interview a ward councillor to learn how local services and decisions are made.",
+    fieldConcepts: ["Interviewing skills", "Civic responsibility", "Resource mapping"],
+    academicConcepts: ["Social Studies: local government", "Social Studies: rights & duties", "Geography: reading simple maps"],
+    realWorldConnections: ["Q&A with a ward councillor", "Visiting a municipal ward office", "Comparing map to real location"],
+    phases: [
+      ["Week 1–2", "Survey & Sketch"],
+      ["Week 3–4", "Mapping Resources"],
+      ["Week 5–6", "Meet Local Government"],
+      ["Week 7–8", "Present & Propose"],
+    ],
+  },
+] as const;
+
+type RealWorldProject = (typeof REAL_WORLD_PROJECTS)[number];
 
 // ─── Admissions process card styles (blue / green / red) ─────────────────────
 const ADMISSION_CARDS = [
@@ -252,6 +306,9 @@ export default function HomePage() {
 
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [activeProject, setActiveProject] = useState<RealWorldProject | null>(
+    null,
+  );
 
   const next = useCallback(
     () => setCurrent((i) => (i + 1) % slides.length),
@@ -264,9 +321,25 @@ export default function HomePage() {
 
   useEffect(() => {
     if (paused) return;
-    const id = setInterval(next, 6000);
-    return () => clearInterval(id);
+    const id = window.setInterval(next, 6000);
+    return () => window.clearInterval(id);
   }, [paused, next, current]); // `current` resets the timer after manual navigation
+
+  useEffect(() => {
+    if (!activeProject) return;
+
+    const handleKeyDown = (event: globalThis.KeyboardEvent) => {
+      if (event.key === "Escape") setActiveProject(null);
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [activeProject]);
 
   const slide = slides[current];
 
@@ -801,6 +874,20 @@ export default function HomePage() {
                         </span>
                       </li>
                     </ul>
+                    <div className="mt-7 flex flex-col gap-3 sm:max-w-xs">
+                      {REAL_WORLD_PROJECTS.map((project) => (
+                        <button
+                          key={project.id}
+                          type="button"
+                          onClick={() => setActiveProject(project)}
+                          className="flex items-center justify-between rounded-lg border-2 bg-white/70 px-4 py-3 text-left text-sm font-semibold text-primary shadow-sm transition-all hover:-translate-y-0.5 hover:bg-white hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                          style={{ borderColor: project.color }}
+                        >
+                          <span>{project.title}</span>
+                          <ArrowRight size={16} className="shrink-0" />
+                        </button>
+                      ))}
+                    </div>
                   </DiffText>
                 </div>
               </FadeUp>
@@ -1200,6 +1287,139 @@ export default function HomePage() {
           </div>
         </section>
       </main>
+      {activeProject && (
+        <div
+          className="fixed inset-0 z-[70] flex items-center justify-center bg-primary/70 p-4 backdrop-blur-sm"
+          role="presentation"
+          onClick={(event) => {
+            if (event.target === event.currentTarget) setActiveProject(null);
+          }}
+        >
+          <section
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="project-modal-title"
+            className="max-h-[90vh] w-full max-w-5xl overflow-y-auto rounded-2xl bg-background shadow-2xl"
+          >
+            <div
+              className="flex items-start justify-between gap-6 px-6 pb-5 pt-7 sm:px-10"
+              style={{ borderBottom: `4px solid ${activeProject.color}` }}
+            >
+              <div>
+                <p
+                  className="mb-2 text-xs font-bold uppercase tracking-widest"
+                  style={{ color: activeProject.color }}
+                >
+                  {activeProject.eyebrow}
+                </p>
+                <h2 id="project-modal-title" className="text-2xl font-bold text-primary md:text-4xl">
+                  {activeProject.title}
+                </h2>
+              </div>
+              <button
+                type="button"
+                onClick={() => setActiveProject(null)}
+                aria-label="Close project details"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border text-primary transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            <div className="grid gap-8 px-6 py-7 sm:px-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+              <div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <p className="mb-2 inline-block rounded-full bg-primary px-3 py-1 text-xs font-bold text-white">
+                      Problem statement
+                    </p>
+                    <p className="font-semibold leading-relaxed text-primary">{activeProject.problem}</p>
+                  </div>
+                  <div>
+                    <p className="mb-2 inline-block rounded-full bg-primary px-3 py-1 text-xs font-bold text-white">
+                      Duration
+                    </p>
+                    <p className="font-semibold text-primary">{activeProject.duration}</p>
+                  </div>
+                </div>
+                <p className="mb-2 mt-7 inline-block rounded-full bg-primary px-3 py-1 text-xs font-bold text-white">
+                  Description
+                </p>
+                <p className="leading-relaxed text-muted-foreground">{activeProject.description}</p>
+                <div className="mt-7 grid grid-cols-2 gap-4">
+                  <div>
+                    <p className="mb-2 inline-block rounded-full bg-primary px-3 py-1 text-xs font-bold text-white">
+                      Age group
+                    </p>
+                    <p className="font-semibold text-primary">{activeProject.ageGroup}</p>
+                  </div>
+                  <div>
+                    <p className="mb-2 inline-block rounded-full bg-primary px-3 py-1 text-xs font-bold text-white">
+                      Key mentor
+                    </p>
+                    <p className="font-semibold text-primary">{activeProject.mentor}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div className="rounded-xl bg-card p-5 shadow-sm">
+                  <div className="flex items-center gap-3">
+                    <span
+                      className="rounded-full px-3 py-1 text-sm font-bold text-primary"
+                      style={{ backgroundColor: activeProject.color }}
+                    >
+                      {activeProject.id === "kitchen-garden" ? "Week 3–4" : "Week 5–6"}
+                    </span>
+                    <h3 className="font-bold text-primary">{activeProject.focus}</h3>
+                  </div>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    {activeProject.focusDescription}
+                  </p>
+                </div>
+                <div className="mt-4 grid gap-5 rounded-xl bg-card p-5 sm:grid-cols-3">
+                  <div>
+                    <h3 className="mb-3 text-sm font-bold" style={{ color: activeProject.color }}>
+                      Field concepts
+                    </h3>
+                    <ul className="space-y-2 text-sm text-primary">
+                      {activeProject.fieldConcepts.map((item) => <li key={item}>{item}</li>)}
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className="mb-3 text-sm font-bold" style={{ color: activeProject.color }}>
+                      Academic concepts
+                    </h3>
+                    <ul className="space-y-2 text-sm text-primary">
+                      {activeProject.academicConcepts.map((item) => <li key={item}>{item}</li>)}
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className="mb-3 text-sm font-bold" style={{ color: activeProject.color }}>
+                      Real-world connections
+                    </h3>
+                    <ul className="space-y-2 text-sm text-primary">
+                      {activeProject.realWorldConnections.map((item) => <li key={item}>{item}</li>)}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mx-6 mb-8 overflow-x-auto rounded-xl bg-card px-5 py-5 sm:mx-10">
+              <h3 className="mb-4 font-bold text-primary">Project phases</h3>
+              <div className="grid min-w-[620px] grid-cols-4 gap-3">
+                {activeProject.phases.map(([week, phase]) => (
+                  <div key={week} className="border-t-2 pt-3 text-center" style={{ borderColor: activeProject.color }}>
+                    <p className="font-bold text-primary">{week}</p>
+                    <p className="mt-2 text-sm text-muted-foreground">{phase}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        </div>
+      )}
     </>
   );
 }

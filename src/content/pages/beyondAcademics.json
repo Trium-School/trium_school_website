@@ -1,0 +1,124 @@
+{
+  "hero": {
+    "eyebrow": "Beyond Academics",
+    "title": "Experiences that shape the whole child",
+    "subtitle": "At Trium, students learn through making, performing, creating, and moving — building the confidence and character to thrive beyond the classroom."
+  },
+  "experiences": [
+    {
+      "id": "trium-innovators",
+      "eyebrow": "Experiences at Trium",
+      "title": "Trium Innovators - Coding, Robotics & AI",
+      "color": "#4285f4",
+      "intro": "A hands-on tech track where students design programmes, build robots, and explore how artificial intelligence actually works.",
+      "description": "Through experimentation, debugging, and iteration, they move from curious users of technology to confident creators of it.",
+      "skills": ["Coding", "Robotics", "AI & Machine Learning", "Computational Thinking", "Problem Solving", "Collaboration"]
+    },
+    {
+      "id": "arts-music-dance",
+      "eyebrow": "Experiences at Trium",
+      "title": "Arts- Music and Dance",
+      "color": "#f9a500",
+      "intro": "At Trium, music, dance and arts sit on the timetable every week — not as an extra, but as a subject every student rehearses, performs, and creates in.",
+      "description": "Through composition, choreography, and performance, children build discipline and expression that carry into everything else they do.",
+      "skills": ["Rhythm", "Expression", "Discipline", "Teamwork", "Memory", "Confidence"]
+    },
+    {
+      "id": "visual-arts",
+      "eyebrow": "Experiences at Trium",
+      "title": "Visual Arts",
+      "color": "#f04424",
+      "intro": "Visual arts sit alongside maths and language on the Trium timetable — a scheduled, assessed subject where children paint, sculpt, and design every week.",
+      "description": "Through drawing, colour, and craft, students learn to observe closely, take creative risks, and communicate ideas words alone can't carry.",
+      "skills": ["Observation", "Creativity", "Composition", "Craftsmanship", "Risk-Taking", "Self-Expression"]
+    },
+    {
+      "id": "sports",
+      "eyebrow": "Experiences at Trium",
+      "title": "Sports",
+      "color": "#4285f4",
+      "intro": "Physical education at Trium runs daily, not weekly — sport is treated as essential to how children learn to lead, compete, and recover, not a break from the classroom.",
+      "description": "Through games, fitness, and team sport, students build resilience, fair play, and the habit of pushing themselves further.",
+      "skills": ["Teamwork", "Resilience", "Fair Play", "Coordination", "Leadership", "Endurance"]
+    }
+  ],
+  "realWorldEducation": {
+    "heading": "The TRIUM “Real World Education” model",
+    "description": "The TRIUM “Real World Education” focuses on utilization of the theoretical learning into practical application. Students will spend 5 days a month as “Bagless days” where they will work on special projects designed to take their learning into the real-world. In this, they will be guided by special mentors and teachers.",
+    "projects": [
+      {
+        "id": "kitchen-garden",
+        "eyebrow": "Grade 4 · Science field project",
+        "title": "The Kitchen Garden Investigators",
+        "color": "#4285f4",
+        "problem": "Where does our food come from, and can we grow some ourselves?",
+        "duration": "6 weeks",
+        "description": "Students design and grow a kitchen garden, tracking how seeds become food. They observe what plants need to thrive, care for crops daily, and harvest ingredients for a class meal — connecting science observations to what lands on their own plate.",
+        "ageGroup": "Grade 4",
+        "mentor": "Urban Farming Educators",
+        "focus": "Growing & Observing",
+        "focusDescription": "Daily care and observation of the garden, watching how plants respond to sun, water, and soil.",
+        "fieldConcepts": ["Plant care routines", "Observation journaling", "Solving pests & wilting"],
+        "academicConcepts": ["Science: parts of a plant", "EVS: recording & measuring", "Science: what plants need"],
+        "realWorldConnections": ["Visit from a school gardener", "Comparing plots with classmates", "Talking to a local nursery owner"],
+        "phases": [["Week 1–2", "Seeds & Soil"], ["Week 3–4", "Growing & Observing"], ["Week 5", "Harvest & Cook"], ["Week 6", "Reflection & Showcase"]]
+      },
+      {
+        "id": "map-neighbourhood",
+        "eyebrow": "Grade 5 · Social studies field project",
+        "title": "Map My Neighbourhood",
+        "color": "#8edb24",
+        "problem": "How does our own neighbourhood work, and who keeps it running?",
+        "duration": "8 weeks",
+        "description": "Students survey their neighbourhood, mapping homes, shops, parks, and public services, then interview a local representative to understand how community resources and local government decisions shape the place they live.",
+        "ageGroup": "Grade 5",
+        "mentor": "Ward Councillors, Civil servants",
+        "focus": "Meet Local Government",
+        "focusDescription": "Students interview a ward councillor to learn how local services and decisions are made.",
+        "fieldConcepts": ["Interviewing skills", "Civic responsibility", "Resource mapping"],
+        "academicConcepts": ["Social Studies: local government", "Social Studies: rights & duties", "Geography: reading simple maps"],
+        "realWorldConnections": ["Q&A with a ward councillor", "Visiting a municipal ward office", "Comparing map to real location"],
+        "phases": [["Week 1–2", "Survey & Sketch"], ["Week 3–4", "Mapping Resources"], ["Week 5–6", "Meet Local Government"], ["Week 7–8", "Present & Propose"]]
+      },
+      {
+        "id": "weather-station",
+        "eyebrow": "Grade 7 · Science field project",
+        "title": "The Weather Station Project",
+        "color": "#f9a500",
+        "problem": "Can we predict tomorrow's weather better than the app?",
+        "duration": "10 weeks",
+        "description": "Students build a simple weather station, recording temperature, humidity, and wind daily, then compare their readings against official forecasts to understand how weather and climate patterns actually form.",
+        "ageGroup": "Grade 7",
+        "mentor": "Meteorologists, IMD",
+        "focus": "Daily Readings",
+        "focusDescription": "Students record temperature, humidity, and wind every day and log the results.",
+        "fieldConcepts": ["Data logging", "Careful observation", "Pattern spotting"],
+        "academicConcepts": ["Science: heat & temperature", "Science: weather vs. climate", "Mathematics: graphs & averages"],
+        "realWorldConnections": ["Comparing to IMD forecast data", "Talking to a local meteorologist", "Building a class weather graph"],
+        "phases": [["Week 1–3", "Build & Calibrate"], ["Week 4–6", "Daily Readings"], ["Week 7–8", "Compare & Analyse"], ["Week 9–10", "Present Findings"]]
+      },
+      {
+        "id": "constitution-colony",
+        "eyebrow": "Grade 8 · Social studies field project",
+        "title": "Constitution in Our Colony",
+        "color": "#f04424",
+        "problem": "How do the rights in our Constitution show up in everyday life?",
+        "duration": "8 weeks",
+        "description": "Students investigate how constitutional rights and local self-government actually function in their own colony — from a Resident Welfare Association meeting to a visit to a local court — connecting textbook civics to lived experience.",
+        "ageGroup": "Grade 8",
+        "mentor": "Lawyers, activists",
+        "focus": "Interview & Investigate",
+        "focusDescription": "Students interview a lawyer or civic official to see rights and law in practice.",
+        "fieldConcepts": ["Interviewing & note-taking", "Case analysis", "Civic participation"],
+        "academicConcepts": ["Civics: Fundamental Rights", "Civics: judiciary & rule of law", "Civics: local self-government"],
+        "realWorldConnections": ["Q&A with a practicing lawyer", "Visiting a local court session", "Attending an RWA meeting"],
+        "phases": [["Week 1–2", "Research Rights"], ["Week 3–4", "Visit & Observe"], ["Week 5–6", "Interview & Investigate"], ["Week 7–8", "Report & Present"]]
+      }
+    ]
+  },
+  "cta": {
+    "heading": "A fuller journey for every learner",
+    "body": "Give your child space to discover what they can do, make, perform, and become.",
+    "button": "Explore admissions"
+  }
+}

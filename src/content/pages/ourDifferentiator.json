@@ -1,0 +1,135 @@
+{
+  "hero": {
+    "eyebrow": "Our differentiators",
+    "title": "What makes Trium different",
+    "subtitle": "A progressive CBSE school where academic excellence, real-world learning, and the whole child grow together."
+  },
+  "differentiators": [
+    {
+      "id": "academic-excellence",
+      "title": "Academic Excellence And Beyond – Mind, Body and Soul",
+      "body": [
+        "The Trium School is a progressive CBSE school aligned with the NEP where students learn by doing, going beyond just textbooks and tests. Students at Trium strive towards academic excellence, not just for exams but for excelling in real life. Through lab work, field trips and projects, every lesson is brought to life.",
+        "Sports and Extracurriculars are thoughtfully designed and integrated into everyday life at school to ensure all-rounded development for every child."
+      ],
+      "highlights": ["CBSE curriculum", "Deep Learning"]
+    },
+    {
+      "id": "world-class-teachers",
+      "title": "World class teachers",
+      "body": [
+        "Trium recruits the best teachers – period! We understand that the most important relation in a school is between the student and the teacher and we ensure that our teachers are the most qualified and well trained in the business. They undergo continuous professional development and given the best of the resources to ensure best in-class output."
+      ],
+      "highlights": ["Best teachers", "Top class training"]
+    },
+    {
+      "id": "trium-orator",
+      "title": "Trium Orator",
+      "body": [
+        "The Trium Orator is a specially developed program run by experts to ensure every Trium student develops into a confident speaker. Through multiple curated opportunities and ever expanding stage, Trium students become confident and vocal."
+      ],
+      "highlights": ["Led by expert practitioners", "Confidence development"]
+    },
+    {
+      "id": "trium-innovator",
+      "title": "Trium Innovator",
+      "body": [
+        "The Trium Innovator is a design program aligned with best tech Universities of the India to give our students a strong grounding in the STEM (Science-Technology-Engineering-Maths) disciplines with the added edge of AI. It is designed to give the students edge in today’s AI world and help them be free and innovative thinkers who shape the world around them."
+      ],
+      "highlights": ["AI and technology forward", "Innovation excellence"]
+    },
+    {
+      "id": "real-world-education",
+      "title": "Trium “Real-World Education” model",
+      "body": [
+        "At Trium school, every student spends 5 days a month working on a real-life project aligned to their course-work learning to put their academic education to use. These are led by dedicated project-leads and are sometimes helped by external mentors."
+      ],
+      "highlights": ["“Real-world” education projects", "Mentoring by experts"]
+    }
+  ],
+  "stages": [
+    {
+      "id": "early-years",
+      "eyebrow": "Early Years · Grades Pre-Nursery to KG2",
+      "title": "The Early Years",
+      "intro": "Play-based learning that sparks curiosity, builds language, and lays the foundation for a lifelong love of discovery.",
+      "subjects": [
+        ["Literacy", "Storytelling, phonics, rhymes, and language-rich play that build confident early communicators."],
+        ["Numeracy", "Hands-on mathematical exploration through sorting, counting, patterns, and everyday problem-solving."],
+        ["Sensory Play", "Open-ended materials and experiences that help children investigate, create, and understand the world."],
+        ["Music & Movement", "Songs, rhythm, dance, and daily movement that develop coordination, expression, and joy."],
+        ["Outdoor Exploration", "Time outdoors to build physical confidence, curiosity, and a strong connection with nature."],
+        ["Mindful Wellbeing", "Gratitude, calm-down rituals, and caring relationships that nurture the whole child."]
+      ]
+    },
+    {
+      "id": "primary-years",
+      "eyebrow": "Primary Years · Grades 1–5",
+      "title": "The Primary Years",
+      "intro": "A holistic, inquiry-driven programme that weaves together academics, wellbeing, the arts and physical education — helping every child grow into a confident, caring learner.",
+      "subjects": [
+        ["Language", "Building oral, written, and reading skills as the foundation for every subject. Based on NEP, we will be having English, Hindi Marathi. In addition, a foreign language club will be giving children exposure to a foreign language as well."],
+        ["Mathematics", "Numerical fluency through geometry, measurement, and confident mental arithmetic."],
+        ["Social Studies", "Inquiry-based units of study that connect the study of social studies to the real life of the students."],
+        ["Sciences", "Sciences at Trium are not just conceptual but focus on the concepts of scientific enquiry and thinking to allow scientific concepts to come to children with ease and without any rote learning."],
+        ["Arts", "Arts – whether Visual arts, Music or Dance are not an afterthought at Trium. They are integral parts of the student’s day at school with a well-designed curriculum and rigor."],
+        ["Physical & Personal Education", "Coordination, teamwork, and confidence built through football, basketball, cricket and a variety of sports."]
+      ]
+    },
+    {
+      "id": "middle-years",
+      "eyebrow": "Middle Years · Grades 6–10",
+      "title": "The Middle Years",
+      "intro": "A rigorous, balanced curriculum that connects disciplines and sparks bold thinking — building the skills, resilience, and self-awareness students carry into senior school.",
+      "subjects": [
+        ["Language & Literature", "Reading, writing, and critical thinking through diverse texts and discussion."],
+        ["Mathematics", "Logical reasoning and problem-solving through applied learning."],
+        ["Social Studies", "History, geography, and society to understand our place in the world."],
+        ["Science", "Scientific concepts through inquiry, experimentation, and real-world connections."],
+        ["Second Language", "Proficiency in regional and world languages such as Hindi/Marathi with an added focus on foreign language."],
+        ["Sports", "Curiosity and discovery through movement, fitness, and open-ended inquiry."],
+        ["Arts", "Creative thinking and expression through visual and performing arts."],
+        ["Design", "Creativity and problem-solving to plan and create purposeful solutions."]
+      ]
+    }
+  ],
+  "daily_rhythm": {
+    "title": "A Day in the Life at Trium",
+    "eyebrow": "Early Years · Nursery to KG2",
+    "items": [
+      ["Circle Time", "Songs, Greetings, Gratitude Circle", "neutral"],
+      ["Outdoor Play & Gross Motor Activities", "", "green"],
+      ["Stretch & Snack", "", "coral"],
+      ["Inquiry & Exploration Play", "", "neutral"],
+      ["Literacy Play", "Storytelling, Rhymes, Phonics", "neutral"],
+      ["Lunch & Laughter", "", "yellow"],
+      ["Numeracy Play", "＋ × ÷ =", "neutral"],
+      ["Music / Movement / Dance", "", "purple"],
+      ["Calm Down / Mindful Rest", "Z Z Z", "navy"],
+      ["Creative Arts & Maker’s Space", "Drawing / Painting / Craft", "neutral"],
+      ["Closing Circle & Gratitude Snacks", "", "lavender"]
+    ]
+  },
+  "weekly_rhythm": {
+    "title": "A Week at Trium",
+    "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "rows": [
+      ["8:00–8:20", "Circle Time", "Circle Time", "Circle Time", "Circle Time", "Circle Time"],
+      ["8:20–8:55", "Language & Literature", "Mathematics", "Science", "Social Studies", "Sports"],
+      ["8:55–9:30", "Mathematics", "Science", "Social Studies", "Sports", "Music, Dance & Arts"],
+      ["9:30–9:55", "Stretch, Snack & Outdoor Play", "Stretch, Snack & Outdoor Play", "Stretch, Snack & Outdoor Play", "Stretch, Snack & Outdoor Play", "Stretch, Snack & Outdoor Play"],
+      ["9:55–10:30", "Science", "Social Studies", "Sports", "Music, Dance & Arts", "Orators"],
+      ["10:30–11:05", "Social Studies", "Sports", "Music, Dance & Arts", "Real World Project", "Language & Literature"],
+      ["11:05–11:40", "Sports", "Music, Dance & Arts", "Real World Project", "Language & Literature", "Mathematics"],
+      ["11:40–12:15", "Music, Dance & Arts", "Real World Project", "Language & Literature", "Mathematics", "Science"],
+      ["12:15–1:25", "Lunch & Laughter", "Lunch & Laughter", "Lunch & Laughter", "Lunch & Laughter", "Lunch & Laughter"],
+      ["1:25–2:00", "Real World Project", "Language & Literature", "Mathematics", "Science", "Social Studies"]
+    ],
+    "project": ["5 days a month, students step outside the subject rotation to tackle a hands-on problem drawn from their own community.", "Research", "Prototype", "Present"]
+  },
+  "cta": {
+    "heading": "See what makes Trium different",
+    "body": "Discover a school where learning is designed for life.",
+    "button": "Explore admissions"
+  }
+}
