@@ -67,9 +67,19 @@ export default function Header() {
       action: () => goToPage("/about"),
     },
     {
+      id: "our-differentiators",
+      label: "Our Differentiators",
+      action: () => goToPage("/our-differentiators"),
+    },
+    {
       id: "academics",
       label: "Academics",
       action: () => goToPage("/academics"),
+    },
+    {
+      id: "beyond-academics",
+      label: "Beyond Academics",
+      action: () => goToPage("/beyond-academics"),
     },
     {
       id: "admissions",

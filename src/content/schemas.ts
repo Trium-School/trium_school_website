@@ -191,6 +191,86 @@ export const schemas = {
     })
   }),
   pages: {
+    ourDifferentiator: z.object({
+      "hero": z.object({
+        "eyebrow": z.string(),
+        "title": z.string(),
+        "subtitle": z.string()
+      }),
+      "differentiators": z.array(z.object({
+        "id": z.string(),
+        "title": z.string(),
+        "body": z.array(z.string()),
+        "highlights": z.array(z.string())
+      })),
+      "stages": z.array(z.object({
+        "id": z.string(),
+        "eyebrow": z.string(),
+        "grades": z.string().optional(),
+        "title": z.string(),
+        "intro": z.string().optional(),
+        "body": z.array(z.string()).optional(),
+        "subjects": z.array(z.tuple([z.string(), z.string()])).optional()
+      })),
+      "daily_rhythm": z.object({
+        "title": z.string(),
+        "eyebrow": z.string(),
+        "items": z.array(z.tuple([z.string(), z.string(), z.string()]))
+      }),
+      "weekly_rhythm": z.object({
+        "title": z.string(),
+        "days": z.array(z.string()),
+        "rows": z.array(z.array(z.string())),
+        "project": z.array(z.string())
+      }),
+      "cta": z.object({
+        "heading": z.string(),
+        "body": z.string(),
+        "button": z.string()
+      })
+    }),
+    beyondAcademics: z.object({
+      "hero": z.object({
+        "eyebrow": z.string(),
+        "title": z.string(),
+        "subtitle": z.string()
+      }),
+      "experiences": z.array(z.object({
+        "id": z.string(),
+        "eyebrow": z.string(),
+        "title": z.string(),
+        "color": z.string(),
+        "intro": z.string(),
+        "description": z.string(),
+        "skills": z.array(z.string())
+      })),
+      "realWorldEducation": z.object({
+        "heading": z.string(),
+        "description": z.string(),
+        "projects": z.array(z.object({
+          "id": z.string(),
+          "eyebrow": z.string(),
+          "title": z.string(),
+          "color": z.string(),
+          "problem": z.string(),
+          "duration": z.string(),
+          "description": z.string(),
+          "ageGroup": z.string(),
+          "mentor": z.string(),
+          "focus": z.string(),
+          "focusDescription": z.string(),
+          "fieldConcepts": z.array(z.string()),
+          "academicConcepts": z.array(z.string()),
+          "realWorldConnections": z.array(z.string()),
+          "phases": z.array(z.tuple([z.string(), z.string()]))
+        }))
+      }),
+      "cta": z.object({
+        "heading": z.string(),
+        "body": z.string(),
+        "button": z.string()
+      })
+    }),
     careers: z.object({
       "hero": z.object({
         "eyebrow": z.string(),
