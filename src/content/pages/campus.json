@@ -41,7 +41,7 @@
       "id": "fac-5",
       "name": "Sports Grounds",
       "description": "Expansive outdoor grounds for cricket, football, athletics, and more — supporting physical fitness and team spirit.",
-      "image_slot": "/airo-assets/images/pages/home/campus-sports",
+      "image_slot": "media/Sports.png",
       "tag": "Sports"
     },
     {
@@ -52,6 +52,54 @@
       "tag": "Arts"
     }
   ],
+
+  "gallery": {
+    "heading": "Explore Our Campus",
+    "subtitle": "Take a closer look at the spaces that inspire learning.",
+    "images": [
+      {
+        "src": "/media/website-media/library_design_01.jpg",
+        "alt": "School Library Design 01"
+      },
+      {
+        "src": "/media/website-media/library_design_02.jpg",
+        "alt": "School Library Design 02"
+      },
+      {
+        "src": "/media/website-media/library_design_03.jpg",
+        "alt": "School Library Design 03"
+      },
+      {
+        "src": "/media/website-media/library_design_04.jpg",
+        "alt": "School Library Design 04"
+      },
+      {
+        "src": "/media/website-media/library_design_05.jpg",
+        "alt": "School Library Design 05"
+      },
+      {
+        "src": "/media/website-media/library_design_06.jpg",
+        "alt": "School Library Design 06"
+      },
+      {
+        "src": "/media/website-media/library_design_07.jpg",
+        "alt": "School Library Design 07"
+      },
+      {
+        "src": "/media/website-media/library_design_08.jpg",
+        "alt": "School Library Design 08"
+      },
+      {
+        "src": "/media/website-media/library_design_09.jpg",
+        "alt": "School Library Design 09"
+      },
+      {
+        "src": "/media/website-media/library_design_10.jpg",
+        "alt": "School Library Design 10"
+      }
+    ]
+  },
+
   "cta": {
     "heading": "See it for yourself",
     "body": "Schedule a campus visit and experience The Trium School in person. \nWe'd love to show you around.",

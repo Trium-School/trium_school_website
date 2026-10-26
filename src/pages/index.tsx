@@ -1035,17 +1035,19 @@ export default function HomePage() {
                   >
                     <div className="relative h-48 overflow-hidden">
                       <img
-                        src={
-                          i === 0
-                            ? "media/Joyful Toddler Reading in a Sunny Classroom.png"
-                            : "media/Trium kids.png"
-                        }
-                        alt={prog.name}
-                        className="w-full h-full object-cover"
-                        loading="lazy"
-                        width={600}
-                        height={192}
-                      />
+  src={
+    i === 0
+      ? "media/Joyful Toddler Reading in a Sunny Classroom.png"
+      : i === 1
+        ? "media/Trium kids.png"
+        : "media/Secondary.png"
+  }
+  alt={prog.name}
+  className="w-full h-full object-cover"
+  loading="lazy"
+  width={600}
+  height={192}
+/>
 
                       <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                       <span
