@@ -33,15 +33,25 @@ function FadeUp({
     </motion.div>;
 }
 const pillarIcons = [BookOpen, Users, Lightbulb, BarChart2];
-const programmeColors = [{
-  bg: 'bg-primary',
-  text: 'text-white',
-  badge: 'bg-accent text-white'
-}, {
-  bg: 'bg-accent',
-  text: 'text-white',
-  badge: 'bg-primary text-white'
-}];
+
+const programmeColors = [
+  {
+    bg: "bg-[#51aafd]", // Blue - Early Years
+    text: "text-white",
+    badge: "bg-white text-[#51aafd]",
+  },
+  {
+    bg: "bg-[#69bb44]", // Green - Primary School
+    text: "text-white",
+    badge: "bg-white text-[#69bb44]",
+  },
+  {
+    bg: "bg-[#fe584a]", // Red - Secondary School
+    text: "text-white",
+    badge: "bg-white text-[#fe584a]",
+  },
+];
+
 export default function AcademicsPage() {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState(0);
@@ -222,11 +232,11 @@ export default function AcademicsPage() {
                 <FadeUp>
                   <div className="bg-background rounded-3xl overflow-hidden border border-border shadow-sm">
                     <div
-                      className={`${programmeColors[i].bg} px-8 py-6 flex flex-wrap items-center justify-between gap-4`}
+                      className={`${programmeColors[i % programmeColors.length].bg} px-8 py-6 flex flex-wrap items-center justify-between gap-4`}
                     >
                       <div>
                         <h3
-                          className={`text-2xl font-bold ${programmeColors[i].text}`}
+                          className={`text-2xl font-bold ${programmeColors[i % programmeColors.length].text}`}
                           style={{
                             fontFamily: "var(--font-heading)",
                           }}
@@ -234,7 +244,7 @@ export default function AcademicsPage() {
                           {prog.name}
                         </h3>
                         <p
-                          className={`${programmeColors[i].text} opacity-80 text-sm mt-1`}
+                          className={`${programmeColors[i % programmeColors.length].text} opacity-80 text-sm mt-1`}
                         >
                           {prog.grades} · {prog.age_range}
                         </p>

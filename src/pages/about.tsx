@@ -1,52 +1,95 @@
-import React from 'react';
-import { Helmet } from '@dr.pogodin/react-helmet';
-import { motion } from 'motion/react';
+import React, { useEffect, useState } from "react";
+import { Helmet } from "@dr.pogodin/react-helmet";
+import { motion } from "motion/react";
 import { useNavigate } from "react-router";
-import { ArrowRight } from 'lucide-react';
-import { about, home } from 'virtual:content';
-const site = 'https://triumschool.in';
+import { ArrowRight, X } from "lucide-react";
+import { about, home } from "virtual:content";
+const site = "https://triumschool.in";
 const url = `${site}/about`;
 function FadeUp({
   children,
   delay = 0,
-  className = ''
+  className = "",
 }: {
   children: React.ReactNode;
   delay?: number;
   className?: string;
 }) {
-  return <motion.div initial={{
-    opacity: 0,
-    y: 24
-  }} whileInView={{
-    opacity: 1,
-    y: 0
-  }} viewport={{
-    once: true,
-    margin: '-60px'
-  }} transition={{
-    duration: 0.6,
-    delay,
-    ease: 'easeOut' as const
-  }} className={className}>
+  return (
+    <motion.div
+      initial={{
+        opacity: 0,
+        y: 24,
+      }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+      viewport={{
+        once: true,
+        margin: "-60px",
+      }}
+      transition={{
+        duration: 0.6,
+        delay,
+        ease: "easeOut" as const,
+      }}
+      className={className}
+    >
       {children}
-    </motion.div>;
+    </motion.div>
+  );
 }
-const valueIcons = ['💡', '🤝', '⭐', '❤️', '🚀', '🌱'];
+const valueIcons = ["💡", "🤝", "⭐", "❤️", "🚀", "🌱"];
+// Content adapted from the supplied Dr. Anjali Srivaastava pen profile.
+const principalProfile = {
+  name: "Dr. Anjali Srivaastava",
+  role: "Principal",
+  image: "/media/principal.png",
+  quote:
+    "Education is not merely the transfer of knowledge; it is the transformation of lives. Every child carries limitless potential, every teacher is a catalyst for change, and every institution can become a space where empathy, innovation, and excellence thrive together.",
+  paragraphs: [
+    "Guided by this belief, Dr. Anjali Srivaastava has dedicated more than two decades to redefining education through empathy, leadership, and strategic innovation. An accomplished academician, educationist, mentor, and institution builder, she brings over 20 years of experience across the educational spectrum—from preschool to postgraduate education.",
+    "Dr. Srivaastava holds a Ph.D. in English Literature and conducts multidisciplinary research on the social dimensions of Indian and Western societies. She has successfully guided doctoral scholars and contributed extensively to academic discourse through presentations at numerous national and international conferences on emerging pedagogies, paradigm shifts in education, English language teaching, literacy development, and future-ready learning systems.",
+    "Committed to lifelong learning and strategic leadership, she is currently pursuing an Advanced Strategic Management Programme from the Indian Institute of Technology (IIT) Delhi, further strengthening her expertise in educational transformation, organizational leadership, and sustainable growth.",
+    "Her distinguished professional journey includes leadership and academic roles in reputed institutions such as Allenhouse Institute of Engineering and Technology, Mangalayatan University, NIMS International School, Archies Education Centre, and Central Academy Schools at Prayagraj, Barabanki, and Udaipur, as well as Founder Principal at Radcliffe School, Pune, Maharashtra. Across these roles, she has served as Assistant Professor, Assistant Training & Placement Officer, Career Development Professional, Vice Principal, Principal, Head Principal, and Educational Leader, shaping institutions through visionary leadership and people-centric practices.",
+    "Beyond institutional leadership, Dr. Srivaastava is a Certified Career Counselor, Parent Coach, Adolescent Counselor, Teacher Trainer, and Educational Strategist. She has guided and mentored more than 5,000 students, empowering young minds to discover purpose, build confidence, and make informed career choices. Her teacher training initiatives have impacted educators across diverse settings, focusing on classroom management, emotional intelligence, self-development, leadership, and holistic education.",
+    "Dr. Srivaastava is also associated with several professional bodies and social initiatives. As an Advisory Council Member of the Centre of Education Growth and Research, she contributes to policy discussions, educational advocacy, and the advancement of quality learning ecosystems.",
+    "As an author, she has penned Empathy in Action and Burnout to Balance, championing compassionate leadership, educator well-being, and human-centered learning. Her articles featured in Quarterly CBSE Magazine and NIY Times reflect her vision of education that nurtures excellence, resilience, and lifelong growth.",
+    "An avid reader and admirer of music, dance, art, and nature, Dr. Srivaastava leads with empathy, integrity, continuous learning, and service. Her philosophy is simple: “When education is guided by empathy and strengthened by strategy, it creates empowered individuals, thriving institutions, and a better world.”",
+    "Through education, mentoring, and institution-building, she continues to inspire compassionate, future-ready, and globally connected learning.",
+  ],
+};
 export default function AboutPage() {
   const navigate = useNavigate();
+  const [principalModalOpen, setPrincipalModalOpen] = useState(false);
+
+  // Close on Escape and prevent the page from scrolling behind the modal.
+  useEffect(() => {
+    if (!principalModalOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setPrincipalModalOpen(false);
+    };
+    window.addEventListener("keydown", handleEscape);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleEscape);
+    };
+  }, [principalModalOpen]);
   const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'AboutPage',
-    '@id': `${url}#webpage`,
-    name: 'About Us — The Trium School',
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "@id": `${url}#webpage`,
+    name: "About Us — The Trium School",
     url,
     isPartOf: {
-      '@id': `${site}/#website`
+      "@id": `${site}/#website`,
     },
     about: {
-      '@id': `${site}/#organization`
-    }
+      "@id": `${site}/#organization`,
+    },
   };
   return (
     <>
@@ -295,6 +338,119 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
+
+        {/* ── Principal's Profile ───────────────────────────────────────── */}
+        <section
+          id="principal-profile"
+          className="py-20 md:py-24 bg-background"
+        >
+          <div className="max-w-6xl mx-auto px-4 sm:px-6">
+            <FadeUp>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+                {/* Left: principal portrait */}
+                <div className="relative max-w-lg w-full mx-auto lg:mx-0">
+                  <div
+                    className="absolute -bottom-4 -right-4 w-full h-full rounded-3xl bg-[#69bb44]/20"
+                    aria-hidden="true"
+                  />
+                  <img
+                    src={principalProfile.image}
+                    alt={`${principalProfile.name}, Principal of The Trium School`}
+                    className="relative w-full aspect-[4/5] object-cover object-top rounded-3xl shadow-xl"
+                    loading="lazy"
+                    width={600}
+                    height={750}
+                  />
+                </div>
+
+                {/* Right: name and six-line introduction */}
+                <div>
+                  <p className="text-[#69bb44] text-sm font-semibold uppercase tracking-widest mb-3">
+                    Meet Our Principal
+                  </p>
+                  <h2
+                    className="text-3xl md:text-4xl font-bold text-primary mb-2"
+                    style={{ fontFamily: "var(--font-heading)" }}
+                  >
+                    {principalProfile.name}
+                  </h2>
+                  <p className="text-muted-foreground font-medium mb-6">
+                    {principalProfile.role}
+                  </p>
+                  <p
+                    className="text-muted-foreground text-base md:text-lg leading-relaxed"
+                    style={{
+                      display: "-webkit-box",
+                      WebkitBoxOrient: "vertical",
+                      WebkitLineClamp: 6,
+                      overflow: "hidden",
+                    }}
+                  >
+                    {principalProfile.paragraphs.join(" ")}
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => setPrincipalModalOpen(true)}
+                    aria-haspopup="dialog"
+                    className="mt-7 inline-flex items-center gap-2 bg-[#69bb44] hover:bg-[#5ba638] text-white font-semibold px-7 py-3 rounded-full shadow-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#69bb44]"
+                  >
+                    Read More <ArrowRight size={18} />
+                  </button>
+                </div>
+              </div>
+            </FadeUp>
+          </div>
+        </section>
+
+        {/* Full principal profile in a scrollable modal */}
+        {principalModalOpen && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
+            <button
+              type="button"
+              aria-label="Close principal profile"
+              className="absolute inset-0 w-full h-full bg-black/70 cursor-default"
+              onClick={() => setPrincipalModalOpen(false)}
+            />
+            <div
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="principal-modal-title"
+              className="relative z-10 w-full max-w-3xl max-h-[90vh] overflow-hidden rounded-3xl bg-background shadow-2xl flex flex-col"
+            >
+              <div className="flex items-center justify-between gap-4 px-6 sm:px-8 py-5 border-b border-border shrink-0">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-widest text-[#69bb44]">
+                    Principal's Profile
+                  </p>
+                  <h2
+                    id="principal-modal-title"
+                    className="text-xl sm:text-2xl font-bold text-primary"
+                    style={{ fontFamily: "var(--font-heading)" }}
+                  >
+                    {principalProfile.name}
+                  </h2>
+                </div>
+                <button
+                  type="button"
+                  autoFocus
+                  aria-label="Close profile"
+                  onClick={() => setPrincipalModalOpen(false)}
+                  className="shrink-0 flex items-center justify-center w-10 h-10 rounded-full bg-muted hover:bg-border text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#69bb44]"
+                >
+                  <X size={20} />
+                </button>
+              </div>
+              <div className="overflow-y-auto px-6 sm:px-8 py-6 space-y-5 text-muted-foreground leading-relaxed">
+                <blockquote className="border-l-4 border-[#69bb44] pl-4 text-foreground italic font-medium">
+                  “{principalProfile.quote}”
+                </blockquote>
+                {principalProfile.paragraphs.map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* ── CTA ──────────────────────────────────────────────────────── */}
         <section className="py-20 bg-[#69bb44]">

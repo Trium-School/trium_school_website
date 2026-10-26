@@ -184,6 +184,14 @@ export const schemas = {
       "image_slot": z.string(),
       "tag": z.string()
     })),
+    "gallery": z.object({
+      "heading": z.string(),
+      "subtitle": z.string(),
+      "images": z.array(z.object({
+        "src": z.string(),
+        "alt": z.string(),
+      }))
+    }),
     "cta": z.object({
       "heading": z.string(),
       "body": z.string(),
