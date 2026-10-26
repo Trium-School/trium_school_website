@@ -84,8 +84,16 @@ export default function Footer() {
                   label: "About Us",
                 },
                 {
+                  href: "/our-differentiators",
+                  label: "Our Differentiators",
+                },
+                {
                   href: "/academics",
                   label: "Academics",
+                },
+                {
+                  href: "/beyond-academics",
+                  label: "Beyond Academics",
                 },
                 {
                   href: "/admissions",
