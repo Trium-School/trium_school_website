@@ -45,7 +45,7 @@ const valueIcons = ["💡", "🤝", "⭐", "❤️", "🚀", "🌱"];
 const principalProfile = {
   name: "Dr. Anjali Srivaastava",
   role: "Principal",
-  image: "/media/principal.png",
+  image: "/media/Principal.png",
   quote:
     "Education is not merely the transfer of knowledge; it is the transformation of lives. Every child carries limitless potential, every teacher is a catalyst for change, and every institution can become a space where empathy, innovation, and excellence thrive together.",
   paragraphs: [
