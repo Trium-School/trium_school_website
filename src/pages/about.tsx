@@ -374,9 +374,9 @@ export default function AboutPage() {
                   >
                     {principalProfile.name}
                   </h2>
-                  <p className="text-muted-foreground font-medium mb-6">
+                  {/* <p className="text-muted-foreground font-medium mb-6">
                     {principalProfile.role}
-                  </p>
+                  </p> */}
                   <p
                     className="text-muted-foreground text-base md:text-lg leading-relaxed"
                     style={{

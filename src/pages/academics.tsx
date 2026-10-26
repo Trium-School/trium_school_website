@@ -355,7 +355,7 @@ export default function AcademicsPage() {
             <FadeUp delay={0.2} className="mt-12">
               <div className="rounded-3xl overflow-hidden h-56 md:h-72 relative">
                 <img
-                  src="media/Trium Sports.png"
+                  src="media/Sports.png"
                   alt="Students playing sports at The Trium School"
                   className="w-full h-full object-cover object-bottom opacity-98"
                   loading="lazy"
