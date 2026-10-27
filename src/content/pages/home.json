@@ -28,7 +28,7 @@
         "number": "02",
         "title": "AI Powered Teachers",
         "subtitle": "Mentors Who Inspire",
-        "description": "Exceptional educators, continuous training and personal attention to help every child learn with confidence. They bring global perspectives into every classroom, building deep, trust-based relationships with students.",
+        "description": "Exceptional educators, continuous training and personal attention to help every child learn with confidence. They bring global perspectives into every classroom, building deep, trust-based relationships with students. Our teachers are supported by our AI backbone to help give personal attention to every child.",
         "highlights": [
           "Globally trained educators",
           "Low student-teacher ratio",
@@ -113,14 +113,14 @@
         "name": "Primary School",
         "grades": "Grades 1–5",
         "highlight": "Ages 6–11",
-        "description": "Core academics blended with arts, sports, and values education to develop well-rounded young learners."
+        "description": "Core academics blended with arts, sports, and values education to develop well-rounded young learners. At Trium we follow a progressive CBSE curriculum aligned to NEP."
       },
       {
         "id": "prog-3",
         "name": "Secondary School",
         "grades": "Grades 6–10",
         "highlight": "Ages 11–16",
-        "description": "A rigorous, balanced curriculum that connects disciplines and sparks bold thinking — building the skills, resilience, and self-awareness students carry into senior school."
+        "description": "A rigorous, balanced curriculum that connects disciplines and sparks bold thinking — building the skills, resilience, and self-awareness students carry into senior school. At Trium we follow a progressive CBSE curriculum aligned to NEP."
       }
     ]
   },
@@ -225,7 +225,7 @@
   },
   "admissions": {
     "heading": "Begin your child’s academic journey",
-    "subheading": "Seats for 2027–28 are filling fast. Take the first step towards a transformative education — applications are open now.",
+    "subheading": "Take the first step towards a transformative education — applications are open now.",
     "cta": "Start Your Application",
     "steps": [
       {

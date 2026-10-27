@@ -44,6 +44,7 @@
       "id": "pr1",
       "name": "Early Years",
       "grades": "Nursery – KG",
+      "boards": "Nursery – KG",
       "age_range": "Ages 3–6",
       "description": "A play-based, nurturing environment that builds foundational literacy, numeracy, and social skills through exploration and structured play.",
       "highlights": [
@@ -69,8 +70,9 @@
       "id": "pr2",
       "name": "Primary School",
       "grades": "Grade 1 – Grade 5",
+      "boards": "CBSE",
       "age_range": "Ages 6–11",
-      "description": "A rigorous yet joyful programme that builds strong academic foundations across all subjects while developing critical thinking and collaboration skills.",
+      "description": "At Trium we follow a progressive CBSE curriculum aligned to NEP. A rigorous yet joyful programme that builds strong academic foundations across all subjects while developing critical thinking and collaboration skills.",
       "highlights": [
         {
           "id": "pr2h1",
@@ -94,8 +96,9 @@
       "id": "pr3",
       "name": "Secondary School",
       "grades": "Grade 6 – Grade 10",
+      "boards": "CBSE",
       "age_range": "Ages 11–16",
-      "description": "A rigorous, balanced curriculum that connects disciplines and sparks bold thinking — building the skills, resilience, and self-awareness students carry into senior school.",
+      "description": "At Trium we follow a progressive CBSE curriculum aligned to NEP. A rigorous, balanced curriculum that connects disciplines and sparks bold thinking — building the skills, resilience, and self-awareness students carry into senior school.",
       "highlights": [
         {
           "id": "pr3h1",

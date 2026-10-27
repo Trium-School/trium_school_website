@@ -252,7 +252,7 @@ export default function AcademicsPage() {
                       <span
                         className={`${programmeColors[i].badge} text-xs font-bold px-4 py-1.5 rounded-full`}
                       >
-                        {prog.grades}
+                        {prog.boards}
                       </span>
                     </div>
                     <div className="p-8">

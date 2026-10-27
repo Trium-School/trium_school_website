@@ -1,21 +1,37 @@
-import React, { useState } from 'react';
-import { Helmet } from '@dr.pogodin/react-helmet';
-import { motion } from 'motion/react';
-import { ChevronDown, ChevronUp, CheckCircle2, ArrowRight, Phone, Mail, MapPin } from 'lucide-react';
-import { admissions } from 'virtual:content';
+import React, { useState } from "react";
+import { Helmet } from "@dr.pogodin/react-helmet";
+import { motion } from "motion/react";
+import {
+  ChevronDown,
+  ChevronUp,
+  CheckCircle2,
+  ArrowRight,
+  Phone,
+  Mail,
+  MapPin,
+} from "lucide-react";
+import { admissions } from "virtual:content";
 
-function FadeUp({ children, delay = 0, className = '' }: {children: React.ReactNode;delay?: number;className?: string;}) {
+function FadeUp({
+  children,
+  delay = 0,
+  className = "",
+}: {
+  children: React.ReactNode;
+  delay?: number;
+  className?: string;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.6, delay, ease: 'easeOut' as const }}
-      className={className}>
-      
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.6, delay, ease: "easeOut" as const }}
+      className={className}
+    >
       {children}
-    </motion.div>);
-
+    </motion.div>
+  );
 }
 
 type FormData = {
@@ -28,72 +44,90 @@ type FormData = {
   source: string;
 };
 
-type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
+type FormStatus = "idle" | "submitting" | "success" | "error";
 
 export default function AdmissionsPage() {
-  const site = 'https://triumschool.in';
+  const site = "https://triumschool.in";
   const url = `${site}/admissions`;
-  const title = 'Admissions 2026–27 — The Trium School';
-  const description = 'Apply for admissions at The Trium School, Nashik. Accepting applications for 2026–27 across Early Years (Nursery–KG) and Primary School (Grades 1–5).';
+  const title = "Admissions 2026–27 — The Trium School";
+  const description =
+    "Apply for admissions at The Trium School, Nashik. Accepting applications for 2026–27 across Early Years (Nursery–KG) and Primary School (Grades 1–5).";
 
   const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    '@id': `${url}#webpage`,
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${url}#webpage`,
     name: title,
     url,
-    isPartOf: { '@id': `${site}/#website` },
-    about: { '@id': `${site}/#organization` },
+    isPartOf: { "@id": `${site}/#website` },
+    about: { "@id": `${site}/#organization` },
     mainEntity: {
-      '@type': 'EducationalOrganization',
-      '@id': `${site}/#organization`,
-      name: 'The Trium School',
+      "@type": "EducationalOrganization",
+      "@id": `${site}/#organization`,
+      name: "The Trium School",
       url: site,
-      description: 'Admissions open for 2026–27 across Early Years (Nursery–KG) and Primary School (Grades 1–5) at The Trium School, Nashik.'
-    }
+      description:
+        "Admissions open for 2026–27 across Early Years (Nursery–KG) and Primary School (Grades 1–5) at The Trium School, Nashik.",
+    },
   };
 
   const [openFaq, setOpenFaq] = useState<string | null>(null);
   const [formData, setFormData] = useState<FormData>({
-    parentName: '',
-    childName: '',
-    childAge: '',
-    grade: '',
-    phone: '',
-    email: '',
-    source: ''
+    parentName: "",
+    childName: "",
+    childAge: "",
+    grade: "",
+    phone: "",
+    email: "",
+    source: "",
   });
-  const [status, setStatus] = useState<FormStatus>('idle');
-  const [errorMsg, setErrorMsg] = useState('');
+  const [status, setStatus] = useState<FormStatus>("idle");
+  const [errorMsg, setErrorMsg] = useState("");
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
+  function handleChange(
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
+  ) {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setStatus('submitting');
-    setErrorMsg('');
+    setStatus("submitting");
+    setErrorMsg("");
     try {
-      const res = await fetch('/api/admissions', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+      const res = await fetch("/api/admissions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       });
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
-        throw new Error(data.message || 'Submission failed');
+        throw new Error(data.message || "Submission failed");
       }
-      setStatus('success');
-      setFormData({ parentName: '', childName: '', childAge: '', grade: '', phone: '', email: '', source: '' });
+      setStatus("success");
+      setFormData({
+        parentName: "",
+        childName: "",
+        childAge: "",
+        grade: "",
+        phone: "",
+        email: "",
+        source: "",
+      });
     } catch (err) {
-      setStatus('error');
-      setErrorMsg(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
+      setStatus("error");
+      setErrorMsg(
+        err instanceof Error
+          ? err.message
+          : "Something went wrong. Please try again.",
+      );
     }
   }
 
   const inputClass =
-  'w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors';
+    "w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors";
 
   return (
     <>
@@ -229,7 +263,7 @@ export default function AdmissionsPage() {
                           Call Us
                         </p>
                         <p className="text-foreground font-semibold text-sm">
-                          +91 7588804351
+                          1800-889-8407
                         </p>
                       </div>
                     </div>
@@ -242,7 +276,7 @@ export default function AdmissionsPage() {
                           Email Us
                         </p>
                         <p className="text-foreground font-semibold text-sm">
-                          connect@triumschool.in
+                          admissions@triumschool.in
                         </p>
                       </div>
                     </div>
@@ -574,5 +608,4 @@ export default function AdmissionsPage() {
       </main>
     </>
   );
-
 }

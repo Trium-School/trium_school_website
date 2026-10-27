@@ -205,23 +205,21 @@ function GallerySlider({ images }: { images: GalleryImage[] }) {
                        lg:w-[calc((100%-3rem)/3)]"
           >
             <div className="relative aspect-[4/3] overflow-hidden">
-              
-<img
-  src={`${import.meta.env.BASE_URL}${image.src.replace(/^\/+/, "")}`}
-  alt={image.alt || `Campus image ${index + 1}`}
-  loading="lazy"
-  decoding="async"
-  className="w-full h-full object-cover
+              <img
+                src={`${import.meta.env.BASE_URL}${image.src.replace(/^\/+/, "")}`}
+                alt={image.alt || `Campus image ${index + 1}`}
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover
              transition-transform duration-500
              group-hover:scale-110"
-  onError={(e) => {
-    console.error(
-      "Gallery image failed to load:",
-      e.currentTarget.src
-    );
-  }}
-/>
-
+                onError={(e) => {
+                  console.error(
+                    "Gallery image failed to load:",
+                    e.currentTarget.src,
+                  );
+                }}
+              />
 
               {/* Hover overlay */}
               <div

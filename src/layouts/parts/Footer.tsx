@@ -3,11 +3,11 @@ import {
   MapPin,
   Phone,
   Mail,
-  Facebook,
-  Instagram,
-  Youtube,
-  Twitter,
 } from "lucide-react";
+import { FaXTwitter } from "react-icons/fa6";
+import { SlSocialFacebook } from "react-icons/sl";
+import { FaInstagram } from "react-icons/fa";
+import { CiYoutube } from "react-icons/ci";
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   return (
@@ -36,16 +36,16 @@ export default function Footer() {
                 className="w-9 h-9 rounded-full bg-white/10 hover:bg-accent hover:text-foreground flex items-center justify-center transition-all duration-200"
                 aria-label="Facebook"
               >
-                <Facebook size={15} />
+                <SlSocialFacebook size={15} />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/thetriumschool?vrfl=MWZ5ZXlwb3c3eTNwMQ=="
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-white/10 hover:bg-accent hover:text-foreground flex items-center justify-center transition-all duration-200"
                 aria-label="Instagram"
               >
-                <Instagram size={15} />
+                <FaInstagram size={15} />
               </a>
               <a
                 href="https://youtube.com"
@@ -54,7 +54,7 @@ export default function Footer() {
                 className="w-9 h-9 rounded-full bg-white/10 hover:bg-accent hover:text-foreground flex items-center justify-center transition-all duration-200"
                 aria-label="YouTube"
               >
-                <Youtube size={15} />
+                <CiYoutube size={15} />
               </a>
               <a
                 href="https://twitter.com"
@@ -63,7 +63,7 @@ export default function Footer() {
                 className="w-9 h-9 rounded-full bg-white/10 hover:bg-accent hover:text-foreground flex items-center justify-center transition-all duration-200"
                 aria-label="Twitter"
               >
-                <Twitter size={15} />
+                <FaXTwitter size={15} />
               </a>
             </div>
           </div>
@@ -161,10 +161,10 @@ export default function Footer() {
               <li className="flex items-center gap-3">
                 <Phone size={15} className="shrink-0 text-accent" />
                 <a
-                  href="tel:+919999999999"
+                  href="tel:18008898407"
                   className="text-sm text-primary-foreground/70 hover:text-accent transition-colors"
                 >
-                  +91 7588804351
+                  1800-889-8407
                 </a>
               </li>
               <li className="flex items-center gap-3">
@@ -173,7 +173,7 @@ export default function Footer() {
                   href="mailto:admissions@triumschool.in"
                   className="text-sm text-primary-foreground/70 hover:text-accent transition-colors"
                 >
-                  connect@triumschool.in
+                  admissions@triumschool.in
                 </a>
               </li>
             </ul>
