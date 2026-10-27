@@ -1,10 +1,10 @@
-import { Helmet } from '@dr.pogodin/react-helmet';
-import { type ReactElement } from 'react';
+import { Helmet } from "@dr.pogodin/react-helmet";
+import { type ReactElement } from "react";
 import { ScrollRestoration } from "react-router";
-import Footer from '@/layouts/parts/Footer';
-import Header from '@/layouts/parts/Header';
-import HomepageSameAsJsonLd from '@/components/HomepageSameAsJsonLd';
-import Website from '@/layouts/Website';
+import Footer from "@/layouts/parts/Footer";
+import Header from "@/layouts/parts/Header";
+import HomepageSameAsJsonLd from "@/components/HomepageSameAsJsonLd";
+import Website from "@/layouts/Website";
 
 /**
  * Root layout component that wraps all pages with consistent header and footer.
@@ -18,9 +18,7 @@ import Website from '@/layouts/Website';
 interface RootLayoutProps {
   children: ReactElement;
 }
-export default function RootLayout({
-  children
-}: RootLayoutProps) {
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <Website>
       <Helmet>
@@ -65,16 +63,16 @@ export default function RootLayout({
             Sulewadi Road, Makhmalabad, Nashik
           </address>
           <a
-            href="tel:+917588804351"
+            href="tel:18008898407"
             className="mt-3 block text-sm font-medium text-primary hover:text-accent"
           >
-            +91 7588804351
+            1800-889-8407
           </a>
           <a
             href="mailto:admissions@triumschool.in"
             className="mt-1 block text-sm font-medium text-primary hover:text-accent"
           >
-            connect@triumschool.in
+            admissions@triumschool.in
           </a>
         </div>
       </section>

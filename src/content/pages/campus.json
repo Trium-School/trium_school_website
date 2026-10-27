@@ -58,46 +58,119 @@
     "subtitle": "Take a closer look at the spaces that inspire learning.",
     "images": [
       {
-        "src": "/media/website-media/library_design_01.jpg",
-        "alt": "School Library Design 01"
+        "src": "/media/website-media/Architecture and Campus Exterior.jpeg",
+        "alt": "Architecture and Campus Exterior"
       },
       {
-        "src": "/media/website-media/library_design_02.jpg",
-        "alt": "School Library Design 02"
+        "src": "/media/website-media/Sports Ground and School Buildings.jpeg",
+        "alt": "Sports Ground and School Buildings"
       },
       {
-        "src": "/media/website-media/library_design_03.jpg",
-        "alt": "School Library Design 03"
+        "src": "/media/website-media/Trium School Campus.jpeg",
+        "alt": "Trium School Campus"
       },
       {
-        "src": "/media/website-media/library_design_04.jpg",
-        "alt": "School Library Design 04"
+        "src": "/media/website-media/Main Campus Facade.jpeg",
+        "alt": "Main Campus Facade"
       },
       {
-        "src": "/media/website-media/library_design_05.jpg",
-        "alt": "School Library Design 05"
+        "src": "/media/website-media/Grand Campus Entrance.jpeg",
+        "alt": "Grand Campus Entrance"
       },
       {
-        "src": "/media/website-media/library_design_06.jpg",
-        "alt": "School Library Design 06"
+        "src": "/media/website-media/Sports Grounds.jpeg",
+        "alt": "Sports Grounds"
       },
       {
-        "src": "/media/website-media/library_design_07.jpg",
-        "alt": "School Library Design 07"
+        "src": "/media/website-media/Corridor.png",
+        "alt": "Corridor"
       },
       {
-        "src": "/media/website-media/library_design_08.jpg",
-        "alt": "School Library Design 08"
+        "src": "/media/website-media/Reception & Waiting.png",
+        "alt": "Reception & Waiting"
       },
       {
-        "src": "/media/website-media/library_design_09.jpg",
-        "alt": "School Library Design 09"
+        "src": "/media/website-media/Classroom 2.png",
+        "alt": "Classroom 2"
       },
       {
-        "src": "/media/website-media/library_design_10.jpg",
-        "alt": "School Library Design 10"
+        "src": "/media/website-media/Classroom.png",
+        "alt": "Classroom"
+      },
+      {
+        "src": "/media/website-media/Rumpus Room 2.png",
+        "alt": "Rumpus Room 2"
+      },
+      {
+        "src": "/media/website-media/Library Room 1.png",
+        "alt": "Library Room 1"
+      },
+      {
+        "src": "/media/website-media/Rumpus Room.png",
+        "alt": "Rumpus Room"
+      },
+      {
+        "src": "/media/website-media/Collaborative Room 1.png",
+        "alt": "Collaborative Room 1"
+      },
+      {
+        "src": "/media/website-media/Collaborative Room 2.png",
+        "alt": "Collaborative Room 2"
+      },
+      {
+        "src": "/media/website-media/Library Room 2.png",
+        "alt": "Library Room 2"
+      },
+      {
+        "src": "/media/website-media/Washroom.png",
+        "alt": "Washroom"
+      },
+      {
+        "src": "/media/website-media/Laboratries 2.png",
+        "alt": "Laboratries 2"
+      },
+      {
+        "src": "/media/website-media/Laboratries 1.png",
+        "alt": "Laboratries 1"
+      },
+      {
+        "src": "/media/website-media/Music Studio.png",
+        "alt": "Music Studio"
+      },
+      {
+        "src": "/media/website-media/Dance Studio.png",
+        "alt": "Dance Studio"
+      },
+      {
+        "src": "/media/website-media/Counselling Cabin.png",
+        "alt": "Counselling Cabin"
+      },
+      {
+        "src": "/media/website-media/Washroom For Specially Abled.png",
+        "alt": "Washroom For Specially Abled"
+      },
+      {
+        "src": "/media/website-media/Trustee's Cabin.png",
+        "alt": "Trustee's Cabin"
+      },
+      {
+        "src": "/media/website-media/Trustee's Office.png",
+        "alt": "Trustee's Office"
+      },
+      {
+        "src": "/media/website-media/Admin Office.png",
+        "alt": "Admin Office"
+      },
+      {
+        "src": "/media/website-media/Principal's Cabin.png",
+        "alt": "Principal's Cabin"
+      },
+      {
+        "src": "/media/website-media/Admin Cabin.png",
+        "alt": "Admin Cabin"
       }
     ]
+
   },
 
   "cta": {

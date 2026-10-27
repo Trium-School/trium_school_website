@@ -275,7 +275,7 @@ export default function HomePage() {
 
   const slides = [
     {
-      image: "media/hero-banner1.png",
+      image: "media/Banner.png",
       alt: "Collaborative robotics lesson in the STEM lab",
       badge: home.hero.trust_badge,
       tagline: home.hero.tagline,
@@ -284,7 +284,7 @@ export default function HomePage() {
       link: "/admissions",
     },
     {
-      image: "media/banner_2.png",
+      image: "media/website-media/Sports Ground and School Buildings.jpeg",
       alt: "Collaborative robotics lesson in the STEM lab",
       badge: home.hero.trust_badge,
       tagline: home.hero.tagline,
@@ -293,7 +293,7 @@ export default function HomePage() {
       link: "/admissions",
     },
     {
-      image: "media/banner_3.png",
+      image: "media/website-media/Architecture and Campus Exterior.jpeg",
       alt: "Collaborative robotics lesson in the STEM lab",
       badge: home.hero.trust_badge,
       tagline: home.hero.tagline,
@@ -549,7 +549,7 @@ export default function HomePage() {
                   <div className="relative">
                     <div className="rounded-3xl overflow-hidden aspect-[4/3] shadow-2xl">
                       <img
-                        src="media/academics.png"
+                        src="media/Academic Excellence.png"
                         alt={home.differentiators.items[0].title}
                         className="w-full h-full object-cover"
                         loading="lazy"
@@ -1035,19 +1035,19 @@ export default function HomePage() {
                   >
                     <div className="relative h-48 overflow-hidden">
                       <img
-  src={
-    i === 0
-      ? "media/Joyful Toddler Reading in a Sunny Classroom.png"
-      : i === 1
-        ? "media/Trium kids.png"
-        : "media/Secondary.png"
-  }
-  alt={prog.name}
-  className="w-full h-full object-cover"
-  loading="lazy"
-  width={600}
-  height={192}
-/>
+                        src={
+                          i === 0
+                            ? "media/Joyful Toddler Reading in a Sunny Classroom.png"
+                            : i === 1
+                              ? "media/Trium kids.png"
+                              : "media/Secondary.png"
+                        }
+                        alt={prog.name}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                        width={600}
+                        height={192}
+                      />
 
                       <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                       <span
@@ -1204,7 +1204,6 @@ export default function HomePage() {
                 {slide.cta}
               </span>
             </motion.div>
-
           </div>
         </section>
 
@@ -1297,14 +1296,13 @@ export default function HomePage() {
             if (event.target === event.currentTarget) setActiveProject(null);
           }}
         >
-          
-<section
-  role="dialog"
-  aria-modal="true"
-  aria-labelledby="project-modal-title"
-  className="flex max-h-[92dvh] w-full max-w-3xl flex-col overflow-hidden rounded-t-3xl bg-background shadow-2xl sm:max-h-[90dvh] sm:rounded-2xl"
->
-  <style>{`
+          <section
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="project-modal-title"
+            className="flex max-h-[92dvh] w-full max-w-3xl flex-col overflow-hidden rounded-t-3xl bg-background shadow-2xl sm:max-h-[90dvh] sm:rounded-2xl"
+          >
+            <style>{`
     @keyframes pm-sway { 0%,100% { transform: rotate(-6deg); } 50% { transform: rotate(6deg); } }
     @keyframes pm-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
     @keyframes pm-spin { to { transform: rotate(360deg); } }
@@ -1318,233 +1316,284 @@ export default function HomePage() {
     }
   `}</style>
 
-  {/* Header (stays visible while the body scrolls) */}
-  <header className="relative shrink-0 overflow-hidden border-b border-border">
-    <div className="h-1.5 w-full" style={{ backgroundColor: activeProject.color }} />
+            {/* Header (stays visible while the body scrolls) */}
+            <header className="relative shrink-0 overflow-hidden border-b border-border">
+              <div
+                className="h-1.5 w-full"
+                style={{ backgroundColor: activeProject.color }}
+              />
 
-    {/* decorative: sprout + sparkles */}
-    <div aria-hidden="true" className="pointer-events-none absolute right-16 top-4 sm:right-20">
-      <svg
-        viewBox="0 0 48 48"
-        className="pm-sway h-12 w-12 opacity-40 sm:h-14 sm:w-14"
-        fill={activeProject.color}
-      >
-        <path d="M23 44V22h2v22z" />
-        <path d="M24 30C12 30 8 20 10 14c10 0 16 6 14 16z" />
-        <path d="M24 24c10 0 16-8 14-16-10 0-16 6-14 16z" />
-      </svg>
-      <svg
-        viewBox="0 0 24 24"
-        className="pm-twinkle absolute -left-5 top-1 h-3.5 w-3.5"
-        fill={activeProject.color}
-      >
-        <path d="M12 0c1 8 4 11 12 12-8 1-11 4-12 12-1-8-4-11-12-12 8-1 11-4 12-12z" />
-      </svg>
-      <svg
-        viewBox="0 0 24 24"
-        className="pm-twinkle absolute -right-3 top-8 h-2.5 w-2.5 [animation-delay:1.4s]"
-        fill={activeProject.color}
-      >
-        <path d="M12 0c1 8 4 11 12 12-8 1-11 4-12 12-1-8-4-11-12-12 8-1 11-4 12-12z" />
-      </svg>
-    </div>
+              {/* decorative: sprout + sparkles */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute right-16 top-4 sm:right-20"
+              >
+                <svg
+                  viewBox="0 0 48 48"
+                  className="pm-sway h-12 w-12 opacity-40 sm:h-14 sm:w-14"
+                  fill={activeProject.color}
+                >
+                  <path d="M23 44V22h2v22z" />
+                  <path d="M24 30C12 30 8 20 10 14c10 0 16 6 14 16z" />
+                  <path d="M24 24c10 0 16-8 14-16-10 0-16 6-14 16z" />
+                </svg>
+                <svg
+                  viewBox="0 0 24 24"
+                  className="pm-twinkle absolute -left-5 top-1 h-3.5 w-3.5"
+                  fill={activeProject.color}
+                >
+                  <path d="M12 0c1 8 4 11 12 12-8 1-11 4-12 12-1-8-4-11-12-12 8-1 11-4 12-12z" />
+                </svg>
+                <svg
+                  viewBox="0 0 24 24"
+                  className="pm-twinkle absolute -right-3 top-8 h-2.5 w-2.5 [animation-delay:1.4s]"
+                  fill={activeProject.color}
+                >
+                  <path d="M12 0c1 8 4 11 12 12-8 1-11 4-12 12-1-8-4-11-12-12 8-1 11-4 12-12z" />
+                </svg>
+              </div>
 
-    <div className="relative flex items-start justify-between gap-4 px-5 pb-5 pt-5 sm:gap-6 sm:px-8 sm:pt-6">
-      <div className="min-w-0 pr-6">
-        <p
-          className="mb-1.5 flex items-center gap-2 text-base font-semibold"
-          style={{ color: activeProject.color }}
-        >
-          <span
-            className="h-2.5 w-2.5 shrink-0 rounded-full"
-            style={{ backgroundColor: activeProject.color }}
-          />
-          <span className="truncate">{activeProject.eyebrow}</span>
-        </p>
-        <h2
-          id="project-modal-title"
-          className="text-balance text-2xl font-semibold leading-tight text-primary sm:text-3xl"
-        >
-          {activeProject.title}
-        </h2>
-      </div>
-      <button
-        type="button"
-        onClick={() => setActiveProject(null)}
-        aria-label="Close project details"
-        className="absolute right-4 top-4 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-border bg-background text-primary transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:right-6 sm:top-5"
-      >
-        <X size={22} />
-      </button>
-    </div>
-  </header>
-
-  {/* Scrollable body: one column */}
-  <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
-    <div className="space-y-8 px-5 py-6 sm:px-8 sm:py-8">
-      {/* Overview */}
-      <div className="space-y-7">
-        <div>
-          <h3 className="mb-2 text-base font-bold text-muted-foreground">Problem statement</h3>
-          <p className="text-balance text-xl font-semibold leading-snug text-primary sm:text-2xl">
-            {activeProject.problem}
-          </p>
-        </div>
-
-        <div>
-          <h3 className="mb-2 text-base font-bold text-muted-foreground">Description</h3>
-          <p className="max-w-prose text-base leading-relaxed text-muted-foreground sm:text-lg">
-            {activeProject.description}
-          </p>
-        </div>
-
-        <dl className="grid grid-cols-2 gap-x-4 gap-y-5 border-t border-border pt-6 sm:grid-cols-3">
-          <div>
-            <dt className="mb-1 text-base font-bold text-muted-foreground">Duration</dt>
-            <dd className="text-lg font-semibold text-primary">{activeProject.duration}</dd>
-          </div>
-          <div>
-            <dt className="mb-1 text-base font-bold text-muted-foreground">Age group</dt>
-            <dd className="text-lg font-semibold text-primary">{activeProject.ageGroup}</dd>
-          </div>
-          <div className="col-span-2 sm:col-span-1">
-            <dt className="mb-1 text-base font-bold text-muted-foreground">Key mentor</dt>
-            <dd className="text-lg font-semibold text-primary">{activeProject.mentor}</dd>
-          </div>
-        </dl>
-      </div>
-
-      {/* Focus + concepts: single column */}
-      <div className="space-y-4">
-        <div
-          className="relative overflow-hidden rounded-xl border p-5 sm:p-6"
-          style={{
-            backgroundColor: `color-mix(in srgb, ${activeProject.color} 10%, transparent)`,
-            borderColor: `color-mix(in srgb, ${activeProject.color} 35%, transparent)`,
-          }}
-        >
-          {/* decorative: slow-turning dotted ring */}
-          <svg
-            aria-hidden="true"
-            viewBox="0 0 100 100"
-            className="pm-spin pointer-events-none absolute -right-8 -top-8 h-28 w-28 opacity-40"
-          >
-            <circle
-              cx="50"
-              cy="50"
-              r="44"
-              fill="none"
-              stroke={activeProject.color}
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeDasharray="1 8"
-            />
-            <circle
-              cx="50"
-              cy="50"
-              r="30"
-              fill="none"
-              stroke={activeProject.color}
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeDasharray="1 7"
-            />
-          </svg>
-
-          <div className="relative flex flex-wrap items-center gap-x-3 gap-y-2 pr-12">
-            <span
-              className="rounded-full px-3.5 py-1 text-base font-bold text-white"
-              style={{ backgroundColor: activeProject.color }}
-            >
-              {activeProject.id === "kitchen-garden" ? "Week 3–4" : "Week 5–6"}
-            </span>
-            <h3 className="min-w-0 text-lg font-bold text-primary sm:text-xl">
-              {activeProject.focus}
-            </h3>
-          </div>
-          <p className="relative mt-3 text-base leading-relaxed text-muted-foreground sm:text-lg">
-            {activeProject.focusDescription}
-          </p>
-        </div>
-
-        <div className="divide-y divide-border rounded-xl bg-card px-2">
-          {[
-            { title: "Field concepts", items: activeProject.fieldConcepts },
-            { title: "Academic concepts", items: activeProject.academicConcepts },
-            { title: "Real-world connections", items: activeProject.realWorldConnections },
-          ].map((group) => (
-            <div key={group.title} className="py-5">
-              <h3 className="mb-3 text-2xl font-normal" style={{ color: activeProject.color }}>
-                {group.title}
-              </h3>
-              <ul className="space-y-2.5 text-base text-primary sm:text-lg">
-                {group.items.map((item: string) => (
-                  <li key={item} className="flex gap-3 leading-snug">
+              <div className="relative flex items-start justify-between gap-4 px-5 pb-5 pt-5 sm:gap-6 sm:px-8 sm:pt-6">
+                <div className="min-w-0 pr-6">
+                  <p
+                    className="mb-1.5 flex items-center gap-2 text-base font-semibold"
+                    style={{ color: activeProject.color }}
+                  >
                     <span
-                      className="mt-2 h-2 w-2 shrink-0 rounded-full"
+                      className="h-2.5 w-2.5 shrink-0 rounded-full"
                       style={{ backgroundColor: activeProject.color }}
                     />
-                    <span className="min-w-0 break-words">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Project phases: vertical timeline */}
-      <div className="relative overflow-hidden rounded-xl bg-card py-5 sm:py-6">
-        {/* decorative: floating leaf */}
-        <svg
-          aria-hidden="true"
-          viewBox="0 0 48 48"
-          className="pm-float pointer-events-none absolute bottom-4 right-5 h-14 w-14 opacity-25 sm:h-16 sm:w-16"
-          fill={activeProject.color}
-        >
-          <path d="M8 40C6 20 20 6 42 6c0 22-14 36-34 34z" />
-          <path d="M10 38C18 28 26 20 36 12" stroke="currentColor" strokeWidth="2" fill="none" className="text-card" />
-        </svg>
-
-        <h3 className="relative mb-6 text-lg font-bold text-primary">Project phases</h3>
-
-        <ol className="relative ml-2 sm:ml-3">
-          {activeProject.phases.map(([week, phase]: [string, string], index: number) => {
-            const isLast = index === activeProject.phases.length - 1;
-            return (
-              <li key={week} className="relative pb-7 pl-8 last:pb-0 sm:pl-10">
-                {!isLast && (
-                  <span
-                    aria-hidden="true"
-                    className="absolute -bottom-[13px] left-0 top-[13px] w-0.5 -translate-x-1/2"
-                    style={{ backgroundColor: activeProject.color }}
-                  />
-                )}
-                <span
-                  aria-hidden="true"
-                  className="absolute left-0 top-1.5 z-10 h-3.5 w-3.5 -translate-x-1/2 rounded-full border-[3px] border-card"
-                  style={{
-                    backgroundColor: activeProject.color,
-                    boxShadow: `0 0 0 2px ${activeProject.color}`,
-                  }}
-                />
-                <div className="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:gap-4">
-                  <p className="text-base font-bold text-primary sm:w-28 sm:shrink-0 sm:text-lg">
-                    {week}
+                    <span className="truncate">{activeProject.eyebrow}</span>
                   </p>
-                  <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
-                    {phase}
-                  </p>
+                  <h2
+                    id="project-modal-title"
+                    className="text-balance text-2xl font-semibold leading-tight text-primary sm:text-3xl"
+                  >
+                    {activeProject.title}
+                  </h2>
                 </div>
-              </li>
-            );
-          })}
-        </ol>
-      </div>
-    </div>
-  </div>
-</section>
+                <button
+                  type="button"
+                  onClick={() => setActiveProject(null)}
+                  aria-label="Close project details"
+                  className="absolute right-4 top-4 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-border bg-background text-primary transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:right-6 sm:top-5"
+                >
+                  <X size={22} />
+                </button>
+              </div>
+            </header>
 
+            {/* Scrollable body: one column */}
+            <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
+              <div className="space-y-8 px-5 py-6 sm:px-8 sm:py-8">
+                {/* Overview */}
+                <div className="space-y-7">
+                  <div>
+                    <h3 className="mb-2 text-base font-bold text-muted-foreground">
+                      Problem statement
+                    </h3>
+                    <p className="text-balance text-xl font-semibold leading-snug text-primary sm:text-2xl">
+                      {activeProject.problem}
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="mb-2 text-base font-bold text-muted-foreground">
+                      Description
+                    </h3>
+                    <p className="max-w-prose text-base leading-relaxed text-muted-foreground sm:text-lg">
+                      {activeProject.description}
+                    </p>
+                  </div>
+
+                  <dl className="grid grid-cols-2 gap-x-4 gap-y-5 border-t border-border pt-6 sm:grid-cols-3">
+                    <div>
+                      <dt className="mb-1 text-base font-bold text-muted-foreground">
+                        Duration
+                      </dt>
+                      <dd className="text-lg font-semibold text-primary">
+                        {activeProject.duration}
+                      </dd>
+                    </div>
+                    <div>
+                      <dt className="mb-1 text-base font-bold text-muted-foreground">
+                        Age group
+                      </dt>
+                      <dd className="text-lg font-semibold text-primary">
+                        {activeProject.ageGroup}
+                      </dd>
+                    </div>
+                    <div className="col-span-2 sm:col-span-1">
+                      <dt className="mb-1 text-base font-bold text-muted-foreground">
+                        Key mentor
+                      </dt>
+                      <dd className="text-lg font-semibold text-primary">
+                        {activeProject.mentor}
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+
+                {/* Focus + concepts: single column */}
+                <div className="space-y-4">
+                  <div
+                    className="relative overflow-hidden rounded-xl border p-5 sm:p-6"
+                    style={{
+                      backgroundColor: `color-mix(in srgb, ${activeProject.color} 10%, transparent)`,
+                      borderColor: `color-mix(in srgb, ${activeProject.color} 35%, transparent)`,
+                    }}
+                  >
+                    {/* decorative: slow-turning dotted ring */}
+                    <svg
+                      aria-hidden="true"
+                      viewBox="0 0 100 100"
+                      className="pm-spin pointer-events-none absolute -right-8 -top-8 h-28 w-28 opacity-40"
+                    >
+                      <circle
+                        cx="50"
+                        cy="50"
+                        r="44"
+                        fill="none"
+                        stroke={activeProject.color}
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeDasharray="1 8"
+                      />
+                      <circle
+                        cx="50"
+                        cy="50"
+                        r="30"
+                        fill="none"
+                        stroke={activeProject.color}
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeDasharray="1 7"
+                      />
+                    </svg>
+
+                    <div className="relative flex flex-wrap items-center gap-x-3 gap-y-2 pr-12">
+                      <span
+                        className="rounded-full px-3.5 py-1 text-base font-bold text-white"
+                        style={{ backgroundColor: activeProject.color }}
+                      >
+                        {activeProject.id === "kitchen-garden"
+                          ? "Week 3–4"
+                          : "Week 5–6"}
+                      </span>
+                      <h3 className="min-w-0 text-lg font-bold text-primary sm:text-xl">
+                        {activeProject.focus}
+                      </h3>
+                    </div>
+                    <p className="relative mt-3 text-base leading-relaxed text-muted-foreground sm:text-lg">
+                      {activeProject.focusDescription}
+                    </p>
+                  </div>
+
+                  <div className="divide-y divide-border rounded-xl bg-card px-2">
+                    {[
+                      {
+                        title: "Field concepts",
+                        items: activeProject.fieldConcepts,
+                      },
+                      {
+                        title: "Academic concepts",
+                        items: activeProject.academicConcepts,
+                      },
+                      {
+                        title: "Real-world connections",
+                        items: activeProject.realWorldConnections,
+                      },
+                    ].map((group) => (
+                      <div key={group.title} className="py-5">
+                        <h3
+                          className="mb-3 text-2xl font-normal"
+                          style={{ color: activeProject.color }}
+                        >
+                          {group.title}
+                        </h3>
+                        <ul className="space-y-2.5 text-base text-primary sm:text-lg">
+                          {group.items.map((item: string) => (
+                            <li key={item} className="flex gap-3 leading-snug">
+                              <span
+                                className="mt-2 h-2 w-2 shrink-0 rounded-full"
+                                style={{ backgroundColor: activeProject.color }}
+                              />
+                              <span className="min-w-0 break-words">
+                                {item}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Project phases: vertical timeline */}
+                <div className="relative overflow-hidden rounded-xl bg-card py-5 sm:py-6">
+                  {/* decorative: floating leaf */}
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 48 48"
+                    className="pm-float pointer-events-none absolute bottom-4 right-5 h-14 w-14 opacity-25 sm:h-16 sm:w-16"
+                    fill={activeProject.color}
+                  >
+                    <path d="M8 40C6 20 20 6 42 6c0 22-14 36-34 34z" />
+                    <path
+                      d="M10 38C18 28 26 20 36 12"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                      className="text-card"
+                    />
+                  </svg>
+
+                  <h3 className="relative mb-6 text-lg font-bold text-primary">
+                    Project phases
+                  </h3>
+
+                  <ol className="relative ml-2 sm:ml-3">
+                    {activeProject.phases.map(
+                      ([week, phase]: [string, string], index: number) => {
+                        const isLast =
+                          index === activeProject.phases.length - 1;
+                        return (
+                          <li
+                            key={week}
+                            className="relative pb-7 pl-8 last:pb-0 sm:pl-10"
+                          >
+                            {!isLast && (
+                              <span
+                                aria-hidden="true"
+                                className="absolute -bottom-[13px] left-0 top-[13px] w-0.5 -translate-x-1/2"
+                                style={{ backgroundColor: activeProject.color }}
+                              />
+                            )}
+                            <span
+                              aria-hidden="true"
+                              className="absolute left-0 top-1.5 z-10 h-3.5 w-3.5 -translate-x-1/2 rounded-full border-[3px] border-card"
+                              style={{
+                                backgroundColor: activeProject.color,
+                                boxShadow: `0 0 0 2px ${activeProject.color}`,
+                              }}
+                            />
+                            <div className="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:gap-4">
+                              <p className="text-base font-bold text-primary sm:w-28 sm:shrink-0 sm:text-lg">
+                                {week}
+                              </p>
+                              <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
+                                {phase}
+                              </p>
+                            </div>
+                          </li>
+                        );
+                      },
+                    )}
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
       )}
     </>

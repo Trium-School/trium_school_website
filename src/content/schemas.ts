@@ -145,6 +145,7 @@ export const schemas = {
       "id": z.string(),
       "name": z.string(),
       "grades": z.string(),
+      "boards": z.string(),
       "age_range": z.string(),
       "description": z.string(),
       "highlights": z.array(z.object({

@@ -33,6 +33,7 @@ declare module "virtual:content" {
         name: string;
         grades: string;
         age_range: string;
+        boards: string;
         description: string;
         highlights: Array<{ id: string; text: string }>;
       }>;
@@ -236,6 +237,7 @@ declare module "virtual:content" {
       name: string;
       grades: string;
       age_range: string;
+      boards: string;
       description: string;
       highlights: Array<{ id: string; text: string }>;
     }>;
