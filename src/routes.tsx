@@ -10,6 +10,7 @@ import OurDifferentiatorsPage from "./pages/our-differentiators";
 import BeyondAcademicsPage from "./pages/beyond-academics";
 import AdminLoginPage from "./pages/admin/login";
 import AdminEnquiriesPage from "./pages/admin/enquiries";
+import BlogsPage from "./pages/blogs";
 // Eager import so renderToString doesn't hit a Suspense boundary on 404 routes
 // and abort to client rendering. The prod 404 page is tiny; the dev-tools
 // variant stays lazy because it pulls in dev-only code we don't want in
@@ -53,6 +54,11 @@ export const routes: RouteObject[] = [
     path: "/careers",
     element: <CareersPage />,
   },
+
+  {
+    path: "/blogs",
+    element: <BlogsPage />,
+  },
   {
     path: "/admin/login",
     element: <AdminLoginPage />,
@@ -78,5 +84,6 @@ export type Path =
   | "/contact"
   | "/careers"
   | "/admin/login"
-  | "/admin/enquiries";
+  | "/admin/enquiries"
+  | "/blogs";
 export type Params = Record<string, string | undefined>;
