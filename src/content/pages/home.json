@@ -1,11 +1,27 @@
 {
-  "hero": {
+"hero": [
+  {
     "trust_badge": "Admissions Open 2027–28",
     "tagline": "Where Every Child Triumphs",
-    "subtitle": "We believe every child grows through three forces held in balance: a curious Mind, a strong Body, and an expressive Soul",
+    "subtitle": "We nurture every child through three forces held in balance: a curious Mind, a strong Body, and an expressive Soul.",
     "cta_primary": "Apply Now",
     "cta_secondary": "Explore Campus"
   },
+  {
+    "trust_badge": "Learning Beyond Textbooks",
+    "tagline": "A School Built by IIT, ISB, BITS minds Designed for Your Child",
+    "subtitle": "Matori Road, Makhmalabad, Nashik, Maharashtra 422003",
+    "cta_primary": "Explore Academics",
+    "cta_secondary": "Discover Our Approach"
+  },
+  {
+    "trust_badge": "A Campus Built for Discovery",
+    "tagline": "ONE CHILD, INFINITE POSSIBILITIES",
+    "subtitle": "The right school can turn possibilities to reality.",
+    "cta_primary": "Explore Campus",
+    "cta_secondary": "Start Your Journey"
+  }
+],
   "differentiators": {
     "eyebrow": "The Trium Difference",
     "heading": "What Makes Trium Truly Unique",
@@ -111,14 +127,14 @@
       {
         "id": "prog-2",
         "name": "Primary School",
-        "grades": "Grades 1–5",
+        "grades": "Grades 1–5 (CBSE)",
         "highlight": "Ages 6–11",
         "description": "Core academics blended with arts, sports, and values education to develop well-rounded young learners. At Trium we follow a progressive CBSE curriculum aligned to NEP."
       },
       {
         "id": "prog-3",
         "name": "Secondary School",
-        "grades": "Grades 6–10",
+        "grades": "Grades 6–10 (CBSE)",
         "highlight": "Ages 11–16",
         "description": "A rigorous, balanced curriculum that connects disciplines and sparks bold thinking — building the skills, resilience, and self-awareness students carry into senior school. At Trium we follow a progressive CBSE curriculum aligned to NEP."
       }

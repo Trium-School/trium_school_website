@@ -335,13 +335,13 @@ declare module "virtual:content" {
     map_note: string;
   };
   export const home: {
-    hero: {
+    hero: Array<{
       trust_badge: string;
       tagline: string;
       subtitle: string;
       cta_primary: string;
       cta_secondary: string;
-    };
+    }>;
     differentiators: {
       eyebrow: string;
       heading: string;
@@ -439,6 +439,7 @@ declare module "virtual:content" {
       id: string;
       eyebrow: string;
       title: string;
+      image: string;
       color: string;
       intro: string;
       description: string;

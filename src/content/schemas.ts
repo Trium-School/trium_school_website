@@ -1,13 +1,13 @@
 import { z } from 'zod';
 export const schemas = {
   home: z.object({
-    "hero": z.object({
+    "hero": z.array(z.object({
       "trust_badge": z.string(),
       "tagline": z.string(),
       "subtitle": z.string(),
       "cta_primary": z.string(),
       "cta_secondary": z.string()
-    }),
+    })),
     "differentiators": z.object({
       "eyebrow": z.string(),
       "heading": z.string(),
@@ -247,6 +247,7 @@ export const schemas = {
       "experiences": z.array(z.object({
         "id": z.string(),
         "eyebrow": z.string(),
+        "image": z.string(),
         "title": z.string(),
         "color": z.string(),
         "intro": z.string(),

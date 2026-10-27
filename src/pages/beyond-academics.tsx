@@ -171,7 +171,10 @@ export default function BeyondAcademicsPage() {
         <title>Beyond Academics — The Trium School, Nashik</title>
         <meta name="description" content={hero.subtitle} />
         <link rel="canonical" href={url} />
-        <meta property="og:title" content="Beyond Academics — The Trium School" />
+        <meta
+          property="og:title"
+          content="Beyond Academics — The Trium School"
+        />
         <meta property="og:description" content={hero.subtitle} />
         <meta property="og:url" content={url} />
         <meta property="og:type" content="website" />
@@ -198,12 +201,30 @@ export default function BeyondAcademicsPage() {
         {/* ---------- Hero ---------- */}
         <section className="relative overflow-hidden bg-primary px-6 py-24 text-center md:py-36">
           {/* the four experience motifs, scattered */}
-          <DottedRing color={heroColor(0)} className="absolute -left-16 -top-16 h-56 w-56 opacity-40 md:h-72 md:w-72" />
-          <Blob color={heroColor(2)} className="absolute right-[7%] top-14 hidden h-20 w-20 opacity-50 sm:block" />
-          <Ball color={heroColor(3)} className="absolute bottom-12 left-[9%] hidden h-16 w-16 opacity-50 [animation-delay:1s] sm:block" />
-          <Sparkle color={heroColor(1)} className="absolute right-[18%] bottom-20 h-6 w-6" />
-          <Sparkle color="#ffffff" className="absolute left-[22%] top-20 h-4 w-4 [animation-delay:1.5s]" />
-          <DottedRing color="#ffffff" className="absolute -bottom-20 -right-20 h-72 w-72 opacity-10" />
+          <DottedRing
+            color={heroColor(0)}
+            className="absolute -left-16 -top-16 h-56 w-56 opacity-40 md:h-72 md:w-72"
+          />
+          <Blob
+            color={heroColor(2)}
+            className="absolute right-[7%] top-14 hidden h-20 w-20 opacity-50 sm:block"
+          />
+          <Ball
+            color={heroColor(3)}
+            className="absolute bottom-12 left-[9%] hidden h-16 w-16 opacity-50 [animation-delay:1s] sm:block"
+          />
+          <Sparkle
+            color={heroColor(1)}
+            className="absolute right-[18%] bottom-20 h-6 w-6"
+          />
+          <Sparkle
+            color="#ffffff"
+            className="absolute left-[22%] top-20 h-4 w-4 [animation-delay:1.5s]"
+          />
+          <DottedRing
+            color="#ffffff"
+            className="absolute -bottom-20 -right-20 h-72 w-72 opacity-10"
+          />
 
           <FadeUp className="relative mx-auto max-w-4xl">
             <p className="mb-5 inline-flex items-center gap-2 text-base font-semibold text-accent">
@@ -220,71 +241,117 @@ export default function BeyondAcademicsPage() {
         </section>
 
         {/* ---------- Experiences ---------- */}
-        <section className="mx-auto max-w-6xl space-y-8 px-5 py-14 md:space-y-10 md:px-10 md:py-20">
+        <section className="mx-auto max-w-7xl space-y-16 px-5 py-14 md:space-y-24 md:px-10 md:py-20">
           {experiences.map((experience, index) => {
             const Icon = experienceIcons[experience.id] ?? Cpu;
+            const imageOnLeft = index % 2 === 0;
 
             return (
-              <FadeUp key={experience.id} delay={index * 0.05}>
+              <FadeUp key={experience.id} delay={0.05}>
                 <article
-                  className="relative overflow-hidden rounded-3xl p-6 sm:p-10 lg:p-14"
+                  className="grid overflow-hidden rounded-3xl border bg-background shadow-sm lg:min-h-[480px] lg:grid-cols-2"
                   style={{
-                    backgroundColor: tint(experience.color, 8),
-                    border: `1.5px solid ${tint(experience.color, 28)}`,
+                    borderColor: tint(experience.color, 30),
                   }}
                 >
-                  {/* Row 1: icon, animated motif, title, full-width underline */}
-                  <div>
-                    <div className="mb-6 flex items-center justify-between">
-                      <span
-                        className="flex h-14 w-14 items-center justify-center rounded-2xl text-primary"
-                        style={{
-                          backgroundColor: tint(experience.color, 25),
-                          border: `2px solid ${tint(experience.color, 60)}`,
-                        }}
-                      >
-                        <Icon size={26} aria-hidden="true" />
-                      </span>
-                      <ExperienceDecor
-                        index={index}
-                        color={experience.color}
-                        className="h-16 w-16 opacity-60 sm:h-20 sm:w-20 lg:h-24 lg:w-24"
-                      />
-                    </div>
-                    <h2 className="text-balance text-3xl font-bold leading-tight text-primary md:text-4xl lg:text-5xl">
-                      {experience.title}
-                    </h2>
-                    <span
-                      aria-hidden="true"
-                      className="mt-6 block h-0.5 w-full rounded-full"
-                      style={{ backgroundColor: experience.color }}
+                  {/* Image */}
+                  <div
+                    className={`relative min-h-[280px] overflow-hidden sm:min-h-[380px] lg:min-h-full ${
+                      imageOnLeft ? "lg:order-1" : "lg:order-2"
+                    }`}
+                  >
+                    <img
+                      src={experience.image}
+                      alt={experience.title}
+                      loading={index === 0 ? "eager" : "lazy"}
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 hover:scale-105"
                     />
+
+                    {/* Image overlay */}
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        background: `linear-gradient(180deg, transparent 55%, ${experience.color}B3 100%)`,
+                      }}
+                    />
+
+                    {/* Experience label */}
+                    <div className="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-8 sm:right-8">
+                      <span className="inline-flex items-center gap-2 rounded-full bg-white/95 px-4 py-2 text-sm font-semibold text-primary shadow-sm">
+                        <span
+                          className="h-2 w-2 rounded-full"
+                          style={{ backgroundColor: experience.color }}
+                        />
+                        {experience.eyebrow}
+                      </span>
+                    </div>
                   </div>
 
-                  {/* Row 2: paragraphs on the left, skills on the right */}
-                  <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-16">
-                    <div>
-                      <p className="text-xl font-medium leading-relaxed text-primary">
-                        {experience.intro}
-                      </p>
-                      <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-                        {experience.description}
-                      </p>
+                  {/* Article */}
+                  <div
+                    className={`relative flex flex-col justify-center p-6 sm:p-10 lg:p-12 xl:p-14 ${
+                      imageOnLeft ? "lg:order-2" : "lg:order-1"
+                    }`}
+                  >
+                    {/* Decorative accent */}
+                    <div
+                      className="absolute right-8 top-8 h-24 w-24 rounded-full opacity-10 blur-2xl"
+                      style={{ backgroundColor: experience.color }}
+                      aria-hidden="true"
+                    />
+
+                    {/* Icon */}
+                    <div
+                      className="mb-7 flex h-14 w-14 items-center justify-center rounded-2xl"
+                      style={{
+                        color: experience.color,
+                        backgroundColor: tint(experience.color, 12),
+                        border: `1px solid ${tint(experience.color, 30)}`,
+                      }}
+                    >
+                      <Icon size={27} aria-hidden="true" />
                     </div>
 
-                    <div>
-                      <h3 className="text-xl font-bold text-primary md:text-2xl">Skills in action</h3>
-                      <ul className="mt-5 flex flex-wrap gap-3">
+                    {/* Title */}
+                    <h2 className="relative text-balance text-3xl font-bold leading-tight text-primary sm:text-4xl xl:text-5xl">
+                      {experience.title}
+                    </h2>
+
+                    {/* Accent line */}
+                    <div
+                      className="mb-7 mt-5 h-1 w-16 rounded-full"
+                      style={{ backgroundColor: experience.color }}
+                    />
+
+                    {/* Introduction */}
+                    <p className="text-lg font-medium leading-relaxed text-primary sm:text-xl">
+                      {experience.intro}
+                    </p>
+
+                    {/* Description */}
+                    <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
+                      {experience.description}
+                    </p>
+
+                    {/* Skills */}
+                    <div className="mt-8">
+                      <h3 className="text-base font-bold text-primary sm:text-lg">
+                        Skills in action
+                      </h3>
+
+                      <ul className="mt-4 flex flex-wrap gap-2.5">
                         {experience.skills.map((skill) => (
                           <li
                             key={skill}
-                            className="inline-flex items-center gap-2.5 rounded-full bg-background/80 py-2 pl-3 pr-5 text-base font-semibold text-primary"
-                            style={{ border: `1.5px solid ${tint(experience.color, 45)}` }}
+                            className="inline-flex items-center gap-2 rounded-full border bg-background px-3.5 py-2 text-sm font-medium text-primary sm:text-base"
+                            style={{
+                              borderColor: tint(experience.color, 35),
+                            }}
                           >
                             <span
-                              aria-hidden="true"
-                              className="h-2.5 w-2.5 shrink-0 rounded-full"
+                              className="h-2 w-2 shrink-0 rounded-full"
                               style={{ backgroundColor: experience.color }}
+                              aria-hidden="true"
                             />
                             {skill}
                           </li>
@@ -300,10 +367,22 @@ export default function BeyondAcademicsPage() {
 
         {/* ---------- Real World Education intro ---------- */}
         <section className="relative overflow-hidden bg-primary px-6 py-20 text-white md:py-28">
-          <Sprout color="#69bb44" className="absolute bottom-6 right-[8%] hidden h-20 w-20 opacity-50 sm:block" />
-          <DottedRing color="#ffffff" className="absolute -left-24 -top-24 h-72 w-72 opacity-10" />
-          <Sparkle color="var(--yellow)" className="absolute right-[24%] top-12 h-5 w-5" />
-          <Sparkle color="#ffffff" className="absolute bottom-14 left-[10%] h-4 w-4 [animation-delay:1.6s]" />
+          <Sprout
+            color="#69bb44"
+            className="absolute bottom-6 right-[8%] hidden h-20 w-20 opacity-50 sm:block"
+          />
+          <DottedRing
+            color="#ffffff"
+            className="absolute -left-24 -top-24 h-72 w-72 opacity-10"
+          />
+          <Sparkle
+            color="var(--yellow)"
+            className="absolute right-[24%] top-12 h-5 w-5"
+          />
+          <Sparkle
+            color="#ffffff"
+            className="absolute bottom-14 left-[10%] h-4 w-4 [animation-delay:1.6s]"
+          />
 
           <FadeUp className="relative mx-auto grid max-w-6xl gap-10 lg:grid-cols-2 lg:items-end lg:gap-20">
             <h2 className="text-balance text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
@@ -326,7 +405,10 @@ export default function BeyondAcademicsPage() {
               const conceptGroups = [
                 { title: "Field concepts", items: project.fieldConcepts },
                 { title: "Academic concepts", items: project.academicConcepts },
-                { title: "Real-world connections", items: project.realWorldConnections },
+                {
+                  title: "Real-world connections",
+                  items: project.realWorldConnections,
+                },
               ];
 
               return (
@@ -334,11 +416,26 @@ export default function BeyondAcademicsPage() {
                   <article className="overflow-hidden rounded-3xl border border-border bg-background shadow-sm">
                     {/* Header */}
                     <header className="relative overflow-hidden border-b border-border">
-                      <div className="h-1.5 w-full" style={{ backgroundColor: project.color }} />
-                      <div aria-hidden="true" className="pointer-events-none absolute right-6 top-6 sm:right-10">
-                        <Sprout color={project.color} className="h-12 w-12 opacity-40 sm:h-14 sm:w-14" />
-                        <Sparkle color={project.color} className="absolute -left-5 top-1 h-3.5 w-3.5" />
-                        <Sparkle color={project.color} className="absolute -right-3 top-8 h-2.5 w-2.5 [animation-delay:1.4s]" />
+                      <div
+                        className="h-1.5 w-full"
+                        style={{ backgroundColor: project.color }}
+                      />
+                      <div
+                        aria-hidden="true"
+                        className="pointer-events-none absolute right-6 top-6 sm:right-10"
+                      >
+                        <Sprout
+                          color={project.color}
+                          className="h-12 w-12 opacity-40 sm:h-14 sm:w-14"
+                        />
+                        <Sparkle
+                          color={project.color}
+                          className="absolute -left-5 top-1 h-3.5 w-3.5"
+                        />
+                        <Sparkle
+                          color={project.color}
+                          className="absolute -right-3 top-8 h-2.5 w-2.5 [animation-delay:1.4s]"
+                        />
                       </div>
 
                       <div className="relative px-6 pb-7 pt-6 sm:px-10 sm:pt-8">
@@ -379,27 +476,45 @@ export default function BeyondAcademicsPage() {
 
                         <dl className="grid grid-cols-2 gap-x-4 gap-y-5 border-t border-border pt-6">
                           <div>
-                            <dt className="mb-1 text-base font-bold text-muted-foreground">Duration</dt>
-                            <dd className="text-lg font-semibold text-primary">{project.duration}</dd>
+                            <dt className="mb-1 text-base font-bold text-muted-foreground">
+                              Duration
+                            </dt>
+                            <dd className="text-lg font-semibold text-primary">
+                              {project.duration}
+                            </dd>
                           </div>
                           <div>
-                            <dt className="mb-1 text-base font-bold text-muted-foreground">Age group</dt>
-                            <dd className="text-lg font-semibold text-primary">{project.ageGroup}</dd>
+                            <dt className="mb-1 text-base font-bold text-muted-foreground">
+                              Age group
+                            </dt>
+                            <dd className="text-lg font-semibold text-primary">
+                              {project.ageGroup}
+                            </dd>
                           </div>
                           <div className="col-span-2">
-                            <dt className="mb-1 text-base font-bold text-muted-foreground">Key mentor</dt>
-                            <dd className="text-lg font-semibold text-primary">{project.mentor}</dd>
+                            <dt className="mb-1 text-base font-bold text-muted-foreground">
+                              Key mentor
+                            </dt>
+                            <dd className="text-lg font-semibold text-primary">
+                              {project.mentor}
+                            </dd>
                           </div>
                         </dl>
 
                         {/* Phases timeline */}
                         <div className="rounded-xl bg-card p-5 sm:p-6">
-                          <h3 className="mb-6 text-lg font-bold text-primary">Project phases</h3>
+                          <h3 className="mb-6 text-lg font-bold text-primary">
+                            Project phases
+                          </h3>
                           <ol className="ml-2 sm:ml-3">
                             {project.phases.map(([week, phase], phaseIndex) => {
-                              const isLast = phaseIndex === project.phases.length - 1;
+                              const isLast =
+                                phaseIndex === project.phases.length - 1;
                               return (
-                                <li key={week} className="relative pb-7 pl-8 last:pb-0 sm:pl-10">
+                                <li
+                                  key={week}
+                                  className="relative pb-7 pl-8 last:pb-0 sm:pl-10"
+                                >
                                   {!isLast && (
                                     <span
                                       aria-hidden="true"
@@ -470,13 +585,18 @@ export default function BeyondAcademicsPage() {
                               </h3>
                               <ul className="space-y-2.5 text-base text-primary sm:text-lg">
                                 {group.items.map((item: string) => (
-                                  <li key={item} className="flex gap-3 leading-snug">
+                                  <li
+                                    key={item}
+                                    className="flex gap-3 leading-snug"
+                                  >
                                     <span
                                       aria-hidden="true"
                                       className="mt-2 h-2 w-2 shrink-0 rounded-full"
                                       style={{ backgroundColor: project.color }}
                                     />
-                                    <span className="min-w-0 break-words">{item}</span>
+                                    <span className="min-w-0 break-words">
+                                      {item}
+                                    </span>
                                   </li>
                                 ))}
                               </ul>
@@ -494,13 +614,27 @@ export default function BeyondAcademicsPage() {
 
         {/* ---------- CTA ---------- */}
         <section className="relative overflow-hidden bg-primary px-6 py-20 text-center md:py-28">
-          <Sprout color="#69bb44" className="absolute bottom-6 left-[6%] hidden h-20 w-20 opacity-50 sm:block" />
-          <Ball color={heroColor(3)} className="absolute bottom-10 right-[8%] hidden h-14 w-14 opacity-50 sm:block" />
-          <Sparkle color="var(--yellow)" className="absolute left-[16%] top-14 h-5 w-5" />
-          <Sparkle color="#ffffff" className="absolute right-[20%] top-16 h-4 w-4 [animation-delay:1.6s]" />
+          <Sprout
+            color="#69bb44"
+            className="absolute bottom-6 left-[6%] hidden h-20 w-20 opacity-50 sm:block"
+          />
+          <Ball
+            color={heroColor(3)}
+            className="absolute bottom-10 right-[8%] hidden h-14 w-14 opacity-50 sm:block"
+          />
+          <Sparkle
+            color="var(--yellow)"
+            className="absolute left-[16%] top-14 h-5 w-5"
+          />
+          <Sparkle
+            color="#ffffff"
+            className="absolute right-[20%] top-16 h-4 w-4 [animation-delay:1.6s]"
+          />
 
           <FadeUp className="relative mx-auto max-w-3xl">
-            <h2 className="text-balance text-4xl font-bold text-white md:text-5xl">{cta.heading}</h2>
+            <h2 className="text-balance text-4xl font-bold text-white md:text-5xl">
+              {cta.heading}
+            </h2>
             <p className="mt-5 text-lg text-white/75 md:text-xl">{cta.body}</p>
             <button
               type="button"
