@@ -101,7 +101,7 @@
     --sidebar-ring: 229 60% 26%;
 
     /* Typography */
-    --font-sans: sans-serif;
+    --font-sans: sans-serif, poppins;
     --font-heading: "Surgena", sans-serif;
     --font-serif: "Surgena", serif;
     --font-mono: ui-monospace, "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;

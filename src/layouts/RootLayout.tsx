@@ -78,7 +78,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       </section>
       <Footer />
       <a
-        href="/media/Trium%20Print%20Brochure%20_20261021_172237_0000.pdf"
+        href="/media/Brochure%20Digital%20Version.pdf"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="View brochure"

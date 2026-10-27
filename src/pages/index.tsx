@@ -303,7 +303,7 @@ const heroImages = [
     alt: "Students collaborating in the school's STEM learning environment",
   },
   {
-    image: "/media/website-media/Sports Ground and School Buildings.jpeg",
+    image: "/media/The Trium School Campus Aerial View.png",
     alt: "Students enjoying sports and outdoor activities on campus",
   },
   {
@@ -700,7 +700,7 @@ const slides = heroImages.map((image, index) => {
                       </li>
                     </ul>
                     <a
-                      href="/media/Trium%20Print%20Brochure%20_20261021_172237_0000.pdf"
+                      href="/media/Brochure%20Digital%20Version.pdf"
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="Read More"

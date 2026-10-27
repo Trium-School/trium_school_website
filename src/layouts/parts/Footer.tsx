@@ -1,9 +1,5 @@
 import { Link } from "react-router";
-import {
-  MapPin,
-  Phone,
-  Mail,
-} from "lucide-react";
+import { MapPin, Phone, Mail } from "lucide-react";
 import { FaXTwitter } from "react-icons/fa6";
 import { SlSocialFacebook } from "react-icons/sl";
 import { FaInstagram } from "react-icons/fa";
@@ -104,6 +100,14 @@ export default function Footer() {
                   label: "Campus & Facilities",
                 },
                 {
+                  href: "/careers",
+                  label: "Careers",
+                },
+                {
+                  href: "/blogs",
+                  label: "Blogs",
+                },
+                {
                   href: "/contact",
                   label: "Contact Us",
                 },
@@ -129,8 +133,8 @@ export default function Footer() {
             <ul className="space-y-3">
               {[
                 "Early Years (Pre-K)",
-                "Primary School (Gr. 1–5)",
-                "Secondary School (Gr. 6–10)",
+                "Primary School (Grade 1–5)",
+                "Secondary School (Grade 6–10)",
                 "Co-Curricular Activities",
                 "Sports & Athletics",
               ].map((item) => (

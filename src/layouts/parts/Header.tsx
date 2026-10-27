@@ -97,6 +97,11 @@ export default function Header() {
       action: () => goToPage("/careers"),
     },
     {
+      id: "blogs",
+      label: "Blogs",
+      action: () => goToPage("/blogs"),
+    },
+    {
       id: "contact",
       label: "Contact",
       action: () => goToPage("/contact"),
