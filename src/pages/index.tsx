@@ -82,9 +82,21 @@ const REAL_WORLD_PROJECTS = [
     focus: "Growing & Observing",
     focusDescription:
       "Daily care and observation of the garden, watching how plants respond to sun, water, and soil.",
-    fieldConcepts: ["Plant care routines", "Observation journaling", "Solving pests & wilting"],
-    academicConcepts: ["Science: parts of a plant", "EVS: recording & measuring", "Science: what plants need"],
-    realWorldConnections: ["Visit from a school gardener", "Comparing plots with classmates", "Talking to a local nursery owner"],
+    fieldConcepts: [
+      "Plant care routines",
+      "Observation journaling",
+      "Solving pests & wilting",
+    ],
+    academicConcepts: [
+      "Science: parts of a plant",
+      "EVS: recording & measuring",
+      "Science: what plants need",
+    ],
+    realWorldConnections: [
+      "Visit from a school gardener",
+      "Comparing plots with classmates",
+      "Talking to a local nursery owner",
+    ],
     phases: [
       ["Week 1–2", "Seeds & Soil"],
       ["Week 3–4", "Growing & Observing"],
@@ -106,9 +118,21 @@ const REAL_WORLD_PROJECTS = [
     focus: "Meet Local Government",
     focusDescription:
       "Students interview a ward councillor to learn how local services and decisions are made.",
-    fieldConcepts: ["Interviewing skills", "Civic responsibility", "Resource mapping"],
-    academicConcepts: ["Social Studies: local government", "Social Studies: rights & duties", "Geography: reading simple maps"],
-    realWorldConnections: ["Q&A with a ward councillor", "Visiting a municipal ward office", "Comparing map to real location"],
+    fieldConcepts: [
+      "Interviewing skills",
+      "Civic responsibility",
+      "Resource mapping",
+    ],
+    academicConcepts: [
+      "Social Studies: local government",
+      "Social Studies: rights & duties",
+      "Geography: reading simple maps",
+    ],
+    realWorldConnections: [
+      "Q&A with a ward councillor",
+      "Visiting a municipal ward office",
+      "Comparing map to real location",
+    ],
     phases: [
       ["Week 1–2", "Survey & Sketch"],
       ["Week 3–4", "Mapping Resources"],
@@ -273,36 +297,34 @@ export default function HomePage() {
     ],
   };
 
-  const slides = [
-    {
-      image: "media/Banner.png",
-      alt: "Collaborative robotics lesson in the STEM lab",
-      badge: home.hero.trust_badge,
-      tagline: home.hero.tagline,
-      subtitle: home.hero.subtitle,
-      cta: home.hero.cta_primary,
-      link: "/admissions",
-    },
-    {
-      image: "media/website-media/Sports Ground and School Buildings.jpeg",
-      alt: "Collaborative robotics lesson in the STEM lab",
-      badge: home.hero.trust_badge,
-      tagline: home.hero.tagline,
-      subtitle: home.hero.subtitle,
-      cta: home.hero.cta_primary,
-      link: "/admissions",
-    },
-    {
-      image: "media/website-media/Architecture and Campus Exterior.jpeg",
-      alt: "Collaborative robotics lesson in the STEM lab",
-      badge: home.hero.trust_badge,
-      tagline: home.hero.tagline,
-      subtitle: home.hero.subtitle,
-      cta: home.hero.cta_primary,
-      link: "/admissions",
-    },
-    // add more...
-  ];
+const heroImages = [
+  {
+    image: "/media/Banner.png",
+    alt: "Students collaborating in the school's STEM learning environment",
+  },
+  {
+    image: "/media/website-media/Sports Ground and School Buildings.jpeg",
+    alt: "Students enjoying sports and outdoor activities on campus",
+  },
+  {
+    image: "/media/website-media/Architecture and Campus Exterior.jpeg",
+    alt: "The Trium School campus and its architecture",
+  },
+];
+
+const slides = heroImages.map((image, index) => {
+  const content = home.hero[index];
+
+  return {
+    ...image,
+    badge: content.trust_badge,
+    tagline: content.tagline,
+    subtitle: content.subtitle,
+    cta: content.cta_primary,
+    secondaryCta: content.cta_secondary,
+    link: "/admissions",
+  };
+});
 
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -403,50 +425,54 @@ export default function HomePage() {
                 height={900}
               />
             </AnimatePresence>
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/85 via-primary/60 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/55 to-transparent" />
           </div>
 
           {/* Content */}
           <div className="relative container mx-auto px-6 min-[992px]:pl-24 py-24">
             <AnimatePresence mode="wait">
-              {current === 0 && (
-                <motion.div
-                  key="hero-content"
-                  className="max-w-2xl"
-                  exit={{ opacity: 0, y: -12, transition: { duration: 0.3 } }}
-                >
+              <motion.div
+                key={`hero-content-${current}`}
+                className="max-w-2xl"
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.45, ease: "easeOut" }}
+              >
+                {current === 0 && (
                   <motion.div
                     initial={{ opacity: 0, y: -16 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, ease: "easeOut" }}
-                    className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full px-4 py-2 mb-8"
+                    className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/15 px-4 py-2 backdrop-blur-sm"
                   >
                     <Award size={14} className="text-accent" />
-                    <span className="text-white/90 text-xs font-medium">
+                    <span className="text-xs font-medium text-white/90">
                       {slide.badge}
                     </span>
                   </motion.div>
+                )}
 
-                  <motion.h1
-                    initial={{ opacity: 0, y: 32 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-                    className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6"
-                    style={{ fontFamily: "var(--font-heading)" }}
-                  >
-                    {slide.tagline}
-                  </motion.h1>
+                <motion.h1
+                  initial={{ opacity: 0, y: 32 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
+                  className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6"
+                  style={{ fontFamily: "var(--font-heading)" }}
+                >
+                  {slide.tagline}
+                </motion.h1>
 
-                  <motion.p
-                    initial={{ opacity: 0, y: 24 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, delay: 0.25, ease: "easeOut" }}
-                    className="text-white/85 text-lg md:text-xl leading-relaxed mb-10 max-w-xl"
-                  >
-                    {slide.subtitle}
-                  </motion.p>
+                <motion.p
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.25, ease: "easeOut" }}
+                  className="text-white/85 text-lg md:text-xl leading-relaxed mb-10 max-w-xl"
+                >
+                  {slide.subtitle}
+                </motion.p>
 
+                {current === 0 && (
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -470,8 +496,8 @@ export default function HomePage() {
                       <ChevronRight size={16} />
                     </span>
                   </motion.div>
-                </motion.div>
-              )}
+                )}
+              </motion.div>
             </AnimatePresence>
           </div>
 
@@ -673,6 +699,16 @@ export default function HomePage() {
                         </span>
                       </li>
                     </ul>
+                    <a
+                      href="/media/Trium%20Print%20Brochure%20_20261021_172237_0000.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Read More"
+                      style={{ borderColor: DIFF_COLORS[1] }}
+                      className="flex items-center max-w-28 justify-between rounded-lg border-2 bg-white/70 px-4 py-3 text-left text-sm font-semibold text-primary shadow-sm transition-all hover:-translate-y-0.5 hover:bg-white hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 mt-4"
+                    >
+                      Read More
+                    </a>
                   </DiffText>
                 </div>
               </FadeUp>

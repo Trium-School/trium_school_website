@@ -64,7 +64,7 @@
     },
     {
       "id": "primary-years",
-      "eyebrow": "Primary Years · Grades 1–5",
+      "eyebrow": "Primary Years · Grades 1–5(CBSE)",
       "title": "The Primary Years",
       "intro": "A holistic, inquiry-driven programme that weaves together academics, wellbeing, the arts and physical education — helping every child grow into a confident, caring learner.",
       "subjects": [
@@ -78,7 +78,7 @@
     },
     {
       "id": "middle-years",
-      "eyebrow": "Middle Years · Grades 6–10",
+      "eyebrow": "Middle Years · Grades 6–10(CBSE)",
       "title": "The Middle Years",
       "intro": "A rigorous, balanced curriculum that connects disciplines and sparks bold thinking — building the skills, resilience, and self-awareness students carry into senior school.",
       "subjects": [
