@@ -1,18 +1,12 @@
-import express, { type Express, type NextFunction, type Request, type Response } from "express";
+import express, { type Express, type NextFunction, type Request, type RequestHandler, type Response } from "express";
 import cookieParser from "cookie-parser";
 import { fileURLToPath } from "node:url";
 import { dirname, extname, join } from "node:path";
 import { readFileSync } from "node:fs";
 
 // <api-imports>
-import admin__enquiries__get from "./api/admin/enquiries/GET";
 import admin__login__post from "./api/admin/login/POST";
 import admin__logout__post from "./api/admin/logout/POST";
-import admissions__post from "./api/admissions/POST";
-import auth__action__get from "./api/auth/[action]/GET";
-import auth__action__post from "./api/auth/[action]/POST";
-import auth__action__detail__get from "./api/auth/[action]/[detail]/GET";
-import auth__action__detail__post from "./api/auth/[action]/[detail]/POST";
 import careers__post from "./api/careers/POST";
 import contact__post from "./api/contact/POST";
 import health__get from "./api/health/GET";
@@ -32,6 +26,16 @@ export interface SsrRenderResult {
 	head: string;
 	status: number;
 	redirect?: string;
+}
+
+function lazyApiHandler(
+	load: () => Promise<{ default: RequestHandler }>,
+): RequestHandler {
+	return (req, res, next) => {
+		void load()
+			.then(({ default: handler }) => handler(req, res, next))
+			.catch(next);
+	};
 }
 
 export function registerAdSenseTextRoutes(app: Express, config: AdSenseRuntimeConfig): void {
@@ -97,14 +101,32 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // <api-registrations>
-app.get("/api/admin/enquiries", admin__enquiries__get);
+app.get(
+	"/api/admin/enquiries",
+	lazyApiHandler(() => import("./api/admin/enquiries/GET")),
+);
 app.post("/api/admin/login", admin__login__post);
 app.post("/api/admin/logout", admin__logout__post);
-app.post("/api/admissions", admissions__post);
-app.get("/api/auth/:action", auth__action__get);
-app.post("/api/auth/:action", auth__action__post);
-app.get("/api/auth/:action/:detail", auth__action__detail__get);
-app.post("/api/auth/:action/:detail", auth__action__detail__post);
+app.post(
+	"/api/admissions",
+	lazyApiHandler(() => import("./api/admissions/POST")),
+);
+app.get(
+	"/api/auth/:action",
+	lazyApiHandler(() => import("./api/auth/[action]/GET")),
+);
+app.post(
+	"/api/auth/:action",
+	lazyApiHandler(() => import("./api/auth/[action]/POST")),
+);
+app.get(
+	"/api/auth/:action/:detail",
+	lazyApiHandler(() => import("./api/auth/[action]/[detail]/GET")),
+);
+app.post(
+	"/api/auth/:action/:detail",
+	lazyApiHandler(() => import("./api/auth/[action]/[detail]/POST")),
+);
 app.post("/api/careers", careers__post);
 app.post("/api/contact", contact__post);
 app.get("/api/health", health__get);

@@ -49,10 +49,13 @@ export default function ContactPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       });
-      if (!res.ok) throw new Error('Failed');
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || 'Failed to send your message.');
+      }
       setSubmitted(true);
-    } catch {
-      setError('Something went wrong. Please try again or email us directly.');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Something went wrong. Please try again or email us directly.');
     } finally {
       setSubmitting(false);
     }

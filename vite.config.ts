@@ -1,7 +1,7 @@
 // This project was exported from Airo. These plugins only exist inside Airo and were
 // removed, but this file still references them: sourceMapperPlugin, devToolsPlugin, fullStoryPlugin, errorInterceptorPlugin, mediaVersionsPlugin, hmrGatePlugin.
 // Delete those references before running or building this project.
-import { defineConfig, type Plugin, type ViteDevServer } from "vite";
+import { defineConfig, loadEnv, type Plugin, type ViteDevServer } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 import { existsSync, statSync } from "node:fs";
@@ -161,7 +161,19 @@ if (allowedHosts.length === 0) {
 if (corsOrigins.length === 0) {
   corsOrigins.push("*");
 }
-export default defineConfig(({ isSsrBuild }) => ({
+export default defineConfig(({ isSsrBuild, mode }) => {
+  const mailEnv = loadEnv(mode, process.cwd(), "");
+  for (const [key, value] of Object.entries(mailEnv)) {
+    if (
+      /^(ADMISSIONS|CONTACT|CAREERS)_SMTP_(HOST|PORT|SECURE|USER|PASSWORD)$/.test(key) ||
+      /^(ADMISSIONS|CONTACT|CAREERS)_NOTIFICATION_EMAIL$/.test(key) ||
+      key === "NOTIFICATION_RECIPIENT_EMAIL"
+    ) {
+      process.env[key] ??= value;
+    }
+  }
+
+  return ({
   envPrefix: ["VITE_", "SITE_"],
   plugins: [react(), mediaAssetsPlugin(), worktreePreviewPlugin(), apiDevPlugin(), formatOverridesPlugin(__dirname), contentPlugin()],
   resolve: {
@@ -244,4 +256,5 @@ export default defineConfig(({ isSsrBuild }) => ({
       }
     }
   }
-}));
+  });
+});
