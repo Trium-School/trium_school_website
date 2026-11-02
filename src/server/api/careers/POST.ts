@@ -1,6 +1,5 @@
 import type { Request, Response } from 'express';
-import { sendEmail } from '../../email.js';
-import { getSecret } from '#airo/secrets';
+import { getEmailDeliveryFailureMessage, sendNotificationEmail } from '../../email-smtp.js';
 
 export default async function handler(req: Request, res: Response) {
   const { name, email, phone, position, experience, message } = req.body as {
@@ -16,14 +15,16 @@ export default async function handler(req: Request, res: Response) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
 
-  const recipientRaw = getSecret('NOTIFICATION_RECIPIENT_EMAIL');
-  const recipient = typeof recipientRaw === 'string' ? recipientRaw : undefined;
-  if (recipient) {
-    try {
-      await sendEmail({
-        to: recipient,
-        subject: `New Career Application — ${position}`,
-        html: `
+  try {
+    await sendNotificationEmail({
+      recipientEnv: 'CAREERS_NOTIFICATION_EMAIL',
+      fallbackRecipientEnv: 'NOTIFICATION_RECIPIENT_EMAIL',
+      smtpPrefix: 'CAREERS',
+      fallbackSmtpPrefix: 'CONTACT',
+      fromName: 'The Trium School Careers',
+      subject: `New Career Application — ${position}`,
+      replyTo: email,
+      html: `
           <h2>New Career Application</h2>
           <table style="border-collapse:collapse;width:100%">
             <tr><td style="padding:8px;font-weight:bold">Name</td><td style="padding:8px">${name}</td></tr>
@@ -33,11 +34,11 @@ export default async function handler(req: Request, res: Response) {
             <tr><td style="padding:8px;font-weight:bold">Experience</td><td style="padding:8px">${experience || 'Not specified'}</td></tr>
             <tr><td style="padding:8px;font-weight:bold">Cover Note</td><td style="padding:8px">${message.replace(/\n/g, '<br>')}</td></tr>
           </table>
-        `,
-      });
-    } catch (err) {
-      console.error('Career application email failed (non-fatal):', err);
-    }
+      `,
+    });
+  } catch (err) {
+    console.error('careers.email.failed', err);
+    return res.status(502).json({ error: getEmailDeliveryFailureMessage(err) });
   }
 
   return res.status(201).json({ ok: true });

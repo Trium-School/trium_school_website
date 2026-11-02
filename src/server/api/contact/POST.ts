@@ -1,6 +1,5 @@
 import type { Request, Response } from 'express';
-import { sendEmail } from '@/server/email';
-import { getSecret } from '#airo/secrets';
+import { getEmailDeliveryFailureMessage, sendNotificationEmail } from '@/server/email-smtp';
 
 export default async function handler(req: Request, res: Response) {
   try {
@@ -10,14 +9,15 @@ export default async function handler(req: Request, res: Response) {
       return res.status(400).json({ error: 'Name, email, and message are required.' });
     }
 
-    const recipient = getSecret('NOTIFICATION_RECIPIENT_EMAIL') as string | undefined;
-    if (recipient) {
-      try {
-        await sendEmail({
-          fromName: 'The Trium School Website',
-          to: recipient,
-          subject: `Website Enquiry${subject ? ` — ${subject}` : ''} from ${name}`,
-          html: `
+    try {
+      await sendNotificationEmail({
+        recipientEnv: 'CONTACT_NOTIFICATION_EMAIL',
+        fallbackRecipientEnv: 'NOTIFICATION_RECIPIENT_EMAIL',
+        smtpPrefix: 'CONTACT',
+        fromName: 'The Trium School Website',
+        subject: `Website Enquiry${subject ? ` — ${subject}` : ''} from ${name}`,
+        replyTo: email,
+        html: `
           <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 24px;">
             <h2 style="color: #1B2A6B; margin-bottom: 4px;">New Website Enquiry</h2>
             <p style="color: #666; margin-top: 0;">Submitted via the Contact page on triumschool.in</p>
@@ -33,11 +33,10 @@ export default async function handler(req: Request, res: Response) {
             <p style="color: #333; line-height: 1.6; white-space: pre-wrap;">${message}</p>
           </div>
         `,
-        });
-      } catch (emailErr) {
-        // Log but don't fail the request — message is still received
-        console.error('contact.email.failed', emailErr);
-      }
+      });
+    } catch (emailErr) {
+      console.error('contact.email.failed', emailErr);
+      return res.status(502).json({ error: getEmailDeliveryFailureMessage(emailErr) });
     }
 
     return res.status(201).json({ ok: true });

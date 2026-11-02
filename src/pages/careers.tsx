@@ -26,6 +26,7 @@ export default function CareersPage() {
   const [openPosition, setOpenPosition] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -81,17 +82,23 @@ export default function CareersPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
+    setSubmitError('');
     try {
-      await fetch('/api/careers', {
+      const response = await fetch('/api/careers', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       });
-    } catch {
-      // non-fatal
+      if (!response.ok) {
+        const data = await response.json().catch(() => ({}));
+        throw new Error(data.error || 'Your application could not be submitted. Please try again.');
+      }
+      setSubmitted(true);
+    } catch (error) {
+      setSubmitError(error instanceof Error ? error.message : 'Your application could not be submitted. Please try again.');
+    } finally {
+      setSubmitting(false);
     }
-    setSubmitting(false);
-    setSubmitted(true);
   };
 
   return (
@@ -320,6 +327,7 @@ export default function CareersPage() {
                     onSubmit={handleSubmit}
                     className="bg-card rounded-2xl border border-border p-8 md:p-10 flex flex-col gap-5"
                   >
+                    {submitError && <p role="alert" className="text-sm text-destructive">{submitError}</p>}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                       <div className="flex flex-col gap-1.5">
                         <label
