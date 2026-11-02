@@ -19,8 +19,7 @@ export default async function handler(req: Request, res: Response) {
     await sendNotificationEmail({
       recipientEnv: 'CAREERS_NOTIFICATION_EMAIL',
       fallbackRecipientEnv: 'NOTIFICATION_RECIPIENT_EMAIL',
-      smtpPrefix: 'CAREERS',
-      fallbackSmtpPrefix: 'CONTACT',
+      smtpPrefix: 'CONTACT',
       fromName: 'The Trium School Careers',
       subject: `New Career Application — ${position}`,
       replyTo: email,

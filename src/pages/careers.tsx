@@ -84,7 +84,7 @@ export default function CareersPage() {
     setSubmitting(true);
     setSubmitError('');
     try {
-      const response = await fetch('/api/careers', {
+      const response = await globalThis.fetch('/api/careers', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),

@@ -97,7 +97,7 @@ export default function AdmissionsPage() {
     setStatus("submitting");
     setErrorMsg("");
     try {
-      const res = await fetch("/api/admissions", {
+      const res = await globalThis.fetch("/api/admissions", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
