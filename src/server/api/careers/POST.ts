@@ -1,39 +1,38 @@
 import type { Request, Response } from 'express';
-import { getEmailDeliveryFailureMessage, sendNotificationEmail } from '../../email-smtp.js';
+import { careersFormSchema } from '@/lib/form-validation';
+import { createNotificationEmail, getEmailDeliveryFailureMessage, sendNotificationEmail } from '../../email-smtp.js';
 
 export default async function handler(req: Request, res: Response) {
-  const { name, email, phone, position, experience, message } = req.body as {
-    name?: string;
-    email?: string;
-    phone?: string;
-    position?: string;
-    experience?: string;
-    message?: string;
-  };
-
-  if (!name || !email || !position || !message) {
-    return res.status(400).json({ error: 'Missing required fields' });
+  const parsed = careersFormSchema.safeParse(req.body);
+  if (!parsed.success) {
+    return res.status(400).json({ error: parsed.error.issues[0].message });
   }
+
+  const { name, email, phone, position, experience, message } = parsed.data;
+  const emailContent = createNotificationEmail({
+    title: 'New careers application',
+    preheader: `A new application for ${position}.`,
+    intro: 'A candidate has submitted an application to join The Trium School.',
+    details: [
+      { label: 'Name', value: name },
+      { label: 'Email', value: email },
+      { label: 'Phone', value: phone || 'Not provided' },
+      { label: 'Position', value: position },
+      { label: 'Experience', value: experience || 'Not specified' },
+    ],
+    message: { label: 'Cover note', value: message },
+  });
 
   try {
     await sendNotificationEmail({
       recipientEnv: 'CAREERS_NOTIFICATION_EMAIL',
       fallbackRecipientEnv: 'NOTIFICATION_RECIPIENT_EMAIL',
       smtpPrefix: 'CONTACT',
-      fromName: 'The Trium School Careers',
-      subject: `New Career Application — ${position}`,
+      fromName: 'Website Careers Form',
+      subject: `[Website Careers Form] New Application — ${position.replace(/[\r\n]/g, ' ')}`,
       replyTo: email,
-      html: `
-          <h2>New Career Application</h2>
-          <table style="border-collapse:collapse;width:100%">
-            <tr><td style="padding:8px;font-weight:bold">Name</td><td style="padding:8px">${name}</td></tr>
-            <tr><td style="padding:8px;font-weight:bold">Email</td><td style="padding:8px">${email}</td></tr>
-            <tr><td style="padding:8px;font-weight:bold">Phone</td><td style="padding:8px">${phone || 'Not provided'}</td></tr>
-            <tr><td style="padding:8px;font-weight:bold">Position</td><td style="padding:8px">${position}</td></tr>
-            <tr><td style="padding:8px;font-weight:bold">Experience</td><td style="padding:8px">${experience || 'Not specified'}</td></tr>
-            <tr><td style="padding:8px;font-weight:bold">Cover Note</td><td style="padding:8px">${message.replace(/\n/g, '<br>')}</td></tr>
-          </table>
-      `,
+      html: emailContent.html,
+      text: emailContent.text,
     });
   } catch (err) {
     console.error('careers.email.failed', err);

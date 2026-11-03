@@ -105,6 +105,9 @@ export default function DemoContent() {
                 <input
                   type="text"
                   id="name"
+                  required
+                  minLength={2}
+                  maxLength={100}
                   className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:border-transparent outline-none transition-all"
                   style={{ focusRingColor: `hsl(var(--ring))` } as any}
                   placeholder="Your name"
@@ -118,6 +121,8 @@ export default function DemoContent() {
                 <input
                   type="email"
                   id="email"
+                  required
+                  maxLength={254}
                   className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:border-transparent outline-none transition-all"
                   style={{ focusRingColor: `hsl(var(--ring))` } as any}
                   placeholder="your@email.com"
@@ -131,6 +136,9 @@ export default function DemoContent() {
               </label>
               <textarea
                 id="message"
+                required
+                minLength={10}
+                maxLength={5000}
                 rows={3}
                 className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:border-transparent outline-none transition-all resize-none"
                 style={{ focusRingColor: `hsl(var(--ring))` } as any}
@@ -171,4 +179,3 @@ export default function DemoContent() {
     </div>
   )
 }
-
