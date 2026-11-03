@@ -2,7 +2,11 @@ import type { Request, Response } from 'express';
 import { getSecret } from '#airo/secrets';
 
 export default async function handler(req: Request, res: Response) {
-  const { password } = req.body;
+  const password = req.body?.password;
+  if (typeof password !== 'string' || password.length === 0) {
+    return res.status(400).json({ error: 'Password is required.' });
+  }
+
   const adminPassword = getSecret('ADMIN_PASSWORD');
 
   if (!adminPassword) {

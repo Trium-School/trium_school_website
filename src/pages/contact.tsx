@@ -199,6 +199,8 @@ export default function ContactPage() {
                           name="name"
                           type="text"
                           required
+                          minLength={2}
+                          maxLength={100}
                           value={form.name}
                           onChange={handleChange}
                           placeholder={contact.form.name_placeholder}
@@ -214,6 +216,7 @@ export default function ContactPage() {
                           name="email"
                           type="email"
                           required
+                          maxLength={254}
                           value={form.email}
                           onChange={handleChange}
                           placeholder={contact.form.email_placeholder}
@@ -231,6 +234,9 @@ export default function ContactPage() {
                           id="phone"
                           name="phone"
                           type="tel"
+                          maxLength={20}
+                          pattern="(?=(?:[^0-9]*[0-9]){7})[+]?[0-9 .()-]{7,20}"
+                          title="Enter a phone number with 7–15 digits."
                           value={form.phone}
                           onChange={handleChange}
                           placeholder={contact.form.phone_placeholder}
@@ -245,6 +251,7 @@ export default function ContactPage() {
                           id="subject"
                           name="subject"
                           type="text"
+                          maxLength={150}
                           value={form.subject}
                           onChange={handleChange}
                           placeholder={contact.form.subject_placeholder}
@@ -261,6 +268,8 @@ export default function ContactPage() {
                         id="message"
                         name="message"
                         required
+                        minLength={10}
+                        maxLength={5000}
                         rows={5}
                         value={form.message}
                         onChange={handleChange}
@@ -269,7 +278,7 @@ export default function ContactPage() {
                       />
                     </div>
 
-                    {error && <p className="text-red-500 text-sm">{error}</p>}
+                    {error && <p role="alert" className="text-red-500 text-sm">{error}</p>}
 
                     <button
                       type="submit"

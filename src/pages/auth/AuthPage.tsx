@@ -141,6 +141,10 @@ export default function AuthPage({
 
     // Validate password on signup
     if (!isLogin) {
+      if (name.trim().length < 2) {
+        setError('Please enter your name.');
+        return;
+      }
       const pwdError = validatePassword(password);
       if (pwdError) {
         setError(pwdError);
@@ -155,7 +159,7 @@ export default function AuthPage({
       }) : await signUp.email({
         email,
         password,
-        name: name || ''
+        name: name.trim()
       });
       if (result.error) {
         setError(result.error.message || 'Authentication failed');
@@ -223,7 +227,7 @@ export default function AuthPage({
         </h2>
         {!showEmail && <p className="text-gray-600 text-center mb-6">Sign in to continue</p>}
 
-        {error && <div className="mb-4 p-3 bg-red-50 border border-red-200 text-red-700 rounded-md text-sm">
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 text-red-700 rounded-md text-sm">
             {error}
           </div>}
 
@@ -260,15 +264,15 @@ export default function AuthPage({
             <form onSubmit={handleEmailSubmit} className="space-y-4">
               {!isLogin && <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                  <input id="name" type="text" value={name} onChange={e => setName(e.target.value)} disabled={loading} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100" placeholder="Your name" />
+                  <input id="name" type="text" value={name} onChange={e => setName(e.target.value)} required minLength={2} maxLength={100} autoComplete="name" disabled={loading} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100" placeholder="Your name" />
                 </div>}
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                <input id="email" type="email" value={email} onChange={e => setEmail(e.target.value)} required disabled={loading} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100" placeholder="you@example.com" />
+                <input id="email" type="email" value={email} onChange={e => setEmail(e.target.value)} required maxLength={254} autoComplete="email" disabled={loading} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100" placeholder="you@example.com" />
               </div>
               <div>
                 <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">Password</label>
-                <input id="password" type="password" value={password} onChange={e => setPassword(e.target.value)} required minLength={isLogin ? undefined : 8} disabled={loading} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100" placeholder={isLogin ? '••••••••' : 'Min 8 chars, A-Z, 0-9, special'} />
+                <input id="password" type="password" value={password} onChange={e => setPassword(e.target.value)} required minLength={isLogin ? undefined : 8} maxLength={128} autoComplete={isLogin ? 'current-password' : 'new-password'} disabled={loading} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100" placeholder={isLogin ? '••••••••' : 'Min 8 chars, A-Z, 0-9, special'} />
                 {!isLogin && <p className="mt-1 text-xs text-gray-500">Must include uppercase, number, and special character</p>}
               </div>
               <button type="submit" disabled={loading || socialLoading !== null} className="w-full py-2 px-4 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 disabled:opacity-50">

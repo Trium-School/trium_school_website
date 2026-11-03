@@ -9,7 +9,7 @@ vi.mock('nodemailer', () => ({
   default: { createTransport },
 }));
 
-import { getEmailDeliveryFailureMessage, sendNotificationEmail } from './email-smtp';
+import { createNotificationEmail, getEmailDeliveryFailureMessage, sendNotificationEmail } from './email-smtp';
 
 const envKeys = [
   'CONTACT_NOTIFICATION_EMAIL',
@@ -74,5 +74,44 @@ describe('sendNotificationEmail', () => {
     expect(getEmailDeliveryFailureMessage({ code: 'EAUTH', response: '535 secret diagnostic' })).toBe(
       'The email server rejected the SMTP login. Check that the configured username and password match an active mailbox on this email provider.',
     );
+  });
+});
+
+describe('createNotificationEmail', () => {
+  it('creates a branded HTML email and a readable plain-text alternative', () => {
+    const email = createNotificationEmail({
+      title: 'New contact enquiry',
+      preheader: 'A new enquiry from Alex.',
+      intro: 'A new message was submitted.',
+      details: [
+        { label: 'Name', value: 'Alex Example' },
+        { label: 'Email', value: 'alex@example.com' },
+      ],
+      message: { label: 'Message', value: 'Hello,\nI have a question.' },
+    });
+
+    expect(email.html).toContain('THE TRIUM SCHOOL');
+    expect(email.html).toContain('background-color: #1b2a6b');
+    expect(email.html).toContain('New contact enquiry');
+    expect(email.html).toContain('white-space: pre-wrap');
+    expect(email.html).toContain('Hello,\nI have a question.');
+    expect(email.text).toContain('Name: Alex Example');
+    expect(email.text).toContain('Message:\nHello,\nI have a question.');
+  });
+
+  it('escapes user-provided values in HTML', () => {
+    const email = createNotificationEmail({
+      title: '<script>bad()</script>',
+      preheader: 'An enquiry from <Alex>.',
+      intro: 'A new message & enquiry.',
+      details: [{ label: 'Name', value: '<img src=x onerror=alert(1)>' }],
+      message: { label: 'Message', value: '<b>unsafe</b>' },
+    });
+
+    expect(email.html).toContain('&lt;script&gt;bad()&lt;/script&gt;');
+    expect(email.html).toContain('&lt;img src=x onerror=alert(1)&gt;');
+    expect(email.html).toContain('&lt;b&gt;unsafe&lt;/b&gt;');
+    expect(email.html).not.toContain('<img src=x');
+    expect(email.html).not.toContain('<b>unsafe</b>');
   });
 });
