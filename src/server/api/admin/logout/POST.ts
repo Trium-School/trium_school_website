@@ -1,6 +1,12 @@
-import type { Request, Response } from 'express';
+import type { Request, Response } from "express";
 
-export default async function handler(req: Request, res: Response) {
-  res.clearCookie('admin_session');
-  return res.json({ ok: true });
+import { clearAdminSession } from "../../../admin-session.js";
+
+export default async function handler(_req: Request, res: Response) {
+  clearAdminSession(res);
+
+  return res.status(200).json({
+    ok: true,
+    message: "Logged out successfully.",
+  });
 }

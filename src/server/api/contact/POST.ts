@@ -1,6 +1,7 @@
 import type { Request, Response } from 'express';
 import { contactFormSchema } from '@/lib/form-validation';
-import { createNotificationEmail, getEmailDeliveryFailureMessage, sendNotificationEmail } from '@/server/email-smtp';
+import { recordAndNotify } from "@/server/record-and-notify";
+import { createNotificationEmail } from '@/server/email-smtp';
 
 export default async function handler(req: Request, res: Response) {
   const parsed = contactFormSchema.safeParse(req.body);
@@ -22,21 +23,31 @@ export default async function handler(req: Request, res: Response) {
     message: { label: 'Message', value: message },
   });
 
-  try {
-    await sendNotificationEmail({
-      recipientEnv: 'CONTACT_NOTIFICATION_EMAIL',
-      fallbackRecipientEnv: 'NOTIFICATION_RECIPIENT_EMAIL',
-      smtpPrefix: 'CONTACT',
-      fromName: 'Website Contact Form',
-      subject: `[Website Contact Form]${subject ? ` ${subject.replace(/[\r\n]/g, ' ')} —` : ''} Enquiry from ${name.replace(/[\r\n]/g, ' ')}`,
+
+try {
+  const result = await recordAndNotify({
+    formType: "contact",
+    name,
+    email,
+    phone,
+    details: parsed.data,
+    notification: {
+      recipientEnv: "CONTACT_NOTIFICATION_EMAIL",
+      fallbackRecipientEnv: "NOTIFICATION_RECIPIENT_EMAIL",
+      smtpPrefix: "CONTACT",
+      fromName: "Website Contact Form",
+      subject: `New contact enquiry from ${name}`,
       replyTo: email,
       html: emailContent.html,
       text: emailContent.text,
-    });
-  } catch (emailErr) {
-    console.error('contact.email.failed', emailErr);
-    return res.status(502).json({ error: getEmailDeliveryFailureMessage(emailErr) });
-  }
+    },
+  });
 
-  return res.status(201).json({ ok: true });
+  return res.status(201).json(result);
+} catch (error) {
+  console.error("contact.db.failed", error);
+  return res.status(503).json({
+    error: "Could not save your enquiry. Please try again.",
+  });
+}
 }

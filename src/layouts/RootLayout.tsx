@@ -53,7 +53,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           allowFullScreen
           referrerPolicy="no-referrer-when-downgrade"
         />
-        <div className="absolute left-6 top-6 max-w-sm rounded-xl bg-white/95 p-5 shadow-lg backdrop-blur-sm">
+        <div className="absolute right-12 top-6 max-w-sm rounded-xl bg-white/95 p-5 shadow-lg backdrop-blur-sm">
           <h2 className="text-lg font-semibold text-primary">
             The Trium School
           </h2>
