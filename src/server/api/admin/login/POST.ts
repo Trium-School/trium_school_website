@@ -1,30 +1,42 @@
-import type { Request, Response } from 'express';
-import { getSecret } from '#airo/secrets';
+import type { Request, Response } from "express";
+
+import {
+  createAdminSession,
+  verifyAdminPassword,
+} from "../../../admin-session.js";
 
 export default async function handler(req: Request, res: Response) {
+  res.setHeader("Cache-Control", "no-store");
+
   const password = req.body?.password;
-  if (typeof password !== 'string' || password.length === 0) {
-    return res.status(400).json({ error: 'Password is required.' });
+
+  if (typeof password !== "string" || !password) {
+    return res.status(400).json({
+      error: "Password is required.",
+    });
   }
 
-  const adminPassword = getSecret('ADMIN_PASSWORD');
+  try {
+    if (!verifyAdminPassword(password)) {
+      return res.status(401).json({
+        error: "Incorrect password.",
+      });
+    }
 
-  if (!adminPassword) {
-    return res.status(500).json({ error: 'Admin password not configured' });
+    createAdminSession(res);
+
+    return res.status(200).json({
+      ok: true,
+      message: "Login successful.",
+    });
+  } catch (error) {
+    console.error(
+      "admin.login.error",
+      error instanceof Error ? error.message : "Unknown",
+    );
+
+    return res.status(503).json({
+      error: "Admin login is not configured.",
+    });
   }
-
-  if (password !== adminPassword) {
-    return res.status(401).json({ error: 'Incorrect password' });
-  }
-
-  // Set a simple session cookie
-  res.cookie('admin_session', 'authenticated', {
-    httpOnly: true,
-    secure: false,
-    sameSite: 'lax',
-    maxAge: 1000 * 60 * 60 * 8, // 8 hours
-    path: '/',
-  });
-
-  return res.json({ ok: true });
 }

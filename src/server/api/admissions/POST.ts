@@ -1,6 +1,7 @@
 import type { Request, Response } from 'express';
 import { admissionsFormSchema } from '@/lib/form-validation';
-import { createNotificationEmail, getEmailDeliveryFailureMessage, sendNotificationEmail } from '@/server/email-smtp';
+import { recordAndNotify } from "@/server/record-and-notify";
+import { createNotificationEmail } from '@/server/email-smtp';
 
 export default async function handler(req: Request, res: Response) {
   const parsed = admissionsFormSchema.safeParse(req.body);
@@ -24,21 +25,31 @@ export default async function handler(req: Request, res: Response) {
     ],
   });
 
-  try {
-    await sendNotificationEmail({
-      recipientEnv: 'ADMISSIONS_NOTIFICATION_EMAIL',
-      fallbackRecipientEnv: 'NOTIFICATION_RECIPIENT_EMAIL',
-      smtpPrefix: 'CONTACT',
-      fromName: 'Website Admission Form',
-      subject: `[Website Admission Form] New Enquiry — ${childName.replace(/[\r\n]/g, ' ')} (${grade})`,
+
+try {
+  const result = await recordAndNotify({
+    formType: "admissions",
+    name: parentName,
+    email,
+    phone,
+    details: parsed.data,
+    notification: {
+      recipientEnv: "ADMISSIONS_NOTIFICATION_EMAIL",
+      fallbackRecipientEnv: "NOTIFICATION_RECIPIENT_EMAIL",
+      smtpPrefix: "CONTACT",
+      fromName: "Website Admission Form",
+      subject: `New admissions enquiry for ${childName} (${grade})`,
       replyTo: email,
       html: emailContent.html,
       text: emailContent.text,
-    });
-  } catch (emailErr) {
-    console.error('admissions.email.failed', emailErr);
-    return res.status(502).json({ message: getEmailDeliveryFailureMessage(emailErr) });
-  }
+    },
+  });
 
-  return res.status(201).json({ ok: true, message: 'Enquiry received. We will contact you shortly.' });
+  return res.status(201).json(result);
+} catch (error) {
+  console.error("admissions.db.failed", error);
+  return res.status(503).json({
+    message: "Could not save your enquiry. Please try again.",
+  });
+}
 }
