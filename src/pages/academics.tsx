@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router";
 import { Helmet } from '@dr.pogodin/react-helmet';
 import { motion } from 'motion/react';
 import { useNavigate } from "react-router";
@@ -55,6 +56,38 @@ const programmeColors = [
 export default function AcademicsPage() {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState(0);
+  const location = useLocation();
+
+useEffect(() => {
+  const params = new URLSearchParams(location.search);
+  const programmeId = params.get("programme");
+
+  if (!programmeId) return;
+
+  const index = academics.programmes.findIndex(
+    (prog) => String(prog.id) === programmeId
+  );
+
+  if (index !== -1) {
+    setActiveTab(index);
+  }
+}, [location.search]);
+useEffect(() => {
+  if (location.hash !== "#programmes") return;
+
+  const element = document.getElementById("programmes");
+
+  if (!element) return;
+
+  const frame = requestAnimationFrame(() => {
+    element.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  });
+
+  return () => cancelAnimationFrame(frame);
+}, [location.pathname, location.hash, location.search]);
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
@@ -197,7 +230,7 @@ export default function AcademicsPage() {
         </section>
 
         {/* ── Programmes ───────────────────────────────────────────────── */}
-        <section className="py-20 bg-muted/30">
+        <section id="programmes" className="py-20 bg-muted/30 scroll-mt-24">
           <div className="max-w-6xl mx-auto px-4">
             <FadeUp className="text-center mb-10">
               <h2
