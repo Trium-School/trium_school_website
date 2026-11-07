@@ -341,6 +341,8 @@ export default function CareersPage() {
                           name="name"
                           type="text"
                           required
+                          minLength={2}
+                          maxLength={100}
                           value={form.name}
                           onChange={handleChange}
                           placeholder="Your full name"
@@ -360,6 +362,7 @@ export default function CareersPage() {
                           name="email"
                           type="email"
                           required
+                          maxLength={254}
                           value={form.email}
                           onChange={handleChange}
                           placeholder="you@example.com"
@@ -379,6 +382,9 @@ export default function CareersPage() {
                           id="phone"
                           name="phone"
                           type="tel"
+                          maxLength={20}
+                          pattern="(?=(?:[^0-9]*[0-9]){7})[+]?[0-9 .()-]{7,20}"
+                          title="Enter a phone number with 7–15 digits."
                           value={form.phone}
                           onChange={handleChange}
                           placeholder="+91 XXXXX XXXXX"
@@ -445,6 +451,8 @@ export default function CareersPage() {
                         id="message"
                         name="message"
                         required
+                        minLength={20}
+                        maxLength={5000}
                         rows={5}
                         value={form.message}
                         onChange={handleChange}
