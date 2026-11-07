@@ -1,7 +1,20 @@
-import { Fragment, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { Helmet } from "@dr.pogodin/react-helmet";
 import { useNavigate } from "react-router";
-import { Download, LogOut, Search, RefreshCw, Trash2 } from "lucide-react";
+import {
+  Download,
+  LogOut,
+  Search,
+  RefreshCw,
+  Trash2,
+  X,
+  Eye,
+  CalendarDays,
+  Mail,
+  Phone,
+  UserRound,
+} from "lucide-react";
 
 type FormType = "contact" | "admissions" | "careers";
 type EmailStatus = "pending" | "sent" | "failed";
@@ -49,6 +62,234 @@ function csvSafe(value: unknown): string {
   return `"${safe.replace(/"/g, '""')}"`;
 }
 
+/** Read-only submission detail modal. Keeps the table height unchanged. */
+function SubmissionDetailsModal({
+  submission,
+  onClose,
+}: {
+  submission: Submission;
+  onClose: () => void;
+}) {
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const details = Object.entries(submission.details ?? {}).filter(
+    ([key]) => !["name", "email", "phone"].includes(key),
+  );
+
+  useEffect(() => {
+    const previousFocus = document.activeElement as HTMLElement | null;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    closeButtonRef.current?.focus();
+
+    function onKeyDown(event: globalThis.KeyboardEvent) {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        onClose();
+        return;
+      }
+      if (event.key !== "Tab" || !dialogRef.current) return;
+
+      const focusable = Array.from(
+        dialogRef.current.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ),
+      );
+      if (focusable.length === 0) {
+        event.preventDefault();
+        return;
+      }
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = previousOverflow;
+      previousFocus?.focus();
+    };
+  }, [onClose]);
+
+  const statusStyle =
+    submission.emailStatus === "sent"
+      ? "bg-green-100 text-green-700"
+      : submission.emailStatus === "failed"
+        ? "bg-red-100 text-red-700"
+        : "bg-amber-100 text-amber-700";
+  const statusText =
+    submission.emailStatus === "sent"
+      ? "Email sent"
+      : submission.emailStatus === "failed"
+        ? "Email failed"
+        : "Email pending";
+
+  return createPortal(
+    <div
+      className="fixed inset-0 z-[1000] overflow-y-auto bg-slate-950/65 p-3 sm:p-6"
+      onMouseDown={(event) => {
+        if (event.target === event.currentTarget) onClose();
+      }}
+    >
+      <div
+        className="flex min-h-full items-center justify-center py-4"
+        onMouseDown={(event) => {
+          if (event.target === event.currentTarget) onClose();
+        }}
+      >
+        <div
+          ref={dialogRef}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="submission-dialog-title"
+          className="w-full max-w-3xl overflow-hidden rounded-2xl bg-white shadow-2xl"
+        >
+          <div className="flex items-start justify-between gap-4 bg-primary px-5 py-5 text-white sm:px-7">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-widest text-white/70">
+                {label[submission.formType]} form
+              </p>
+              <h2
+                id="submission-dialog-title"
+                className="mt-1 text-xl font-bold sm:text-2xl"
+              >
+                Submission details
+              </h2>
+              <p className="mt-1 text-sm text-white/75">
+                Reference #{submission.id}
+              </p>
+            </div>
+            <button
+              ref={closeButtonRef}
+              type="button"
+              aria-label="Close submission details"
+              title="Close"
+              onClick={onClose}
+              className="rounded-lg p-2 text-white hover:bg-white/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+            >
+              <X size={22} />
+            </button>
+          </div>
+
+          <div className="max-h-[min(70vh,700px)] overflow-y-auto px-5 py-6 sm:px-7">
+            <div className="mb-6 flex flex-wrap items-center justify-between gap-3 rounded-xl bg-gray-50 p-4">
+              <div className="flex items-center gap-2 text-sm text-gray-600">
+                <CalendarDays size={17} />
+                <span>
+                  {new Date(submission.createdAt).toLocaleString("en-IN", {
+                    timeZone: "Asia/Kolkata",
+                    day: "2-digit",
+                    month: "short",
+                    year: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })}
+                </span>
+              </div>
+              <div className="text-right">
+                <span
+                  className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ${statusStyle}`}
+                >
+                  {statusText}
+                </span>
+                {submission.emailErrorCode && (
+                  <p className="mt-1 text-xs text-gray-500">
+                    Error: {submission.emailErrorCode}
+                  </p>
+                )}
+              </div>
+            </div>
+
+            <h3 className="mb-3 text-sm font-bold uppercase tracking-wide text-gray-600">
+              Applicant / visitor
+            </h3>
+            <div className="mb-7 grid gap-3 sm:grid-cols-2">
+              <div className="rounded-xl border border-gray-200 p-4">
+                <p className="mb-1 flex items-center gap-2 text-xs font-semibold uppercase text-gray-500">
+                  <UserRound size={14} /> Name
+                </p>
+                <p className="break-words font-semibold text-gray-900">
+                  {submission.name || "—"}
+                </p>
+              </div>
+              <div className="rounded-xl border border-gray-200 p-4">
+                <p className="mb-1 flex items-center gap-2 text-xs font-semibold uppercase text-gray-500">
+                  <Phone size={14} /> Phone
+                </p>
+                {submission.phone ? (
+                  <a
+                    href={`tel:${submission.phone}`}
+                    className="break-all text-primary hover:underline"
+                  >
+                    {submission.phone}
+                  </a>
+                ) : (
+                  <span className="text-gray-500">—</span>
+                )}
+              </div>
+              <div className="rounded-xl border border-gray-200 p-4 sm:col-span-2">
+                <p className="mb-1 flex items-center gap-2 text-xs font-semibold uppercase text-gray-500">
+                  <Mail size={14} /> Email address
+                </p>
+                <a
+                  href={`mailto:${submission.email}`}
+                  className="break-all text-primary hover:underline"
+                >
+                  {submission.email}
+                </a>
+              </div>
+            </div>
+
+            <h3 className="mb-3 text-sm font-bold uppercase tracking-wide text-gray-600">
+              {label[submission.formType]} form information
+            </h3>
+            {details.length ? (
+              <dl className="grid gap-3 sm:grid-cols-2">
+                {details.map(([key, value]) => (
+                  <div
+                    key={key}
+                    className="min-w-0 rounded-xl border border-gray-200 p-4"
+                  >
+                    <dt className="mb-1 text-xs font-semibold uppercase tracking-wide text-gray-500">
+                      {fieldLabels[key] ??
+                        key.replace(/([a-z])([A-Z])/g, "$1 $2")}
+                    </dt>
+                    <dd className="whitespace-pre-wrap break-words text-sm leading-relaxed text-gray-900">
+                      {cell(value) || "—"}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            ) : (
+              <p className="rounded-xl bg-gray-50 p-4 text-sm text-gray-500">
+                No additional information.
+              </p>
+            )}
+          </div>
+
+          <div className="flex justify-end border-t bg-gray-50 px-5 py-4 sm:px-7">
+            <button
+              type="button"
+              onClick={onClose}
+              className="rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:opacity-90"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>,
+    document.body,
+  );
+}
+
 export default function AdminEnquiries() {
   const navigate = useNavigate();
   const [items, setItems] = useState<Submission[]>([]);
@@ -60,17 +301,21 @@ export default function AdminEnquiries() {
   const [message, setMessage] = useState("");
   const [tab, setTab] = useState<Tab>("all");
   const [search, setSearch] = useState("");
-  const [expanded, setExpanded] = useState<number | null>(null);
+  const [viewing, setViewing] = useState<Submission | null>(null);
+  const closeModal = useCallback(() => setViewing(null), []);
   const [selected, setSelected] = useState<Set<number>>(() => new Set());
 
   async function load(nextPage: number) {
     setLoading(true);
     setError("");
     try {
-      const response = await globalThis.fetch(`/api/admin/enquiries?page=${nextPage}`, {
-        credentials: "same-origin",
-        cache: "no-store",
-      });
+      const response = await globalThis.fetch(
+        `/api/admin/enquiries?page=${nextPage}`,
+        {
+          credentials: "same-origin",
+          cache: "no-store",
+        },
+      );
       if (response.status === 401) {
         navigate("/admin/login", { replace: true });
         return;
@@ -179,7 +424,7 @@ export default function AdminEnquiries() {
         }
         removed += payload.deleted ?? 0;
       }
-      setExpanded(null);
+      setViewing(null);
       setMessage(
         `${removed} submission${removed === 1 ? "" : "s"} deleted successfully.`,
       );
@@ -224,7 +469,7 @@ export default function AdminEnquiries() {
     const url = globalThis.URL.createObjectURL(
       new globalThis.Blob([csv], { type: "text/csv;charset=utf-8" }),
     );
-    const anchor = globalThis.document.createElement("a");
+    const anchor = document.createElement("a");
     anchor.href = url;
     anchor.download = `trium-form-submissions-${new Date().toISOString().slice(0, 10)}.csv`;
     anchor.click();
@@ -407,109 +652,80 @@ export default function AdminEnquiries() {
                 </thead>
                 <tbody className="divide-y">
                   {visible.map((item) => (
-                    <Fragment key={item.id}>
-                      <tr className="hover:bg-gray-50 align-top">
-                        <td className="px-4 py-3">
-                          <input
-                            type="checkbox"
-                            aria-label={`Select submission ${item.id}`}
-                            checked={selected.has(item.id)}
-                            onChange={() => toggleSelected(item.id)}
-                            disabled={deleting}
-                          />
-                        </td>
-                        <td className="px-4 py-3 whitespace-nowrap">
-                          {new Date(item.createdAt).toLocaleString("en-IN", {
-                            timeZone: "Asia/Kolkata",
-                          })}
-                        </td>
-                        <td className="px-4 py-3">{label[item.formType]}</td>
-                        <td className="px-4 py-3 font-semibold">{item.name}</td>
-                        <td className="px-4 py-3">
-                          <a
-                            href={`mailto:${item.email}`}
-                            className="text-primary"
-                          >
-                            {item.email}
-                          </a>
-                        </td>
-                        <td className="px-4 py-3">
-                          <a
-                            href={`tel:${item.phone}`}
-                            className="text-primary"
-                          >
-                            {item.phone}
-                          </a>
-                        </td>
-                        <td className="px-4 py-3">
-                          <span
-                            className={`rounded-full px-2 py-1 text-xs font-semibold ${
-                              item.emailStatus === "sent"
-                                ? "bg-green-100 text-green-700"
-                                : item.emailStatus === "failed"
-                                  ? "bg-red-100 text-red-700"
-                                  : "bg-amber-100 text-amber-700"
-                            }`}
-                          >
-                            {item.emailStatus === "sent"
-                              ? "Sent"
+                    <tr key={item.id} className="hover:bg-gray-50 align-top">
+                      <td className="px-4 py-3">
+                        <input
+                          type="checkbox"
+                          aria-label={`Select submission ${item.id}`}
+                          checked={selected.has(item.id)}
+                          onChange={() => toggleSelected(item.id)}
+                          disabled={deleting}
+                        />
+                      </td>
+                      <td className="px-4 py-3 whitespace-nowrap">
+                        {new Date(item.createdAt).toLocaleString("en-IN", {
+                          timeZone: "Asia/Kolkata",
+                        })}
+                      </td>
+                      <td className="px-4 py-3">{label[item.formType]}</td>
+                      <td className="px-4 py-3 font-semibold">{item.name}</td>
+                      <td className="px-4 py-3">
+                        <a
+                          href={`mailto:${item.email}`}
+                          className="text-primary"
+                        >
+                          {item.email}
+                        </a>
+                      </td>
+                      <td className="px-4 py-3">
+                        <a href={`tel:${item.phone}`} className="text-primary">
+                          {item.phone}
+                        </a>
+                      </td>
+                      <td className="px-4 py-3">
+                        <span
+                          className={`rounded-full px-2 py-1 text-xs font-semibold ${
+                            item.emailStatus === "sent"
+                              ? "bg-green-100 text-green-700"
                               : item.emailStatus === "failed"
-                                ? "Email failed"
-                                : "Pending"}
-                          </span>
-                          {item.emailErrorCode && (
-                            <p className="text-xs text-gray-500 mt-1">
-                              {item.emailErrorCode}
-                            </p>
-                          )}
-                        </td>
-                        <td className="px-4 py-3">
-                          <button
-                            type="button"
-                            onClick={() =>
-                              setExpanded(expanded === item.id ? null : item.id)
-                            }
-                            className="text-primary underline"
-                          >
-                            {expanded === item.id ? "Hide" : "View"}
-                          </button>
-                        </td>
-                        <td className="px-4 py-3">
-                          <button
-                            type="button"
-                            onClick={() => void deleteEntries([item.id])}
-                            disabled={deleting || loading}
-                            title="Permanently delete submission"
-                            className="inline-flex items-center gap-1 text-red-600 hover:text-red-800 disabled:opacity-40"
-                          >
-                            <Trash2 size={15} /> Delete
-                          </button>
-                        </td>
-                      </tr>
-                      {expanded === item.id && (
-                        <tr>
-                          <td colSpan={9} className="bg-gray-50 px-6 py-4">
-                            <dl className="grid sm:grid-cols-2 gap-3">
-                              {Object.entries(item.details)
-                                .filter(
-                                  ([key]) =>
-                                    !["name", "email", "phone"].includes(key),
-                                )
-                                .map(([key, value]) => (
-                                  <div key={key} className="min-w-0">
-                                    <dt className="text-xs uppercase text-gray-500 font-semibold">
-                                      {fieldLabels[key] ?? key}
-                                    </dt>
-                                    <dd className="whitespace-pre-wrap break-words text-gray-800">
-                                      {cell(value) || "—"}
-                                    </dd>
-                                  </div>
-                                ))}
-                            </dl>
-                          </td>
-                        </tr>
-                      )}
-                    </Fragment>
+                                ? "bg-red-100 text-red-700"
+                                : "bg-amber-100 text-amber-700"
+                          }`}
+                        >
+                          {item.emailStatus === "sent"
+                            ? "Sent"
+                            : item.emailStatus === "failed"
+                              ? "Email failed"
+                              : "Pending"}
+                        </span>
+                        {item.emailErrorCode && (
+                          <p className="text-xs text-gray-500 mt-1">
+                            {item.emailErrorCode}
+                          </p>
+                        )}
+                      </td>
+                      <td className="px-4 py-3">
+                        <button
+                          type="button"
+                          onClick={() => setViewing(item)}
+                          className="inline-flex items-center gap-1 text-primary underline"
+                          aria-label={`View details for submission ${item.id}`}
+                        >
+                          <Eye size={14} /> View
+                        </button>
+                      </td>
+                      <td className="px-4 py-3">
+                        <button
+                          type="button"
+                          onClick={() => void deleteEntries([item.id])}
+                          disabled={deleting || loading}
+                          title="Permanently delete submission"
+                          className="inline-flex items-center gap-1 text-red-600 hover:text-red-800 disabled:opacity-40"
+                        >
+                          <Trash2 size={15} /> Delete
+                        </button>
+                      </td>
+                    </tr>
                   ))}
                 </tbody>
               </table>
@@ -543,6 +759,9 @@ export default function AdminEnquiries() {
           </section>
         </main>
       </div>
+      {viewing && (
+        <SubmissionDetailsModal submission={viewing} onClose={closeModal} />
+      )}
     </>
   );
 }
