@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "@dr.pogodin/react-helmet";
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowRight, Cpu, Music, Palette, Trophy } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { useNavigate } from "react-router";
+import { useNavigate, useLocation } from "react-router";
 import { beyondAcademics } from "virtual:content";
 
 const site = "https://triumschool.in";
@@ -151,6 +151,24 @@ function ExperienceDecor({ index, color, className = "" }: DecorProps & { index:
 
 export default function BeyondAcademicsPage() {
   const navigate = useNavigate();
+  const location = useLocation();
+
+useEffect(() => {
+  if (!location.hash) return;
+
+  const targetId = decodeURIComponent(
+    location.hash.substring(1)
+  );
+
+  const frame = requestAnimationFrame(() => {
+    document.getElementById(targetId)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  });
+
+  return () => cancelAnimationFrame(frame);
+}, [location.pathname, location.hash]);
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -249,7 +267,8 @@ export default function BeyondAcademicsPage() {
             return (
               <FadeUp key={experience.id} delay={0.05}>
                 <article
-                  className="grid overflow-hidden rounded-3xl border bg-background shadow-sm lg:min-h-[480px] lg:grid-cols-2"
+                  id={experience.id}
+                  className="grid scroll-mt-24 overflow-hidden rounded-3xl border bg-background shadow-sm lg:min-h-[480px] lg:grid-cols-2"
                   style={{
                     borderColor: tint(experience.color, 30),
                   }}
