@@ -1,3 +1,4 @@
+
 import {
   createHash,
   createHmac,
@@ -14,7 +15,9 @@ function getSessionSecret(): string {
   const secret = process.env.ADMIN_SESSION_SECRET;
 
   if (!secret || secret.length < 32) {
-    throw new Error("ADMIN_SESSION_SECRET must contain at least 32 characters");
+    throw new Error(
+      "ADMIN_SESSION_SECRET must contain at least 32 characters"
+    );
   }
 
   return secret;
@@ -30,7 +33,9 @@ function getCookieOptions() {
 }
 
 // Check the admin password using constant-time comparison.
-export function verifyAdminPassword(password: string): boolean {
+export function verifyAdminPassword(
+  password: string
+): boolean {
   const expected = process.env.ADMIN_PASSWORD;
 
   if (!expected) {
@@ -41,22 +46,31 @@ export function verifyAdminPassword(password: string): boolean {
     return false;
   }
 
-  const submittedHash = createHash("sha256").update(password).digest();
+  const submittedHash = createHash("sha256")
+    .update(password)
+    .digest();
 
-  const expectedHash = createHash("sha256").update(expected).digest();
+  const expectedHash = createHash("sha256")
+    .update(expected)
+    .digest();
 
   return timingSafeEqual(submittedHash, expectedHash);
 }
 
 // Generate a signed login session.
-export function createAdminSession(res: Response): void {
+export function createAdminSession(
+  res: Response
+): void {
   const expiresAt = Date.now() + SESSION_DURATION;
 
   const randomToken = randomBytes(16).toString("hex");
 
   const payload = `${expiresAt}.${randomToken}`;
 
-  const signature = createHmac("sha256", getSessionSecret())
+  const signature = createHmac(
+    "sha256",
+    getSessionSecret()
+  )
     .update(payload)
     .digest("hex");
 
@@ -76,7 +90,10 @@ export function isAdmin(req: Request): boolean {
     return false;
   }
 
-  const match = /^(\d{13})\.([a-f0-9]{32})\.([a-f0-9]{64})$/.exec(token);
+  const match =
+    /^(\d{13})\.([a-f0-9]{32})\.([a-f0-9]{64})$/.exec(
+      token
+    );
 
   if (!match) {
     return false;
@@ -97,14 +114,18 @@ export function isAdmin(req: Request): boolean {
   try {
     const payload = `${expiry}.${randomToken}`;
 
-    const expected = createHmac("sha256", getSessionSecret())
+    const expected = createHmac(
+      "sha256",
+      getSessionSecret()
+    )
       .update(payload)
       .digest();
 
     const received = Buffer.from(signature, "hex");
 
     return (
-      expected.length === received.length && timingSafeEqual(expected, received)
+      expected.length === received.length &&
+      timingSafeEqual(expected, received)
     );
   } catch {
     return false;
@@ -112,6 +133,11 @@ export function isAdmin(req: Request): boolean {
 }
 
 // Clear admin session on logout.
-export function clearAdminSession(res: Response): void {
-  res.clearCookie(COOKIE_NAME, getCookieOptions());
+export function clearAdminSession(
+  res: Response
+): void {
+  res.clearCookie(
+    COOKIE_NAME,
+    getCookieOptions()
+  );
 }
