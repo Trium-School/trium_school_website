@@ -1,47 +1,53 @@
 import type { Request, Response } from 'express';
-import { getEmailDeliveryFailureMessage, sendNotificationEmail } from '@/server/email-smtp';
+import { contactFormSchema } from '@/lib/form-validation';
+import { recordAndNotify } from "@/server/record-and-notify";
+import { createNotificationEmail } from '@/server/email-smtp';
 
 export default async function handler(req: Request, res: Response) {
-  try {
-    const { name, email, phone, subject, message } = req.body;
-
-    if (!name || !email || !message) {
-      return res.status(400).json({ error: 'Name, email, and message are required.' });
-    }
-
-    try {
-      await sendNotificationEmail({
-        recipientEnv: 'CONTACT_NOTIFICATION_EMAIL',
-        fallbackRecipientEnv: 'NOTIFICATION_RECIPIENT_EMAIL',
-        smtpPrefix: 'CONTACT',
-        fromName: 'The Trium School Website',
-        subject: `Website Enquiry${subject ? ` — ${subject}` : ''} from ${name}`,
-        replyTo: email,
-        html: `
-          <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 24px;">
-            <h2 style="color: #1B2A6B; margin-bottom: 4px;">New Website Enquiry</h2>
-            <p style="color: #666; margin-top: 0;">Submitted via the Contact page on triumschool.in</p>
-            <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;" />
-            <table style="width: 100%; border-collapse: collapse;">
-              <tr><td style="padding: 8px 0; color: #888; width: 30%;">Name</td><td style="padding: 8px 0; font-weight: 600; color: #1B2A6B;">${name}</td></tr>
-              <tr><td style="padding: 8px 0; color: #888;">Email</td><td style="padding: 8px 0;"><a href="mailto:${email}" style="color: #1B2A6B;">${email}</a></td></tr>
-              ${phone ? `<tr><td style="padding: 8px 0; color: #888;">Phone</td><td style="padding: 8px 0;"><a href="tel:${phone}" style="color: #1B2A6B;">${phone}</a></td></tr>` : ''}
-              ${subject ? `<tr><td style="padding: 8px 0; color: #888;">Subject</td><td style="padding: 8px 0;">${subject}</td></tr>` : ''}
-            </table>
-            <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;" />
-            <p style="color: #888; font-size: 12px; margin-bottom: 6px;">Message:</p>
-            <p style="color: #333; line-height: 1.6; white-space: pre-wrap;">${message}</p>
-          </div>
-        `,
-      });
-    } catch (emailErr) {
-      console.error('contact.email.failed', emailErr);
-      return res.status(502).json({ error: getEmailDeliveryFailureMessage(emailErr) });
-    }
-
-    return res.status(201).json({ ok: true });
-  } catch (error) {
-    console.error('contact.post.error', error);
-    return res.status(500).json({ error: 'Failed to send message.' });
+  const parsed = contactFormSchema.safeParse(req.body);
+  if (!parsed.success) {
+    return res.status(400).json({ error: parsed.error.issues[0].message });
   }
+
+  const { name, email, phone, subject, message } = parsed.data;
+  const emailContent = createNotificationEmail({
+    title: 'New contact enquiry',
+    preheader: `A new website enquiry from ${name}.`,
+    intro: 'A new message has been submitted through the Contact page.',
+    details: [
+      { label: 'Name', value: name },
+      { label: 'Email', value: email },
+      { label: 'Phone', value: phone || 'Not provided' },
+      { label: 'Subject', value: subject || 'Not provided' },
+    ],
+    message: { label: 'Message', value: message },
+  });
+
+
+try {
+  const result = await recordAndNotify({
+    formType: "contact",
+    name,
+    email,
+    phone,
+    details: parsed.data,
+    notification: {
+      recipientEnv: "CONTACT_NOTIFICATION_EMAIL",
+      fallbackRecipientEnv: "NOTIFICATION_RECIPIENT_EMAIL",
+      smtpPrefix: "CONTACT",
+      fromName: "Website Contact Form",
+      subject: `New contact enquiry from ${name}`,
+      replyTo: email,
+      html: emailContent.html,
+      text: emailContent.text,
+    },
+  });
+
+  return res.status(201).json(result);
+} catch (error) {
+  console.error("contact.db.failed", error);
+  return res.status(503).json({
+    error: "Could not save your enquiry. Please try again.",
+  });
+}
 }

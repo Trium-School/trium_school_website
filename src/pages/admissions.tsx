@@ -366,7 +366,7 @@ export default function AdmissionsPage() {
                       </button>
                     </div>
                   ) : (
-                    <form onSubmit={handleSubmit} noValidate>
+                    <form onSubmit={handleSubmit}>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
                         <div>
                           <label
@@ -381,6 +381,8 @@ export default function AdmissionsPage() {
                             name="parentName"
                             type="text"
                             required
+                            minLength={2}
+                            maxLength={100}
                             placeholder="e.g. Rahul Sharma"
                             value={formData.parentName}
                             onChange={handleChange}
@@ -399,6 +401,8 @@ export default function AdmissionsPage() {
                             name="childName"
                             type="text"
                             required
+                            minLength={2}
+                            maxLength={100}
                             placeholder="e.g. Aryan Sharma"
                             value={formData.childName}
                             onChange={handleChange}
@@ -418,6 +422,7 @@ export default function AdmissionsPage() {
                             type="number"
                             min="2"
                             max="18"
+                            step="1"
                             required
                             placeholder="e.g. 5"
                             value={formData.childAge}
@@ -464,6 +469,9 @@ export default function AdmissionsPage() {
                             name="phone"
                             type="tel"
                             required
+                            maxLength={20}
+                            pattern="(?=(?:[^0-9]*[0-9]){7})[+]?[0-9 .()-]{7,20}"
+                            title="Enter a phone number with 7–15 digits."
                             placeholder="e.g. +91 98765 43210"
                             value={formData.phone}
                             onChange={handleChange}
@@ -483,6 +491,7 @@ export default function AdmissionsPage() {
                             name="email"
                             type="email"
                             required
+                            maxLength={254}
                             placeholder="e.g. rahul@email.com"
                             value={formData.email}
                             onChange={handleChange}
@@ -524,7 +533,7 @@ export default function AdmissionsPage() {
                       </div>
 
                       {status === "error" && (
-                        <p className="text-red-500 text-sm mb-5 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+                        <p role="alert" className="text-red-500 text-sm mb-5 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
                           {errorMsg}
                         </p>
                       )}

@@ -84,6 +84,7 @@ v8-app-template/
 
 - `npm run dev` - Start development server with hot reload
 - `npm run build` - Build the client and SSR server bundle for production
+- `npm start` - Start the built production SSR server (after `npm run build`)
 - `npm run preview` - Preview production build locally
 - `npm run test` - Run Vitest unit tests
 - `npm run test:ui` - Open the Vitest UI

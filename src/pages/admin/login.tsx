@@ -57,10 +57,10 @@ export default function AdminLogin() {
               <label htmlFor="password" className="block text-xs font-semibold text-foreground mb-1.5">
                 Password
               </label>
-              <input id="password" type="password" required value={password} onChange={e => setPassword(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors" placeholder="Enter admin password" />
+              <input id="password" type="password" required autoComplete="current-password" value={password} onChange={e => setPassword(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors" placeholder="Enter admin password" />
             </div>
 
-            {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+            {error && <p role="alert" className="text-red-500 text-sm mb-4">{error}</p>}
 
             <button type="submit" disabled={loading} className="w-full py-3 rounded-xl bg-primary text-white font-semibold text-sm hover:bg-primary/90 transition-colors disabled:opacity-60">
               {loading ? 'Signing in…' : 'Sign In'}

@@ -3,6 +3,7 @@ import cookieParser from "cookie-parser";
 import { fileURLToPath } from "node:url";
 import { dirname, extname, join } from "node:path";
 import { readFileSync } from "node:fs";
+import { clearTimeout, setTimeout } from "node:timers";
 
 // <api-imports>
 import admin__login__post from "./api/admin/login/POST";
@@ -104,6 +105,12 @@ app.use(cookieParser());
 app.get(
 	"/api/admin/enquiries",
 	lazyApiHandler(() => import("./api/admin/enquiries/GET")),
+);
+app.delete(
+  "/api/admin/enquiries",
+  lazyApiHandler(() =>
+    import("./api/admin/enquiries/DELETE")
+  )
 );
 app.post("/api/admin/login", admin__login__post);
 app.post("/api/admin/logout", admin__logout__post);
@@ -378,8 +385,6 @@ if (import.meta.env.PROD) {
 		let mod: { closeConnection?: () => Promise<void> | void } | null = null;
 		try {
 			const dbClient = "./db/client" + ".js";
-			// Source-literal optional module path; no request, environment, or user input reaches import().
-			// eslint-disable-next-line no-unsanitized/method
 			mod = await import(/* @vite-ignore */ dbClient);
 		} catch (error: unknown) {
 			const code = (error as { code?: string } | null)?.code;
@@ -421,7 +426,7 @@ if (import.meta.env.PROD) {
 	const server = app.listen(port, host, () => {
 		console.log(`Server listening on http://${host}:${port}`);
 	});
-	server.on("error", (err: NodeJS.ErrnoException) => {
+	server.on("error", (err: Error & { code?: string }) => {
 		console.error("ssr.server.listen-failed", {
 			port,
 			host,
