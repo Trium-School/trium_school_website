@@ -141,6 +141,11 @@ export const schemas = {
         "description": z.string()
       }))
     }),
+    "pre_primary": z.object({
+      "heading": z.string(),
+      "body": z.array(z.string()),
+      "button": z.string()
+    }),
     "programmes": z.array(z.object({
       "id": z.string(),
       "name": z.string(),

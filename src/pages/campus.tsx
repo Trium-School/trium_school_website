@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { useNavigate } from "react-router";
 import { ArrowRight, ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react";
 import { campus } from "virtual:content";
+import CampusVideo from "../components/CampusVideo";
 const site = "https://triumschool.in";
 const url = `${site}/campus`;
 function FadeUp({
@@ -508,6 +509,9 @@ export default function CampusPage() {
               </div>
             </FadeUp>
 
+            <div className="mb-10">
+              <CampusVideo />
+            </div>
             <GallerySlider images={campus.gallery.images} />
           </div>
         </section>

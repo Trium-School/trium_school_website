@@ -229,6 +229,37 @@ useEffect(() => {
           </div>
         </section>
 
+        {/* ── Pre-Primary Curriculum ───────────────────────────────────── */}
+        <section className="py-16 bg-background">
+          <div className="max-w-4xl mx-auto px-4 text-center">
+            <FadeUp>
+              <h2
+                className="text-3xl md:text-4xl font-bold text-primary mb-6"
+                style={{
+                  fontFamily: "var(--font-heading)",
+                }}
+              >
+                {academics.pre_primary.heading}
+              </h2>
+              {academics.pre_primary.body.map((paragraph) => (
+                <p
+                  key={paragraph}
+                  className="text-muted-foreground leading-relaxed mb-4"
+                >
+                  {paragraph}
+                </p>
+              ))}
+              <button
+                onClick={() => navigate("/our-partners")}
+                className="inline-flex items-center gap-2 bg-accent text-white font-semibold px-8 py-3.5 rounded-full hover:bg-accent/90 transition-colors mt-4"
+              >
+                {academics.pre_primary.button}
+                <ArrowRight size={18} />
+              </button>
+            </FadeUp>
+          </div>
+        </section>
+
         {/* ── Programmes ───────────────────────────────────────────────── */}
         <section id="programmes" className="py-20 bg-muted/30 scroll-mt-24">
           <div className="max-w-6xl mx-auto px-4">

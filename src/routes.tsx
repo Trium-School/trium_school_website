@@ -10,6 +10,7 @@ import OurDifferentiatorsPage from "./pages/our-differentiators";
 import BeyondAcademicsPage from "./pages/beyond-academics";
 import AdminLoginPage from "./pages/admin/login";
 import AdminEnquiriesPage from "./pages/admin/enquiries";
+import OurPartnersPage from "./pages/our-partners";
 import BlogsPage from "./pages/blogs";
 // Eager import so renderToString doesn't hit a Suspense boundary on 404 routes
 // and abort to client rendering. The prod 404 page is tiny; the dev-tools
@@ -41,6 +42,10 @@ export const routes: RouteObject[] = [
   {
     path: "/beyond-academics",
     element: <BeyondAcademicsPage />,
+  },
+  {
+    path: "/our-partners",
+    element: <OurPartnersPage />,
   },
   {
     path: "/contact",
@@ -81,6 +86,7 @@ export type Path =
   | "/academics"
   | "/our-differentiators"
   | "/beyond-academics"
+  | "/our-partners"
   | "/contact"
   | "/careers"
   | "/admin/login"

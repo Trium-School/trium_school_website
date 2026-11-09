@@ -28,6 +28,11 @@ declare module "virtual:content" {
         body: Array<{ id: string; text: string }>;
         pillars: Array<{ id: string; title: string; description: string }>;
       };
+      pre_primary: {
+        heading: string;
+        body: string[];
+        button: string;
+      };
       programmes: Array<{
         id: string;
         name: string;
@@ -231,6 +236,11 @@ declare module "virtual:content" {
       heading: string;
       body: Array<{ id: string; text: string }>;
       pillars: Array<{ id: string; title: string; description: string }>;
+    };
+    pre_primary: {
+      heading: string;
+      body: string[];
+      button: string;
     };
     programmes: Array<{
       id: string;

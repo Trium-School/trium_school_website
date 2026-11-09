@@ -39,6 +39,15 @@
       }
     ]
   },
+  "pre_primary": {
+    "heading": "Our Pre-Primary Curriculum is Powered by Dreamtime Learning",
+    "body": [
+      "At The Trium School, we believe the earliest years lay the foundation for a lifetime of learning.",
+      "Powered by Dreamtime Learning, our pre-primary curriculum combines brain science, creativity and experiential learning to nurture curious, confident and independent thinkers.",
+      "Through engaging activities and meaningful experiences, children develop essential thinking, communication and life skills from the very beginning."
+    ],
+    "button": "Know More"
+  },
   "programmes": [
     {
       "id": "pr1",

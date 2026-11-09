@@ -92,6 +92,11 @@ export default function Header() {
       action: () => goToPage("/campus"),
     },
     {
+      id: "our-partners",
+      label: "Our Partners",
+      action: () => goToPage("/our-partners"),
+    },
+    {
       id: "careers",
       label: "Careers",
       action: () => goToPage("/careers"),
@@ -149,7 +154,7 @@ export default function Header() {
       <header
         className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/95 backdrop-blur-md shadow-md border-b border-border" : "bg-white border-b border-border/50"}`}
       >
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-2">
           <div className="flex h-20 items-center justify-between">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 shrink-0">
