@@ -14,6 +14,7 @@ import {
   X,
 } from "lucide-react";
 import { home } from "virtual:content";
+import CampusVideo from "../components/CampusVideo";
 
 // ─── Fade-in wrapper ──────────────────────────────────────────────────────────
 function FadeUp({
@@ -1320,6 +1321,31 @@ const slides = heroImages.map((image, index) => {
                   <ArrowRight size={16} />
                 </span>
               </FadeUp>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 md:py-20 bg-muted/20">
+          <div className="max-w-6xl mx-auto px-4">
+            <FadeUp>
+              <div className="text-center mb-10">
+                <h2
+                  className="text-2xl md:text-3xl font-bold text-primary mb-4"
+                  style={{
+                    fontFamily: "var(--font-heading)",
+                  }}
+                >
+                  Explore Our Campus
+                </h2>
+
+                <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
+                  Take a closer look at the spaces that inspire learning.
+                </p>
+              </div>
+            </FadeUp>
+
+            <div className="mb-10">
+              <CampusVideo />
             </div>
           </div>
         </section>

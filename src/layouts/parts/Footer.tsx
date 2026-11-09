@@ -101,6 +101,10 @@ export default function Footer() {
                   label: "Campus & Facilities",
                 },
                 {
+                  href: "/our-partners",
+                  label: "Our Partners",
+                },
+                {
                   href: "/careers",
                   label: "Careers",
                 },
@@ -132,55 +136,55 @@ export default function Footer() {
               Our Programs
             </h4>
             <ul className="space-y-3">
-  {[
-    {
-      name: "Early Years (Pre-K)",
-      path: "/academics",
-      programmeIndex: 0,
-    },
-    {
-      name: "Primary School (Grade 1–5)",
-      path: "/academics",
-      programmeIndex: 1,
-    },
-    {
-      name: "Secondary School (Grade 6–10)",
-      path: "/academics",
-      programmeIndex: 2,
-    },
-    {
-      name: "Co-Curricular Activities",
-      path: "/beyond-academics",
-    },
-    {
-      name: "Sports & Athletics",
-      path: "/beyond-academics#sports",
-    },
-  ].map((item) => {
-    const programme =
-      item.programmeIndex !== undefined
-        ? academics.programmes[item.programmeIndex]
-        : null;
+              {[
+                {
+                  name: "Early Years (Pre-K)",
+                  path: "/academics",
+                  programmeIndex: 0,
+                },
+                {
+                  name: "Primary School (Grade 1–5)",
+                  path: "/academics",
+                  programmeIndex: 1,
+                },
+                {
+                  name: "Secondary School (Grade 6–10)",
+                  path: "/academics",
+                  programmeIndex: 2,
+                },
+                {
+                  name: "Co-Curricular Activities",
+                  path: "/beyond-academics",
+                },
+                {
+                  name: "Sports & Athletics",
+                  path: "/beyond-academics#sports",
+                },
+              ].map((item) => {
+                const programme =
+                  item.programmeIndex !== undefined
+                    ? academics.programmes[item.programmeIndex]
+                    : null;
 
-    const destination = programme
-      ? `${item.path}?programme=${encodeURIComponent(
-          String(programme.id)
-        )}#programmes`
-      : item.path;
+                const destination = programme
+                  ? `${item.path}?programme=${encodeURIComponent(
+                      String(programme.id),
+                    )}#programmes`
+                  : item.path;
 
-    return (
-      <li key={item.name}>
-        <Link
-          to={destination}
-          className="text-sm text-primary-foreground/70 flex items-center gap-2 hover:text-[#fec123] transition-colors duration-300"
-        >
-          <span className="w-1 h-1 rounded-full bg-accent/50" />
-          {item.name}
-        </Link>
-      </li>
-    );
-  })}
-</ul>
+                return (
+                  <li key={item.name}>
+                    <Link
+                      to={destination}
+                      className="text-sm text-primary-foreground/70 flex items-center gap-2 hover:text-[#fec123] transition-colors duration-300"
+                    >
+                      <span className="w-1 h-1 rounded-full bg-accent/50" />
+                      {item.name}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
           </div>
 
           {/* Contact */}
