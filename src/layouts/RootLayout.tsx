@@ -47,13 +47,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
       >
         <iframe
           title="The Trium School location on Google Maps"
-          src="https://www.google.com/maps?q=20.050451,73.767564&z=15&output=embed"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3747.9904624215037!2d73.76508607519796!3d20.05084222064706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdde924dd2f3ba5%3A0xe69acf61a288460c!2sThe%20Trium%20School!5e0!3m2!1sen!2sin!4v1794297475989!5m2!1sen!2sin"
           className="block h-[550px] w-full border-0"
           loading="lazy"
           allowFullScreen
           referrerPolicy="no-referrer-when-downgrade"
         />
-        <div className="absolute right-12 top-6 max-w-sm rounded-xl bg-white/95 p-5 shadow-lg backdrop-blur-sm">
+        {/* <div className="absolute right-12 top-6 max-w-sm rounded-xl bg-white/95 p-5 shadow-lg backdrop-blur-sm">
           <h2 className="text-lg font-semibold text-primary">
             The Trium School
           </h2>
@@ -74,7 +74,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           >
             admissions@triumschool.in
           </a>
-        </div>
+        </div> */}
       </section>
       <Footer />
       <a
