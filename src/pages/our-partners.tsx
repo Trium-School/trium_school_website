@@ -11,7 +11,7 @@ import {
   MessageCircle,
   Puzzle,
   Sprout,
-  Play,
+  // Play,
   UserRound,
   Globe2,
   BookOpen,
@@ -117,24 +117,24 @@ const pillars = [
 
 // Add a permitted, verified video link only after approval.
 // The names below are proposed features, not endorsements of the school.
-const proposedVideos: {
-  name: string;
-  description: string;
-  videoUrl: string | null;
-}[] = [
-  {
-    name: "Jackie Shroff",
-    description:
-      "A conversation on children, learning and building a better tomorrow.",
-    videoUrl: null,
-  },
-  {
-    name: "Rhea Chakraborty",
-    description:
-      "A conversation on conscious education and the power of early learning.",
-    videoUrl: null,
-  },
-];
+// const proposedVideos: {
+//   name: string;
+//   description: string;
+//   videoUrl: string | null;
+// }[] = [
+//   {
+//     name: "Jackie Shroff",
+//     description:
+//       "A conversation on children, learning and building a better tomorrow.",
+//     videoUrl: null,
+//   },
+//   {
+//     name: "Rhea Chakraborty",
+//     description:
+//       "A conversation on conscious education and the power of early learning.",
+//     videoUrl: null,
+//   },
+// ];
 
 function SectionTag({ children }: { children: React.ReactNode }) {
   return (
@@ -434,7 +434,7 @@ export default function OurPartnersPage() {
         </section>
 
         {/* VIDEO FEATURES — intentionally not clickable until approved */}
-        {/* <section
+        <section
           className="border-y border-[#E6EDF5] bg-[#F3F7FC] py-16 sm:py-20"
           aria-labelledby="voices-title"
         >
@@ -452,7 +452,7 @@ export default function OurPartnersPage() {
               thought leaders who are part of the wider conversation around
               learning, growth and human potential.
             </p>
-            <div className="mt-9 grid gap-5 md:grid-cols-2">
+            {/* <div className="mt-9 grid gap-5 md:grid-cols-2">
               {proposedVideos.map((video) => (
                 <article
                   key={video.name}
@@ -512,9 +512,21 @@ export default function OurPartnersPage() {
               These proposed video features do not represent an endorsement of
               The Trium School. Publish videos only after confirming the
               original content and obtaining the required permissions.
-            </p>
+            </p> */}
+
+            {/* add a cta */}
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+              <a
+                href="https://www.dreamtimelearning.com/foundation"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#172A5D] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#25417F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#51AAFD] focus-visible:ring-offset-2"
+              >
+                Know more <ArrowUpRight size={17} aria-hidden="true" />
+              </a>
+            </div>
           </div>
-        </section> */}
+        </section>
 
         {/* FINAL CTA */}
         <section
