@@ -82,16 +82,30 @@ export default function ContactPage() {
     <>
       <Helmet>
         <title>Contact Us — The Trium School, Nashik</title>
-        <meta name="description" content="Get in touch with The Trium School in Makhmalabad, Nashik. Call, email, or send us a message about admissions, campus visits, or any enquiry." />
+        <meta
+          name="description"
+          content="Get in touch with The Trium School in Makhmalabad, Nashik. Call, email, or send us a message about admissions, campus visits, or any enquiry."
+        />
         <link rel="canonical" href={url} />
         <meta property="og:title" content="Contact Us — The Trium School" />
-        <meta property="og:description" content="Reach The Trium School in Nashik. We're happy to answer your questions about admissions and campus visits." />
+        <meta
+          property="og:description"
+          content="Reach The Trium School in Nashik. We're happy to answer your questions about admissions and campus visits."
+        />
         <meta property="og:url" content={url} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content={`${site}/airo-assets/images/pages/contact/hero`} />
+        <meta
+          property="og:image"
+          content={`${site}/airo-assets/images/pages/contact/hero`}
+        />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content={`${site}/airo-assets/images/pages/contact/hero`} />
-        <script type="application/ld+json">{JSON.stringify(jsonLd).replace(/</g, '\\u003c')}</script>
+        <meta
+          name="twitter:image"
+          content={`${site}/airo-assets/images/pages/contact/hero`}
+        />
+        <script type="application/ld+json">
+          {JSON.stringify(jsonLd).replace(/</g, "\\u003c")}
+        </script>
       </Helmet>
 
       <main>
@@ -109,10 +123,12 @@ export default function ContactPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/60 to-primary/40 pointer-events-none" />
           <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
             <FadeUp>
-              <p className="text-sm font-semibold text-accent mb-3 tracking-wide uppercase">{contact.hero.eyebrow}</p>
+              <p className="text-sm font-semibold text-accent mb-3 tracking-wide uppercase">
+                {contact.hero.eyebrow}
+              </p>
               <h1
                 className="text-3xl md:text-5xl font-bold text-white max-w-2xl leading-tight"
-                style={{ fontFamily: 'var(--font-heading)' }}
+                style={{ fontFamily: "var(--font-heading)" }}
               >
                 {contact.hero.title}
               </h1>
@@ -126,13 +142,12 @@ export default function ContactPage() {
         {/* ── Main content ─────────────────────────────────────────────── */}
         <section className="py-20 bg-background">
           <div className="max-w-6xl mx-auto px-4 grid lg:grid-cols-5 gap-12">
-
             {/* Contact details sidebar */}
             <div className="lg:col-span-2">
               <FadeUp>
                 <h2
                   className="text-2xl font-bold text-primary mb-8"
-                  style={{ fontFamily: 'var(--font-heading)' }}
+                  style={{ fontFamily: "var(--font-heading)" }}
                 >
                   Find us
                 </h2>
@@ -143,8 +158,12 @@ export default function ContactPage() {
                         <item.icon size={18} className="text-primary" />
                       </div>
                       <div>
-                        <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-0.5">{item.label}</p>
-                        <p className="text-foreground text-sm leading-relaxed">{item.value}</p>
+                        <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-0.5">
+                          {item.label}
+                        </p>
+                        <p className="text-foreground text-sm leading-relaxed">
+                          {item.value}
+                        </p>
                       </div>
                     </div>
                   ))}
@@ -152,9 +171,11 @@ export default function ContactPage() {
 
                 {/* Map note */}
                 <div className="mt-10 rounded-2xl overflow-hidden bg-muted/40 border border-border p-5">
-                  <p className="text-sm text-muted-foreground leading-relaxed">{contact.map_note}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {contact.map_note}
+                  </p>
                   <a
-                    href="https://maps.google.com/?q=Makhmalabad+Nashik+Maharashtra"
+                    href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3801.672617482228!2d73.76508607519796!3d20.05084222064706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdde924dd2f3ba5%3A0xe69acf61a288460c!2sThe%20Trium%20School!5e1!3m2!1sen!2sin!4v1794297216340!5m2!1sen!2sin"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 text-primary text-sm font-semibold mt-3 hover:text-accent transition-colors"
@@ -171,28 +192,37 @@ export default function ContactPage() {
               <FadeUp delay={0.1}>
                 <h2
                   className="text-2xl font-bold text-primary mb-8"
-                  style={{ fontFamily: 'var(--font-heading)' }}
+                  style={{ fontFamily: "var(--font-heading)" }}
                 >
                   {contact.form.heading}
                 </h2>
 
                 {submitted ? (
                   <div className="bg-green-50 border border-green-200 rounded-2xl p-10 text-center">
-                    <CheckCircle2 size={48} className="text-green-500 mx-auto mb-4" />
+                    <CheckCircle2
+                      size={48}
+                      className="text-green-500 mx-auto mb-4"
+                    />
                     <h3
                       className="text-xl font-bold text-green-800 mb-2"
-                      style={{ fontFamily: 'var(--font-heading)' }}
+                      style={{ fontFamily: "var(--font-heading)" }}
                     >
                       {contact.form.success_heading}
                     </h3>
-                    <p className="text-green-700 text-sm">{contact.form.success_body}</p>
+                    <p className="text-green-700 text-sm">
+                      {contact.form.success_body}
+                    </p>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-5">
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div>
-                        <label htmlFor="name" className="block text-xs font-semibold text-foreground mb-1.5">
-                          {contact.form.name_label} <span className="text-red-500">*</span>
+                        <label
+                          htmlFor="name"
+                          className="block text-xs font-semibold text-foreground mb-1.5"
+                        >
+                          {contact.form.name_label}{" "}
+                          <span className="text-red-500">*</span>
                         </label>
                         <input
                           id="name"
@@ -208,8 +238,12 @@ export default function ContactPage() {
                         />
                       </div>
                       <div>
-                        <label htmlFor="email" className="block text-xs font-semibold text-foreground mb-1.5">
-                          {contact.form.email_label} <span className="text-red-500">*</span>
+                        <label
+                          htmlFor="email"
+                          className="block text-xs font-semibold text-foreground mb-1.5"
+                        >
+                          {contact.form.email_label}{" "}
+                          <span className="text-red-500">*</span>
                         </label>
                         <input
                           id="email"
@@ -227,7 +261,10 @@ export default function ContactPage() {
 
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div>
-                        <label htmlFor="phone" className="block text-xs font-semibold text-foreground mb-1.5">
+                        <label
+                          htmlFor="phone"
+                          className="block text-xs font-semibold text-foreground mb-1.5"
+                        >
                           {contact.form.phone_label}
                         </label>
                         <input
@@ -244,7 +281,10 @@ export default function ContactPage() {
                         />
                       </div>
                       <div>
-                        <label htmlFor="subject" className="block text-xs font-semibold text-foreground mb-1.5">
+                        <label
+                          htmlFor="subject"
+                          className="block text-xs font-semibold text-foreground mb-1.5"
+                        >
                           {contact.form.subject_label}
                         </label>
                         <input
@@ -261,8 +301,12 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label htmlFor="message" className="block text-xs font-semibold text-foreground mb-1.5">
-                        {contact.form.message_label} <span className="text-red-500">*</span>
+                      <label
+                        htmlFor="message"
+                        className="block text-xs font-semibold text-foreground mb-1.5"
+                      >
+                        {contact.form.message_label}{" "}
+                        <span className="text-red-500">*</span>
                       </label>
                       <textarea
                         id="message"
@@ -278,14 +322,18 @@ export default function ContactPage() {
                       />
                     </div>
 
-                    {error && <p role="alert" className="text-red-500 text-sm">{error}</p>}
+                    {error && (
+                      <p role="alert" className="text-red-500 text-sm">
+                        {error}
+                      </p>
+                    )}
 
                     <button
                       type="submit"
                       disabled={submitting}
                       className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-primary text-white font-semibold px-8 py-3.5 rounded-xl hover:bg-primary/90 transition-colors disabled:opacity-60 text-sm"
                     >
-                      {submitting ? 'Sending…' : contact.form.submit_button}
+                      {submitting ? "Sending…" : contact.form.submit_button}
                       {!submitting && <Send size={15} />}
                     </button>
                   </form>
