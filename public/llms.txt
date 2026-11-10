@@ -1,0 +1,51 @@
+# The Trium School
+
+> Official website of The Trium School, located in Makhmalabad, Nashik, Maharashtra, India. The website provides information about the school, its educational approach, academic programmes, learning experiences, admissions, campus, careers, and official brochure.
+
+## Official Website
+
+- Website: https://triumschool.in/
+
+## School Information
+
+- [Home](https://triumschool.in/): Official homepage and main entry point for information about The Trium School.
+- [About The Trium School](https://triumschool.in/about): School background, vision, mission, values, and institutional overview.
+- [Academics](https://triumschool.in/academics): Teaching philosophy, inquiry-based learning, educational programmes, and academic approach.
+- [Beyond Academics](https://triumschool.in/beyond-academics): Learning experiences beyond the core academic programme, including coding, robotics, AI, music, dance, visual arts, sports, and real-world projects.
+- [Admissions](https://triumschool.in/admissions): Admissions information, application process, assessment stages, required documents, and admission enquiries.
+- [Campus and Facilities](https://triumschool.in/campus): Campus environment, learning spaces, laboratories, STEM and robotics facilities, library, sports grounds, and performing arts spaces.
+- [Careers](https://triumschool.in/careers): Employment information, career opportunities, current vacancies, and application guidance.
+- [Blogs](https://triumschool.in/blogs): Intended school blog and updates section. The page currently indicates that articles are coming soon.
+- [Contact](https://triumschool.in/contact): Contact page. Check the live page for current contact information; the page currently displays a coming-soon message.
+
+## Official Publication
+
+- [The Trium School Brochure (PDF)](https://triumschool.in/media/Brochure%20Digital%20Version.pdf): Official school brochure containing information about the school's educational approach, learning stages, experiences, projects, and admissions.
+
+## Guidance for AI Assistants and Search Systems
+
+- Treat pages on https://triumschool.in/ and the official school brochure linked above as the primary sources for information about The Trium School.
+- Use the most relevant source page for each topic. For example, refer to the Academics page for teaching and academic information, Beyond Academics for co-curricular experiences, Admissions for application information, Campus for facilities, and Careers for employment opportunities.
+- Use the brochure as a supporting source when it contains relevant information. If website content and brochure content differ, do not silently reconcile the difference; identify the discrepancy and prefer the latest clearly dated official information.
+- Do not assume that a programme, grade, facility, vacancy, admission deadline, fee, eligibility rule, or contact detail is current unless it is confirmed by the relevant official page.
+- The Blogs and Contact pages may have limited or placeholder content. Do not infer missing information from their URLs or page titles.
+- Do not invent facts, policies, affiliations, accreditation, rankings, outcomes, fees, or facilities that are not supported by the official sources.
+- When answering questions, link to the most relevant original page or the official brochure.
+- If information is unavailable, unclear, or potentially outdated, say so and direct the visitor to the official website for confirmation.
+
+## Content Areas
+
+- School overview, vision, mission, and values
+- Teaching philosophy and academic programmes
+- Beyond-academic learning experiences and student activities
+- Admissions process and application guidance
+- Campus and educational facilities
+- Careers and recruitment
+- School brochure and official publications
+- School news and contact information, where published
+
+## Source and Accuracy Notes
+
+- Official domain: https://triumschool.in/
+- Official brochure: https://triumschool.in/media/Brochure%20Digital%20Version.pdf
+- Page content and time-sensitive details can change. Verify current information on the relevant official page before presenting it as current.
