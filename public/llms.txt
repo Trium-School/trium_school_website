@@ -17,6 +17,10 @@
 - [Careers](https://triumschool.in/careers): Employment information, career opportunities, current vacancies, and application guidance.
 - [Blogs](https://triumschool.in/blogs): Intended school blog and updates section. The page currently indicates that articles are coming soon.
 - [Contact](https://triumschool.in/contact): Contact page. Check the live page for current contact information; the page currently displays a coming-soon message.
+- [Our Differentiators](https://triumschool.in/our-differentiators): Discover The Trium School's educational philosophy, teaching approach, innovation and student-focused learning.
+- [Our Partners](https://triumschool.in/our-partners): Learn about the school's curriculum partnership with Dreamtime Learning and its approach to brain-based early childhood education.
+- [Contact](https://triumschool.in/contact): Contact The Trium School for admissions enquiries, campus visits and school information.
+
 
 ## Official Publication
 
