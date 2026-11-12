@@ -29,13 +29,17 @@ export interface SeoRoute {
   lastmod?: string;
 }
 
+
 export const seoRoutes: SeoRoute[] = [
   { path: "/", changefreq: "weekly", priority: 1.0 },
-  { path: "/admissions", changefreq: "monthly", priority: 0.8 },
   { path: "/about", changefreq: "monthly", priority: 0.8 },
+  { path: "/our-differentiators", changefreq: "monthly", priority: 0.8 },
+  { path: "/our-partners", changefreq: "monthly", priority: 0.8 },
   { path: "/academics", changefreq: "monthly", priority: 0.8 },
-  { path: "/contact", changefreq: "monthly", priority: 0.8 },
+  { path: "/beyond-academics", changefreq: "monthly", priority: 0.8 },
+  { path: "/admissions", changefreq: "monthly", priority: 0.8 },
   { path: "/campus", changefreq: "monthly", priority: 0.8 },
-  { path: "/admin/login", changefreq: "monthly", priority: 0.5 },
-  { path: "/admin/enquiries", changefreq: "monthly", priority: 0.5 },
+  { path: "/careers", changefreq: "monthly", priority: 0.8 },
+  { path: "/contact", changefreq: "monthly", priority: 0.8 },
 ];
+
