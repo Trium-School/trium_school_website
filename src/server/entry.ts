@@ -20,7 +20,7 @@ import {
 } from "./adsense-manifest";
 import { loadIndexNowKey } from "./indexnow-key";
 import { isSystemHost } from "./seo-host";
-import { llmsTxtHandler } from "./llms-txt";
+import { readFile } from "node:fs/promises";
 
 export interface SsrRenderResult {
 	html: string;
@@ -161,24 +161,24 @@ function escapeXml(s: string): string {
 	);
 }
 
-app.get("/robots.txt", (req, res) => {
-	if (isSystemHost(req)) {
-		res
-			.type("text/plain")
-			.set("Cache-Control", "public, max-age=60, must-revalidate").set("Vary", "Host")
-			.send("User-agent: *\nDisallow: /\n");
-		return;
-	}
-	const base = baseUrl(req);
-	const body = [
-		"User-agent: *",
-		"Allow: /",
-		"",
-		`Sitemap: ${base}/sitemap.xml`,
-		"",
-	].join("\n");
-	res.type("text/plain").set("Cache-Control", "public, max-age=60, must-revalidate").set("Vary", "Host").send(body);
-});
+// app.get("/robots.txt", (req, res) => {
+// 	if (isSystemHost(req)) {
+// 		res
+// 			.type("text/plain")
+// 			.set("Cache-Control", "public, max-age=60, must-revalidate").set("Vary", "Host")
+// 			.send("User-agent: *\nDisallow: /\n");
+// 		return;
+// 	}
+// 	const base = baseUrl(req);
+// 	const body = [
+// 		"User-agent: *",
+// 		"Allow: /",
+// 		"",
+// 		`Sitemap: ${base}/sitemap.xml`,
+// 		"",
+// 	].join("\n");
+// 	res.type("text/plain").set("Cache-Control", "public, max-age=60, must-revalidate").set("Vary", "Host").send(body);
+// });
 
 app.get("/sitemap.xml", (req, res) => {
 	if (isSystemHost(req)) {
@@ -203,7 +203,47 @@ app.get("/sitemap.xml", (req, res) => {
 	res.type("application/xml").set("Cache-Control", "public, max-age=60, must-revalidate").set("Vary", "Host").send(body);
 });
 
-app.get("/llms.txt", llmsTxtHandler);
+
+function servePublicSeoFile(
+  filename: "robots.txt" | "llms.txt",
+): RequestHandler {
+  return async (req, res) => {
+    res.set("Vary", "Host");
+    res.set("Cache-Control", "public, max-age=60, must-revalidate");
+
+    // Preserve the existing no-index policy
+    // for internal GoDaddy and localhost hosts.
+    if (isSystemHost(req)) {
+      if (filename === "robots.txt") {
+        return res.type("text/plain").send("User-agent: *\nDisallow: /\n");
+      }
+
+      return res.status(404).type("text/plain").send("Not found\n");
+    }
+
+    const filePath = import.meta.env.PROD
+      ? join(dirname(fileURLToPath(import.meta.url)), "client", filename)
+      : join(process.cwd(), "public", filename);
+
+    try {
+      const content = await readFile(filePath, "utf8");
+
+      return res.type("text/plain").send(content);
+    } catch (error) {
+      console.error("seo.file.read-failed", {
+        filename,
+        message: error instanceof Error ? error.message : "Unknown error",
+      });
+
+      return res.status(503).type("text/plain").send("SEO file unavailable\n");
+    }
+  };
+}
+
+app.get("/robots.txt", servePublicSeoFile("robots.txt"));
+
+app.get("/llms.txt", servePublicSeoFile("llms.txt"));
+
 
 if (import.meta.env.PROD) {
 	const __dirname = dirname(fileURLToPath(import.meta.url));

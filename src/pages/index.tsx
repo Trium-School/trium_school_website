@@ -298,34 +298,34 @@ export default function HomePage() {
     ],
   };
 
-const heroImages = [
-  {
-    image: "/media/Banner.png",
-    alt: "Students collaborating in the school's STEM learning environment",
-  },
-  {
-    image: "/media/The Trium School Campus Aerial View.png",
-    alt: "Students enjoying sports and outdoor activities on campus",
-  },
-  {
-    image: "/media/website-media/Architecture and Campus Exterior.jpeg",
-    alt: "The Trium School campus and its architecture",
-  },
-];
+  const heroImages = [
+    {
+      image: "/media/Banner.png",
+      alt: "Students collaborating in the school's STEM learning environment",
+    },
+    {
+      image: "/media/The Trium School Campus Aerial View.png",
+      alt: "Students enjoying sports and outdoor activities on campus",
+    },
+    {
+      image: "/media/website-media/Architecture and Campus Exterior.jpeg",
+      alt: "The Trium School campus and its architecture",
+    },
+  ];
 
-const slides = heroImages.map((image, index) => {
-  const content = home.hero[index];
+  const slides = heroImages.map((image, index) => {
+    const content = home.hero[index];
 
-  return {
-    ...image,
-    badge: content.trust_badge,
-    tagline: content.tagline,
-    subtitle: content.subtitle,
-    cta: content.cta_primary,
-    secondaryCta: content.cta_secondary,
-    link: "/admissions",
-  };
-});
+    return {
+      ...image,
+      badge: content.trust_badge,
+      tagline: content.tagline,
+      subtitle: content.subtitle,
+      cta: content.cta_primary,
+      secondaryCta: content.cta_secondary,
+      link: "/admissions",
+    };
+  });
 
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -372,29 +372,37 @@ const slides = heroImages.map((image, index) => {
         <title>
           The Trium School — Where Every Child Triumphs | K–12 School
         </title>
-        <meta
-          name="description"
-          content="The Trium School is a K–12 institution dedicated to nurturing curious minds and compassionate hearts. Admissions open for 2025–26. Visit triumschool.in."
-        />
-        <link rel="canonical" href={`${site}/`} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://triumschool.in/" />
         <meta
           property="og:title"
-          content="The Trium School — Where Every Child Triumphs"
+          content="The Trium School | Where Every Child Triumphs"
         />
         <meta
           property="og:description"
-          content="A K–12 school where every child is empowered to triumph. Admissions open for 2025–26."
+          content="Discover The Trium School in Makhmalabad, Nashik, where children grow through academics, creativity, innovation and holistic learning."
         />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={`${site}/`} />
         <meta
           property="og:image"
-          content={`${site}/airo-assets/images/pages/home/hero`}
+          content="https://triumschool.in/media/worldclass_teachers.png"
         />
+        <meta
+          property="og:image:alt"
+          content="World-class teachers at The Trium School"
+        />
+        <meta property="og:image:type" content="image/png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
+          name="twitter:title"
+          content="The Trium School | Where Every Child Triumphs"
+        />
+        <meta
+          name="twitter:description"
+          content="Discover The Trium School in Makhmalabad, Nashik, where children grow through academics, creativity, innovation and holistic learning."
+        />
+        <meta
           name="twitter:image"
-          content={`${site}/airo-assets/images/pages/home/hero`}
+          content="https://triumschool.in/media/worldclass_teachers.png"
         />
         <script type="application/ld+json">
           {JSON.stringify(jsonLd).replace(/</g, "\\u003c")}
