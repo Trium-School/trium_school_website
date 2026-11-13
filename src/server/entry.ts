@@ -386,8 +386,8 @@ if (import.meta.env.PROD) {
 			// hosts get a self-canonical link so search engines treat them
 			// as authoritative for the rendered content.
 			const seoHead = isSystemHost(req)
-				? `<meta name="robots" content="noindex,nofollow">`
-				: `<link rel="canonical" href="${escapeXml(`${req.protocol}://${req.hostname}${req.path}`)}">`;
+        ? `<meta name="robots" content="index,follow">`
+        : `<link rel="canonical" href="${escapeXml(`${req.protocol}://${req.hostname}${req.path}`)}">`;
 			// Function replacements disable String.replace's $-special sequences
 			// ($&, $', $`, $$) so user-authored titles / JSON-LD like
 			// "Save $& today" insert literally instead of being interpolated.
