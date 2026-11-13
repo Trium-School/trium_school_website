@@ -129,7 +129,14 @@ function Sun({ className = "", color }: DecorProps) {
     >
       <circle cx="32" cy="32" r="10" fill={color} stroke="none" />
       {[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => (
-        <line key={angle} x1="32" y1="6" x2="32" y2="14" transform={`rotate(${angle} 32 32)`} />
+        <line
+          key={angle}
+          x1="32"
+          y1="6"
+          x2="32"
+          y2="14"
+          transform={`rotate(${angle} 32 32)`}
+        />
       ))}
     </svg>
   );
@@ -145,115 +152,185 @@ function WeeklySchedule() {
   const projectColor = accents[2];
 
   /* A row where every day has the same entry is a shared break (circle time, lunch, ...) */
-  const isSharedRow = (row: string[]) => row.slice(1).every((cell) => cell === row[1]);
+  const isSharedRow = (row: string[]) =>
+    row.slice(1).every((cell) => cell === row[1]);
 
   return (
     <>
-      {/* Desktop table */}
-      <div className="hidden overflow-hidden rounded-2xl bg-white shadow-xl md:block">
-        <table className="w-full table-fixed border-collapse text-base text-primary">
-          <thead>
-            <tr>
-              <th scope="col" className="w-32 bg-muted p-4 text-left font-bold">
-                Time
-              </th>
-              {days.map((day) => (
-                <th key={day} scope="col" className="bg-primary p-4 font-bold text-white">
-                  {day}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((row) => (
-              <tr key={row[0]} className="border-t border-border">
-                <th
-                  scope="row"
-                  className="whitespace-nowrap bg-muted p-3 text-left text-sm font-bold lg:text-base"
-                >
-                  {row[0]}
-                </th>
-                {isSharedRow(row) ? (
-                  <td
-                    colSpan={days.length}
-                    className="bg-muted/60 p-3 text-center font-semibold text-muted-foreground"
-                  >
-                    {row[1]}
-                  </td>
-                ) : (
-                  row.slice(1).map((cell, index) => (
-                    <td
-                      key={`${row[0]}-${index}`}
-                      className="p-3 text-center align-middle leading-snug"
-                      style={
-                        isProjectCell(cell)
-                          ? { backgroundColor: tint(projectColor, 16), fontWeight: 700 }
-                          : undefined
-                      }
-                    >
-                      {cell}
-                    </td>
-                  ))
-                )}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <Helmet>
+        <title>Our Differentiators – The Trium School, Nashik</title>
+        <meta
+          name="description"
+          content="Explore The Trium School's unique approach to education through academic excellence, expert teachers, AI innovation and real-world learning."
+        />
 
-      {/* Mobile: one day at a time */}
-      <div className="md:hidden">
-        <div
-          role="tablist"
-          aria-label="Choose a day"
-          className="-mx-1 mb-4 flex gap-2 overflow-x-auto px-1 pb-2"
-        >
-          {days.map((day, index) => {
-            const active = index === activeDay;
-            return (
-              <button
-                key={day}
-                type="button"
-                role="tab"
-                aria-selected={active}
-                onClick={() => setActiveDay(index)}
-                className={`shrink-0 rounded-full px-5 py-2.5 text-base font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white ${
-                  active ? "text-primary" : "bg-white/10 text-white hover:bg-white/20"
-                }`}
-                style={active ? { backgroundColor: "var(--yellow)" } : undefined}
-              >
-                {day}
-              </button>
-            );
-          })}
+        {/* Open Graph Tags */}
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="en_IN" />
+        <meta property="og:site_name" content="The Trium School" />
+        <meta
+          property="og:url"
+          content="https://triumschool.in/our-differentiators"
+        />
+        <meta
+          property="og:title"
+          content="What Makes Trium Different | The Trium School"
+        />
+        <meta
+          property="og:description"
+          content="Explore The Trium School's unique approach to education through academic excellence, expert teachers, AI innovation and real-world learning."
+        />
+        <meta
+          property="og:image"
+          content="https://triumschool.in/airo-assets/images/layouts/header/the-trium-school"
+        />
+        <meta property="og:image:alt" content="The Trium School logo" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="What Makes Trium Different | The Trium School"
+        />
+        <meta
+          name="twitter:description"
+          content="Explore The Trium School's unique approach to education through academic excellence, expert teachers, AI innovation and real-world learning."
+        />
+        <meta
+          name="twitter:image"
+          content="https://triumschool.in/airo-assets/images/layouts/header/the-trium-school"
+        />
+        <meta name="twitter:image:alt" content="The Trium School logo" />
+      </Helmet>
+      <main>
+        {/* Desktop table */}
+        <div className="hidden overflow-hidden rounded-2xl bg-white shadow-xl md:block">
+          <table className="w-full table-fixed border-collapse text-base text-primary">
+            <thead>
+              <tr>
+                <th
+                  scope="col"
+                  className="w-32 bg-muted p-4 text-left font-bold"
+                >
+                  Time
+                </th>
+                {days.map((day) => (
+                  <th
+                    key={day}
+                    scope="col"
+                    className="bg-primary p-4 font-bold text-white"
+                  >
+                    {day}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row) => (
+                <tr key={row[0]} className="border-t border-border">
+                  <th
+                    scope="row"
+                    className="whitespace-nowrap bg-muted p-3 text-left text-sm font-bold lg:text-base"
+                  >
+                    {row[0]}
+                  </th>
+                  {isSharedRow(row) ? (
+                    <td
+                      colSpan={days.length}
+                      className="bg-muted/60 p-3 text-center font-semibold text-muted-foreground"
+                    >
+                      {row[1]}
+                    </td>
+                  ) : (
+                    row.slice(1).map((cell, index) => (
+                      <td
+                        key={`${row[0]}-${index}`}
+                        className="p-3 text-center align-middle leading-snug"
+                        style={
+                          isProjectCell(cell)
+                            ? {
+                                backgroundColor: tint(projectColor, 16),
+                                fontWeight: 700,
+                              }
+                            : undefined
+                        }
+                      >
+                        {cell}
+                      </td>
+                    ))
+                  )}
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
 
-        <ul role="tabpanel" className="divide-y divide-border overflow-hidden rounded-2xl bg-white shadow-xl">
-          {rows.map((row) => {
-            const subject = row[activeDay + 1];
-            const shared = isSharedRow(row);
-            const project = isProjectCell(subject);
-            return (
-              <li
-                key={row[0]}
-                className={`flex items-baseline gap-4 px-4 py-3.5 ${shared ? "bg-muted/60" : ""}`}
-                style={project ? { backgroundColor: tint(projectColor, 16) } : undefined}
-              >
-                <span className="w-24 shrink-0 text-sm font-bold tabular-nums text-primary">
-                  {row[0]}
-                </span>
-                <span
-                  className={`min-w-0 text-base leading-snug ${
-                    shared ? "font-semibold text-muted-foreground" : "text-primary"
-                  } ${project ? "font-bold" : ""}`}
+        {/* Mobile: one day at a time */}
+        <div className="md:hidden">
+          <div
+            role="tablist"
+            aria-label="Choose a day"
+            className="-mx-1 mb-4 flex gap-2 overflow-x-auto px-1 pb-2"
+          >
+            {days.map((day, index) => {
+              const active = index === activeDay;
+              return (
+                <button
+                  key={day}
+                  type="button"
+                  role="tab"
+                  aria-selected={active}
+                  onClick={() => setActiveDay(index)}
+                  className={`shrink-0 rounded-full px-5 py-2.5 text-base font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white ${
+                    active
+                      ? "text-primary"
+                      : "bg-white/10 text-white hover:bg-white/20"
+                  }`}
+                  style={
+                    active ? { backgroundColor: "var(--yellow)" } : undefined
+                  }
                 >
-                  {subject}
-                </span>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+                  {day}
+                </button>
+              );
+            })}
+          </div>
+
+          <ul
+            role="tabpanel"
+            className="divide-y divide-border overflow-hidden rounded-2xl bg-white shadow-xl"
+          >
+            {rows.map((row) => {
+              const subject = row[activeDay + 1];
+              const shared = isSharedRow(row);
+              const project = isProjectCell(subject);
+              return (
+                <li
+                  key={row[0]}
+                  className={`flex items-baseline gap-4 px-4 py-3.5 ${shared ? "bg-muted/60" : ""}`}
+                  style={
+                    project
+                      ? { backgroundColor: tint(projectColor, 16) }
+                      : undefined
+                  }
+                >
+                  <span className="w-24 shrink-0 text-sm font-bold tabular-nums text-primary">
+                    {row[0]}
+                  </span>
+                  <span
+                    className={`min-w-0 text-base leading-snug ${
+                      shared
+                        ? "font-semibold text-muted-foreground"
+                        : "text-primary"
+                    } ${project ? "font-bold" : ""}`}
+                  >
+                    {subject}
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </main>
     </>
   );
 }
@@ -272,7 +349,8 @@ export default function OurDifferentiatorsPage() {
     about: { "@id": `${site}/#organization` },
   };
 
-  const { hero, differentiators, stages, daily_rhythm, weekly_rhythm, cta } = ourDifferentiator;
+  const { hero, differentiators, stages, daily_rhythm, weekly_rhythm, cta } =
+    ourDifferentiator;
   const projectSteps = weekly_rhythm.project.slice(1);
 
   return (
@@ -281,7 +359,10 @@ export default function OurDifferentiatorsPage() {
         <title>Our Differentiators — The Trium School, Nashik</title>
         <meta name="description" content={hero.subtitle} />
         <link rel="canonical" href={url} />
-        <meta property="og:title" content="Our Differentiators — The Trium School" />
+        <meta
+          property="og:title"
+          content="Our Differentiators — The Trium School"
+        />
         <meta property="og:description" content={hero.subtitle} />
         <meta property="og:url" content={url} />
         <meta property="og:type" content="website" />
@@ -307,12 +388,30 @@ export default function OurDifferentiatorsPage() {
       <main className="bg-background">
         {/* ---------- Hero ---------- */}
         <section className="relative overflow-hidden bg-primary px-6 py-24 text-center md:py-36">
-          <DottedRing color="#ffffff" className="absolute -bottom-16 -right-16 h-64 w-64 opacity-20 md:h-80 md:w-80" />
-          <DottedRing color="#ffffff" className="absolute -left-20 -top-20 hidden h-56 w-56 opacity-10 md:block" />
-          <Sprout color={accents[3]} className="absolute right-[8%] top-16 hidden h-16 w-16 opacity-60 sm:block" />
-          <Sparkle color={accents[1]} className="absolute left-[10%] top-20 h-5 w-5" />
-          <Sparkle color={accents[0]} className="absolute bottom-24 left-[18%] hidden h-4 w-4 [animation-delay:1.2s] sm:block" />
-          <Sparkle color={accents[2]} className="absolute right-[20%] bottom-20 h-4 w-4 [animation-delay:2s]" />
+          <DottedRing
+            color="#ffffff"
+            className="absolute -bottom-16 -right-16 h-64 w-64 opacity-20 md:h-80 md:w-80"
+          />
+          <DottedRing
+            color="#ffffff"
+            className="absolute -left-20 -top-20 hidden h-56 w-56 opacity-10 md:block"
+          />
+          <Sprout
+            color={accents[3]}
+            className="absolute right-[8%] top-16 hidden h-16 w-16 opacity-60 sm:block"
+          />
+          <Sparkle
+            color={accents[1]}
+            className="absolute left-[10%] top-20 h-5 w-5"
+          />
+          <Sparkle
+            color={accents[0]}
+            className="absolute bottom-24 left-[18%] hidden h-4 w-4 [animation-delay:1.2s] sm:block"
+          />
+          <Sparkle
+            color={accents[2]}
+            className="absolute right-[20%] bottom-20 h-4 w-4 [animation-delay:2s]"
+          />
 
           <FadeUp className="relative mx-auto max-w-4xl">
             <p className="mb-5 inline-flex items-center gap-2 text-base font-semibold text-accent">
@@ -381,7 +480,11 @@ export default function OurDifferentiatorsPage() {
                             className="flex h-6 w-6 items-center justify-center rounded-full text-primary"
                             style={{ backgroundColor: accent }}
                           >
-                            <Check size={14} strokeWidth={3} aria-hidden="true" />
+                            <Check
+                              size={14}
+                              strokeWidth={3}
+                              aria-hidden="true"
+                            />
                           </span>
                           {highlight}
                         </li>
@@ -422,7 +525,9 @@ export default function OurDifferentiatorsPage() {
                         {stage.title}
                       </h2>
                       {stage.grades && (
-                        <p className="mt-4 text-lg font-bold text-primary">[{stage.grades}]</p>
+                        <p className="mt-4 text-lg font-bold text-primary">
+                          [{stage.grades}]
+                        </p>
                       )}
                       {stage.intro && (
                         <p className="mt-5 text-lg leading-relaxed text-muted-foreground md:text-xl">
@@ -438,30 +543,35 @@ export default function OurDifferentiatorsPage() {
                         </h3>
                         <div
                           className={`grid gap-4 sm:grid-cols-2 ${
-                            subjectCount % 4 === 0 ? "lg:grid-cols-4" : "lg:grid-cols-3"
+                            subjectCount % 4 === 0
+                              ? "lg:grid-cols-4"
+                              : "lg:grid-cols-3"
                           }`}
                         >
-                          {stage.subjects.map(([subject, description], subjectIndex) => {
-                            const dot = accents[subjectIndex % accents.length];
-                            return (
-                              <div
-                                key={subject}
-                                className="rounded-2xl border border-border bg-card p-6 transition-shadow hover:shadow-md"
-                              >
-                                <h4 className="mb-3 flex items-center gap-2.5 text-[22px] font-bold leading-snug text-primary">
-                                  <span
-                                    aria-hidden="true"
-                                    className="h-3 w-3 shrink-0 rounded-full"
-                                    style={{ backgroundColor: dot }}
-                                  />
-                                  {subject}
-                                </h4>
-                                <p className="text-base leading-relaxed text-muted-foreground">
-                                  {description}
-                                </p>
-                              </div>
-                            );
-                          })}
+                          {stage.subjects.map(
+                            ([subject, description], subjectIndex) => {
+                              const dot =
+                                accents[subjectIndex % accents.length];
+                              return (
+                                <div
+                                  key={subject}
+                                  className="rounded-2xl border border-border bg-card p-6 transition-shadow hover:shadow-md"
+                                >
+                                  <h4 className="mb-3 flex items-center gap-2.5 text-[22px] font-bold leading-snug text-primary">
+                                    <span
+                                      aria-hidden="true"
+                                      className="h-3 w-3 shrink-0 rounded-full"
+                                      style={{ backgroundColor: dot }}
+                                    />
+                                    {subject}
+                                  </h4>
+                                  <p className="text-base leading-relaxed text-muted-foreground">
+                                    {description}
+                                  </p>
+                                </div>
+                              );
+                            },
+                          )}
                         </div>
                       </>
                     )}
@@ -486,7 +596,10 @@ export default function OurDifferentiatorsPage() {
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
             <FadeUp className="relative lg:sticky lg:top-28 lg:self-start">
               <p className="mb-3 flex items-center gap-2 text-base font-semibold text-primary">
-                <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: accents[1] }} />
+                <span
+                  className="h-2.5 w-2.5 rounded-full"
+                  style={{ backgroundColor: accents[1] }}
+                />
                 {daily_rhythm.eyebrow}
               </p>
               <h2 className="text-balance text-4xl font-bold leading-tight text-primary md:text-5xl">
@@ -515,7 +628,10 @@ export default function OurDifferentiatorsPage() {
                       <span
                         aria-hidden="true"
                         className="absolute left-0 top-[18px] z-10 h-4 w-4 rounded-full border-[3px] border-background"
-                        style={{ backgroundColor: dot, boxShadow: `0 0 0 2px ${dot}` }}
+                        style={{
+                          backgroundColor: dot,
+                          boxShadow: `0 0 0 2px ${dot}`,
+                        }}
                       />
                       <div
                         className="flex flex-col gap-0.5 rounded-xl px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6"
@@ -524,9 +640,13 @@ export default function OurDifferentiatorsPage() {
                           borderLeft: `4px solid ${dot}`,
                         }}
                       >
-                        <p className="text-lg font-bold leading-snug text-primary">{title}</p>
+                        <p className="text-lg font-bold leading-snug text-primary">
+                          {title}
+                        </p>
                         {detail && (
-                          <p className="text-base text-muted-foreground sm:text-right">{detail}</p>
+                          <p className="text-base text-muted-foreground sm:text-right">
+                            {detail}
+                          </p>
                         )}
                       </div>
                     </li>
@@ -539,7 +659,10 @@ export default function OurDifferentiatorsPage() {
 
         {/* ---------- Weekly rhythm ---------- */}
         <section className="relative overflow-hidden bg-primary px-6 py-16 md:py-24">
-          <DottedRing color="#ffffff" className="absolute -right-24 -top-24 h-72 w-72 opacity-10" />
+          <DottedRing
+            color="#ffffff"
+            className="absolute -right-24 -top-24 h-72 w-72 opacity-10"
+          />
           <FadeUp className="relative mx-auto max-w-6xl">
             <h2 className="mb-10 text-balance text-4xl font-bold text-white md:text-5xl">
               {weekly_rhythm.title}
@@ -548,8 +671,14 @@ export default function OurDifferentiatorsPage() {
             <WeeklySchedule />
 
             <div className="relative mt-6 overflow-hidden rounded-2xl bg-[#f04424] p-6 text-white md:p-8">
-              <Sparkle color="#ffffff" className="absolute right-6 top-6 h-5 w-5" />
-              <Sparkle color="#ffffff" className="absolute bottom-8 right-16 hidden h-3.5 w-3.5 [animation-delay:1.5s] sm:block" />
+              <Sparkle
+                color="#ffffff"
+                className="absolute right-6 top-6 h-5 w-5"
+              />
+              <Sparkle
+                color="#ffffff"
+                className="absolute bottom-8 right-16 hidden h-3.5 w-3.5 [animation-delay:1.5s] sm:block"
+              />
               <p className="max-w-2xl pr-8 text-lg leading-relaxed md:text-xl">
                 {weekly_rhythm.project[0]}
               </p>
@@ -560,7 +689,11 @@ export default function OurDifferentiatorsPage() {
                       {step}
                     </span>
                     {index < projectSteps.length - 1 && (
-                      <ArrowRight size={18} aria-hidden="true" className="opacity-80" />
+                      <ArrowRight
+                        size={18}
+                        aria-hidden="true"
+                        className="opacity-80"
+                      />
                     )}
                   </React.Fragment>
                 ))}
@@ -571,14 +704,30 @@ export default function OurDifferentiatorsPage() {
 
         {/* ---------- CTA ---------- */}
         <section className="relative overflow-hidden px-6 py-20 text-center md:py-28">
-          <Sprout color={accents[3]} className="absolute bottom-6 left-[6%] hidden h-20 w-20 opacity-40 sm:block" />
-          <Sprout color={accents[0]} className="absolute bottom-6 right-[7%] hidden h-16 w-16 opacity-40 [animation-delay:1s] sm:block" />
-          <Sparkle color={accents[1]} className="absolute left-[16%] top-14 h-5 w-5" />
-          <Sparkle color={accents[2]} className="absolute right-[18%] top-20 h-4 w-4 [animation-delay:1.6s]" />
+          <Sprout
+            color={accents[3]}
+            className="absolute bottom-6 left-[6%] hidden h-20 w-20 opacity-40 sm:block"
+          />
+          <Sprout
+            color={accents[0]}
+            className="absolute bottom-6 right-[7%] hidden h-16 w-16 opacity-40 [animation-delay:1s] sm:block"
+          />
+          <Sparkle
+            color={accents[1]}
+            className="absolute left-[16%] top-14 h-5 w-5"
+          />
+          <Sparkle
+            color={accents[2]}
+            className="absolute right-[18%] top-20 h-4 w-4 [animation-delay:1.6s]"
+          />
 
           <FadeUp className="relative mx-auto max-w-3xl">
-            <h2 className="text-balance text-4xl font-bold text-primary md:text-5xl">{cta.heading}</h2>
-            <p className="mt-5 text-lg text-muted-foreground md:text-xl">{cta.body}</p>
+            <h2 className="text-balance text-4xl font-bold text-primary md:text-5xl">
+              {cta.heading}
+            </h2>
+            <p className="mt-5 text-lg text-muted-foreground md:text-xl">
+              {cta.body}
+            </p>
             <button
               type="button"
               onClick={() => navigate("/admissions")}

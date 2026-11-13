@@ -1,18 +1,35 @@
-import React, { useState } from 'react';
-import { Helmet } from '@dr.pogodin/react-helmet';
-import { motion } from 'motion/react';
-import { careers } from 'virtual:content';
-import { Users, BookOpen, Lightbulb, Building2, ChevronDown, ChevronUp, Send, CheckCircle2 } from 'lucide-react';
+import React, { useState } from "react";
+import { Helmet } from "@dr.pogodin/react-helmet";
+import { motion } from "motion/react";
+import { careers } from "virtual:content";
+import {
+  Users,
+  BookOpen,
+  Lightbulb,
+  Building2,
+  ChevronDown,
+  ChevronUp,
+  Send,
+  CheckCircle2,
+} from "lucide-react";
 
-const site = 'https://triumschool.in';
+// const site = "https://triumschool.in";
 
-function FadeUp({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
+function FadeUp({
+  children,
+  delay = 0,
+  className = "",
+}: {
+  children: React.ReactNode;
+  delay?: number;
+  className?: string;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.6, delay, ease: 'easeOut' as const }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.6, delay, ease: "easeOut" as const }}
       className={className}
     >
       {children}
@@ -26,76 +43,87 @@ export default function CareersPage() {
   const [openPosition, setOpenPosition] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState('');
+  const [submitError, setSubmitError] = useState("");
   const [form, setForm] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    position: '',
-    experience: '',
-    message: '',
+    name: "",
+    email: "",
+    phone: "",
+    position: "",
+    experience: "",
+    message: "",
   });
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    '@id': `${site}/careers#webpage`,
-    name: 'Careers — The Trium School',
-    url: `${site}/careers`,
-    isPartOf: { '@id': `${site}/#website` },
-    about: { '@id': `${site}/#organization` },
-    mainEntity: {
-      '@type': 'ItemList',
-      name: 'Open Positions at The Trium School',
-      itemListElement: careers.openings.positions.map((pos, i) => ({
-        '@type': 'ListItem',
-        position: i + 1,
-        item: {
-          '@type': 'JobPosting',
-          title: pos.title,
-          description: pos.description,
-          employmentType: 'FULL_TIME',
-          hiringOrganization: {
-            '@type': 'EducationalOrganization',
-            name: 'The Trium School',
-            sameAs: site
-          },
-          jobLocation: {
-            '@type': 'Place',
-            address: {
-              '@type': 'PostalAddress',
-              addressLocality: 'Nashik',
-              addressRegion: 'Maharashtra',
-              addressCountry: 'IN'
-            }
-          },
-          datePosted: '2026-09-01'
-        }
-      }))
-    }
-  };
+  // const jsonLd = {
+  //   "@context": "https://schema.org",
+  //   "@type": "WebPage",
+  //   "@id": `${site}/careers#webpage`,
+  //   name: "Careers — The Trium School",
+  //   url: `${site}/careers`,
+  //   isPartOf: { "@id": `${site}/#website` },
+  //   about: { "@id": `${site}/#organization` },
+  //   mainEntity: {
+  //     "@type": "ItemList",
+  //     name: "Open Positions at The Trium School",
+  //     itemListElement: careers.openings.positions.map((pos, i) => ({
+  //       "@type": "ListItem",
+  //       position: i + 1,
+  //       item: {
+  //         "@type": "JobPosting",
+  //         title: pos.title,
+  //         description: pos.description,
+  //         employmentType: "FULL_TIME",
+  //         hiringOrganization: {
+  //           "@type": "EducationalOrganization",
+  //           name: "The Trium School",
+  //           sameAs: site,
+  //         },
+  //         jobLocation: {
+  //           "@type": "Place",
+  //           address: {
+  //             "@type": "PostalAddress",
+  //             addressLocality: "Nashik",
+  //             addressRegion: "Maharashtra",
+  //             addressCountry: "IN",
+  //           },
+  //         },
+  //         datePosted: "2026-09-01",
+  //       },
+  //     })),
+  //   },
+  // };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | globalThis.HTMLTextAreaElement | globalThis.HTMLSelectElement
+    >,
+  ) => {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
-    setSubmitError('');
+    setSubmitError("");
     try {
-      const response = await globalThis.fetch('/api/careers', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await globalThis.fetch("/api/careers", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
       if (!response.ok) {
         const data = await response.json().catch(() => ({}));
-        throw new Error(data.error || 'Your application could not be submitted. Please try again.');
+        throw new Error(
+          data.error ||
+            "Your application could not be submitted. Please try again.",
+        );
       }
       setSubmitted(true);
     } catch (error) {
-      setSubmitError(error instanceof Error ? error.message : 'Your application could not be submitted. Please try again.');
+      setSubmitError(
+        error instanceof Error
+          ? error.message
+          : "Your application could not be submitted. Please try again.",
+      );
     } finally {
       setSubmitting(false);
     }
@@ -109,26 +137,39 @@ export default function CareersPage() {
           name="description"
           content="Explore teaching and staff opportunities at The Trium School, Nashik. Join a passionate team dedicated to transformative K–12 education."
         />
-        <link rel="canonical" href={`${site}/careers`} />
-        <meta property="og:title" content="Careers — The Trium School" />
+        <link rel="canonical" href="https://triumschool.in/careers" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="en_IN" />
+        <meta property="og:site_name" content="The Trium School" />
+        <meta property="og:url" content="https://triumschool.in/careers" />
+        <meta
+          property="og:title"
+          content="Careers at The Trium School | Join Our Team"
+        />
         <meta
           property="og:description"
-          content="Join our team of passionate educators at The Trium School, Nashik."
+          content="Build a meaningful career at The Trium School. Explore teaching and administrative opportunities and help shape young minds through progressive education."
         />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={`${site}/careers`} />
         <meta
           property="og:image"
-          content={`${site}/airo-assets/images/pages/careers/hero`}
+          content="https://triumschool.in/airo-assets/images/layouts/header/the-trium-school"
         />
+        <meta property="og:image:alt" content="The Trium School logo" />
+
         <meta name="twitter:card" content="summary_large_image" />
         <meta
-          name="twitter:image"
-          content={`${site}/airo-assets/images/pages/careers/hero`}
+          name="twitter:title"
+          content="Careers at The Trium School | Join Our Team"
         />
-        <script type="application/ld+json">
-          {JSON.stringify(jsonLd).replace(/</g, "\\u003c")}
-        </script>
+        <meta
+          name="twitter:description"
+          content="Build a meaningful career at The Trium School. Explore teaching and administrative opportunities and help shape young minds through progressive education."
+        />
+        <meta
+          name="twitter:image"
+          content="https://triumschool.in/airo-assets/images/layouts/header/the-trium-school"
+        />
+        <meta name="twitter:image:alt" content="The Trium School logo" />
       </Helmet>
 
       <main>
@@ -327,7 +368,11 @@ export default function CareersPage() {
                     onSubmit={handleSubmit}
                     className="bg-card rounded-2xl border border-border p-8 md:p-10 flex flex-col gap-5"
                   >
-                    {submitError && <p role="alert" className="text-sm text-destructive">{submitError}</p>}
+                    {submitError && (
+                      <p role="alert" className="text-sm text-destructive">
+                        {submitError}
+                      </p>
+                    )}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                       <div className="flex flex-col gap-1.5">
                         <label

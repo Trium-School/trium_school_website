@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "@dr.pogodin/react-helmet";
 import { motion } from "motion/react";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { ArrowRight, X } from "lucide-react";
 import { about, home } from "virtual:content";
-const site = "https://triumschool.in";
-const url = `${site}/about`;
+// const site = "https://triumschool.in";
+// const url = `${site}/about`;
 function FadeUp({
   children,
   delay = 0,
@@ -68,7 +68,7 @@ export default function AboutPage() {
     if (!principalModalOpen) return;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    const handleEscape = (event: KeyboardEvent) => {
+    const handleEscape = (event: globalThis.KeyboardEvent) => {
       if (event.key === "Escape") setPrincipalModalOpen(false);
     };
     window.addEventListener("keydown", handleEscape);
@@ -77,47 +77,68 @@ export default function AboutPage() {
       window.removeEventListener("keydown", handleEscape);
     };
   }, [principalModalOpen]);
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "AboutPage",
-    "@id": `${url}#webpage`,
-    name: "About Us — The Trium School",
-    url,
-    isPartOf: {
-      "@id": `${site}/#website`,
-    },
-    about: {
-      "@id": `${site}/#organization`,
-    },
-  };
+  // const jsonLd = {
+  //   "@context": "https://schema.org",
+  //   "@type": "AboutPage",
+  //   "@id": `${url}#webpage`,
+  //   name: "About Us — The Trium School",
+  //   url,
+  //   isPartOf: {
+  //     "@id": `${site}/#website`,
+  //   },
+  //   about: {
+  //     "@id": `${site}/#organization`,
+  //   },
+  // };
   return (
     <>
       <Helmet>
-        <title>About Us — The Trium School, Nashik</title>
+        <title>About Us – The Trium School, Nashik</title>
         <meta
           name="description"
           content="Learn about The Trium School's story, vision, mission, values, and leadership team. A K-12 school in Makhmalabad, Nashik built for the future."
         />
-        <link rel="canonical" href={url} />
-        <meta property="og:title" content="About Us — The Trium School" />
+        {/* Open Graph Tags */}
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="en_IN" />
+        <meta property="og:site_name" content="The Trium School" />
+        <meta property="og:url" content="https://triumschool.in/about" />
+        <meta
+          property="og:title"
+          content="About The Trium School | Our Vision, Mission & Leadership"
+        />
         <meta
           property="og:description"
-          content="Our story, vision, mission, and the team behind Nashik's newest K-12 school."
+          content="Discover The Trium School in Nashik. Explore our story, educational vision, core values and leadership shaping future-ready learners."
         />
-        <meta property="og:url" content={url} />
-        <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content={`${site}/airo-assets/images/pages/about/hero`}
+          content="https://triumschool.in/media/principal.png"
         />
+        <meta
+          property="og:image:alt"
+          content="Dr. Anjali Srivaastava, Principal of The Trium School"
+        />
+        <meta property="og:image:type" content="image/png" />
+
+        {/* Twitter/X Cards */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta
-          name="twitter:image"
-          content={`${site}/airo-assets/images/pages/about/hero`}
+          name="twitter:title"
+          content="About The Trium School | Our Vision, Mission & Leadership"
         />
-        <script type="application/ld+json">
-          {JSON.stringify(jsonLd).replace(/</g, "\\u003c")}
-        </script>
+        <meta
+          name="twitter:description"
+          content="Discover The Trium School in Nashik. Explore our story, educational vision, core values and leadership shaping future-ready learners."
+        />
+        <meta
+          name="twitter:image"
+          content="https://triumschool.in/media/principal.png"
+        />
+        <meta
+          name="twitter:image:alt"
+          content="Dr. Anjali Srivaastava, Principal of The Trium School"
+        />
       </Helmet>
 
       <main>

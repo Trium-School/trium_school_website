@@ -1,13 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Helmet } from "@dr.pogodin/react-helmet";
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowRight, Cpu, Music, Palette, Trophy } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { useNavigate, useLocation } from "react-router";
+import { useNavigate } from "react-router";
 import { beyondAcademics } from "virtual:content";
 
-const site = "https://triumschool.in";
-const url = `${site}/beyond-academics`;
+// const site = "https://triumschool.in";
+// const url = `${site}/beyond-academics`;
 
 const experienceIcons: Record<string, LucideIcon> = {
   "trium-innovators": Cpu,
@@ -129,76 +129,116 @@ function Ball({ className = "", color }: DecorProps) {
 }
 
 /* One motif per experience: ring (tech), sparkles (arts), blobs (visual), ball (sports) */
-function ExperienceDecor({ index, color, className = "" }: DecorProps & { index: number }) {
-  switch (index % 4) {
-    case 0:
-      return <DottedRing color={color} className={className} />;
-    case 1:
-      return (
-        <span className={`relative block ${className}`} aria-hidden="true">
-          <Sparkle color={color} className="absolute left-0 top-2 h-[70%] w-[70%]" />
-          <Sparkle color={color} className="absolute bottom-0 right-0 h-[38%] w-[38%] [animation-delay:1.4s]" />
-        </span>
-      );
-    case 2:
-      return <Blob color={color} className={className} />;
-    default:
-      return <Ball color={color} className={className} />;
-  }
-}
+// function ExperienceDecor({
+//   index,
+//   color,
+//   className = "",
+// }: DecorProps & { index: number }) {
+//   switch (index % 4) {
+//     case 0:
+//       return <DottedRing color={color} className={className} />;
+//     case 1:
+//       return (
+//         <span className={`relative block ${className}`} aria-hidden="true">
+//           <Sparkle
+//             color={color}
+//             className="absolute left-0 top-2 h-[70%] w-[70%]"
+//           />
+//           <Sparkle
+//             color={color}
+//             className="absolute bottom-0 right-0 h-[38%] w-[38%] [animation-delay:1.4s]"
+//           />
+//         </span>
+//       );
+//     case 2:
+//       return <Blob color={color} className={className} />;
+//     default:
+//       return <Ball color={color} className={className} />;
+//   }
+// }
 
 /* ---------- Page ---------- */
 
 export default function BeyondAcademicsPage() {
   const navigate = useNavigate();
-  const location = useLocation();
+  // const location = useLocation();
 
-useEffect(() => {
-  if (!location.hash) return;
+  // useEffect(() => {
+  //   if (!location.hash) return;
 
-  const targetId = decodeURIComponent(
-    location.hash.substring(1)
-  );
+  //   const targetId = decodeURIComponent(location.hash.substring(1));
 
-  const frame = requestAnimationFrame(() => {
-    document.getElementById(targetId)?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  });
+  //   const frame = requestAnimationFrame(() => {
+  //     document.getElementById(targetId)?.scrollIntoView({
+  //       behavior: "smooth",
+  //       block: "start",
+  //     });
+  //   });
 
-  return () => cancelAnimationFrame(frame);
-}, [location.pathname, location.hash]);
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": `${url}#webpage`,
-    name: "Beyond Academics — The Trium School",
-    url,
-    isPartOf: { "@id": `${site}/#website` },
-    about: { "@id": `${site}/#organization` },
-  };
+  //   return () => cancelAnimationFrame(frame);
+  // }, [location.pathname, location.hash]);
+  // const jsonLd = {
+  //   "@context": "https://schema.org",
+  //   "@type": "WebPage",
+  //   "@id": `${url}#webpage`,
+  //   name: "Beyond Academics — The Trium School",
+  //   url,
+  //   isPartOf: { "@id": `${site}/#website` },
+  //   about: { "@id": `${site}/#organization` },
+  // };
 
   const { hero, experiences, realWorldEducation, cta } = beyondAcademics;
   const experienceColors = experiences.map((experience) => experience.color);
-  const heroColor = (i: number) => experienceColors[i % experienceColors.length] ?? "#ffffff";
+  const heroColor = (i: number) =>
+    experienceColors[i % experienceColors.length] ?? "#ffffff";
 
   return (
     <>
       <Helmet>
         <title>Beyond Academics — The Trium School, Nashik</title>
-        <meta name="description" content={hero.subtitle} />
-        <link rel="canonical" href={url} />
+        <link rel="canonical" href="https://triumschool.in/beyond-academics" />
+        <meta name="description" content="Discover learning beyond the classroom at The Trium School through coding, robotics, AI, sports, music, dance, visual arts and real-world projects." />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="en_IN" />
+        <meta property="og:site_name" content="The Trium School" />
+        <meta
+          property="og:url"
+          content="https://triumschool.in/beyond-academics"
+        />
         <meta
           property="og:title"
-          content="Beyond Academics — The Trium School"
+          content="Beyond Academics | Experiences at The Trium School"
         />
-        <meta property="og:description" content={hero.subtitle} />
-        <meta property="og:url" content={url} />
-        <meta property="og:type" content="website" />
-        <script type="application/ld+json">
-          {JSON.stringify(jsonLd).replace(/</g, "\\u003c")}
-        </script>
+        <meta
+          property="og:description"
+          content="Discover learning beyond the classroom at The Trium School through coding, robotics, AI, sports, music, dance, visual arts and real-world projects."
+        />
+        <meta
+          property="og:image"
+          content="https://triumschool.in/media/Collaborative%20Robotics%20Lab%20Workshop.png"
+        />
+        <meta
+          property="og:image:alt"
+          content="Students participating in a collaborative robotics lab workshop at The Trium School"
+        />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Beyond Academics | Experiences at The Trium School"
+        />
+        <meta
+          name="twitter:description"
+          content="Discover learning beyond the classroom at The Trium School through coding, robotics, AI, sports, music, dance, visual arts and real-world projects."
+        />
+        <meta
+          name="twitter:image"
+          content="https://triumschool.in/media/Collaborative%20Robotics%20Lab%20Workshop.png"
+        />
+        <meta
+          name="twitter:image:alt"
+          content="Students participating in a collaborative robotics lab workshop at The Trium School"
+        />
       </Helmet>
 
       <style>{`
