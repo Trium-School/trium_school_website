@@ -47,29 +47,29 @@ type FormData = {
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
 export default function AdmissionsPage() {
-  const site = "https://triumschool.in";
-  const url = `${site}/admissions`;
-  const title = "Admissions 2026–27 — The Trium School";
-  const description =
-    "Apply for admissions at The Trium School, Nashik. Accepting applications for 2026–27 across Early Years (Nursery–KG) and Primary School (Grades 1–5).";
+  // const site = "https://triumschool.in";
+  // const url = `${site}/admissions`;
+  // const title = "Admissions 2026–27 — The Trium School";
+  // const description =
+  //   "Apply for admissions at The Trium School, Nashik. Accepting applications for 2026–27 across Early Years (Nursery–KG) and Primary School (Grades 1–5).";
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": `${url}#webpage`,
-    name: title,
-    url,
-    isPartOf: { "@id": `${site}/#website` },
-    about: { "@id": `${site}/#organization` },
-    mainEntity: {
-      "@type": "EducationalOrganization",
-      "@id": `${site}/#organization`,
-      name: "The Trium School",
-      url: site,
-      description:
-        "Admissions open for 2026–27 across Early Years (Nursery–KG) and Primary School (Grades 1–5) at The Trium School, Nashik.",
-    },
-  };
+  // const jsonLd = {
+  //   "@context": "https://schema.org",
+  //   "@type": "WebPage",
+  //   "@id": `${url}#webpage`,
+  //   name: title,
+  //   url,
+  //   isPartOf: { "@id": `${site}/#website` },
+  //   about: { "@id": `${site}/#organization` },
+  //   mainEntity: {
+  //     "@type": "EducationalOrganization",
+  //     "@id": `${site}/#organization`,
+  //     name: "The Trium School",
+  //     url: site,
+  //     description:
+  //       "Admissions open for 2026–27 across Early Years (Nursery–KG) and Primary School (Grades 1–5) at The Trium School, Nashik.",
+  //   },
+  // };
 
   const [openFaq, setOpenFaq] = useState<string | null>(null);
   const [formData, setFormData] = useState<FormData>({
@@ -86,7 +86,7 @@ export default function AdmissionsPage() {
 
   function handleChange(
     e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+      HTMLInputElement | globalThis.HTMLTextAreaElement | globalThis.HTMLSelectElement
     >,
   ) {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -132,25 +132,44 @@ export default function AdmissionsPage() {
   return (
     <>
       <Helmet>
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        <link rel="canonical" href={url} />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
+        <title>Admissions 2027–28 | The Trium School, Nashik</title>
+        <meta
+          name="description"
+          content="Begin your child's triumph story at The Trium School. Applications are now open for 2027–28. Explore the admission process and enquire today."
+        />
+        <link rel="canonical" href="https://triumschool.in/admissions" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={url} />
+        <meta property="og:locale" content="en_IN" />
+        <meta property="og:site_name" content="The Trium School" />
+        <meta property="og:url" content="https://triumschool.in/admissions" />
+        <meta
+          property="og:title"
+          content="Admissions 2027–28 | The Trium School, Nashik"
+        />
+        <meta
+          property="og:description"
+          content="Begin your child's triumph story at The Trium School. Applications are now open for 2027–28. Explore the admission process and enquire today."
+        />
         <meta
           property="og:image"
-          content={`${site}/airo-assets/images/pages/home/admissions-cta`}
+          content="https://triumschool.in/airo-assets/images/layouts/header/the-trium-school"
         />
+        <meta property="og:image:alt" content="The Trium School logo" />
+
         <meta name="twitter:card" content="summary_large_image" />
         <meta
-          name="twitter:image"
-          content={`${site}/airo-assets/images/pages/home/admissions-cta`}
+          name="twitter:title"
+          content="Admissions 2027–28 | The Trium School, Nashik"
         />
-        <script type="application/ld+json">
-          {JSON.stringify(jsonLd).replace(/</g, "\\u003c")}
-        </script>
+        <meta
+          name="twitter:description"
+          content="Begin your child's triumph story at The Trium School. Applications are now open for 2027–28. Explore the admission process and enquire today."
+        />
+        <meta
+          name="twitter:image"
+          content="https://triumschool.in/airo-assets/images/layouts/header/the-trium-school"
+        />
+        <meta name="twitter:image:alt" content="The Trium School logo" />
       </Helmet>
 
       <main>
@@ -533,7 +552,10 @@ export default function AdmissionsPage() {
                       </div>
 
                       {status === "error" && (
-                        <p role="alert" className="text-red-500 text-sm mb-5 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+                        <p
+                          role="alert"
+                          className="text-red-500 text-sm mb-5 bg-red-50 border border-red-200 rounded-xl px-4 py-3"
+                        >
                           {errorMsg}
                         </p>
                       )}

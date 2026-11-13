@@ -5,8 +5,8 @@ import { useNavigate } from "react-router";
 import { ArrowRight, ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react";
 import { campus } from "virtual:content";
 import CampusVideo from "../components/CampusVideo";
-const site = "https://triumschool.in";
-const url = `${site}/campus`;
+// const site = "https://triumschool.in";
+// const url = `${site}/campus`;
 function FadeUp({
   children,
   delay = 0,
@@ -116,7 +116,7 @@ function GallerySlider({ images }: { images: GalleryImage[] }) {
 
     document.body.style.overflow = "hidden";
 
-    const handleKeyDown = (event: KeyboardEvent) => {
+    const handleKeyDown = (event: globalThis.KeyboardEvent) => {
       if (event.key === "Escape") {
         setActiveIndex(null);
       }
@@ -342,19 +342,19 @@ function GallerySlider({ images }: { images: GalleryImage[] }) {
 
 export default function CampusPage() {
   const navigate = useNavigate();
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": `${url}#webpage`,
-    name: "Campus & Facilities — The Trium School",
-    url,
-    isPartOf: {
-      "@id": `${site}/#website`,
-    },
-    about: {
-      "@id": `${site}/#organization`,
-    },
-  };
+  // const jsonLd = {
+  //   "@context": "https://schema.org",
+  //   "@type": "WebPage",
+  //   "@id": `${url}#webpage`,
+  //   name: "Campus & Facilities — The Trium School",
+  //   url,
+  //   isPartOf: {
+  //     "@id": `${site}/#website`,
+  //   },
+  //   about: {
+  //     "@id": `${site}/#organization`,
+  //   },
+  // };
   return (
     <>
       <Helmet>
@@ -363,29 +363,45 @@ export default function CampusPage() {
           name="description"
           content="Explore The Trium School campus in Makhmalabad, Nashik — smart classrooms, science labs, STEM studio, library, sports grounds, and performing arts centre."
         />
-        <link rel="canonical" href={url} />
+        <link rel="canonical" href="https://triumschool.in/campus" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="en_IN" />
+        <meta property="og:site_name" content="The Trium School" />
+        <meta property="og:url" content="https://triumschool.in/campus" />
         <meta
           property="og:title"
-          content="Campus & Facilities — The Trium School"
+          content="Campus & Facilities | The Trium School, Nashik"
         />
         <meta
           property="og:description"
-          content="A campus built for curiosity. Explore our classrooms, labs, sports grounds, and arts spaces in Nashik."
+          content="Explore The Trium School campus in Makhmalabad, Nashik, featuring smart classrooms, science laboratories, STEM and robotics studios, a library, sports grounds and performing arts facilities."
         />
-        <meta property="og:url" content={url} />
-        <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content={`${site}/airo-assets/images/pages/home/campus-classrooms`}
+          content="https://triumschool.in/media/website-media/Architecture%20and%20Campus%20Exterior.jpeg"
         />
+        <meta
+          property="og:image:alt"
+          content="Architecture and campus exterior of The Trium School"
+        />
+
         <meta name="twitter:card" content="summary_large_image" />
         <meta
-          name="twitter:image"
-          content={`${site}/airo-assets/images/pages/home/campus-classrooms`}
+          name="twitter:title"
+          content="Campus & Facilities | The Trium School, Nashik"
         />
-        <script type="application/ld+json">
-          {JSON.stringify(jsonLd).replace(/</g, "\\u003c")}
-        </script>
+        <meta
+          name="twitter:description"
+          content="Explore The Trium School campus in Makhmalabad, Nashik, featuring smart classrooms, science laboratories, STEM and robotics studios, a library, sports grounds and performing arts facilities."
+        />
+        <meta
+          name="twitter:image"
+          content="https://triumschool.in/media/website-media/Architecture%20and%20Campus%20Exterior.jpeg"
+        />
+        <meta
+          name="twitter:image:alt"
+          content="Architecture and campus exterior of The Trium School"
+        />
       </Helmet>
 
       <main>

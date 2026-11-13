@@ -18,8 +18,8 @@ import {
   Sparkles,
 } from "lucide-react";
 
-const SITE = "https://triumschool.in";
-const PAGE_URL = `${SITE}/our-partners`;
+// const SITE = "https://triumschool.in";
+// const PAGE_URL = `${SITE}/our-partners`;
 const DREAMTIME_URL = "https://www.dreamtimelearning.com/";
 
 // Put your approved images in public/media/partners/.
@@ -203,17 +203,17 @@ function LinaPortrait() {
 }
 
 export default function OurPartnersPage() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": `${PAGE_URL}#webpage`,
-    url: PAGE_URL,
-    name: "Our Partners — Dreamtime Learning | The Trium School",
-    description:
-      "Discover The Trium School's pre-primary curriculum partnership with Dreamtime Learning and its approach to early childhood education.",
-    isPartOf: { "@id": `${SITE}/#website` },
-    about: { "@id": `${SITE}/#organization` },
-  };
+  // const jsonLd = {
+  //   "@context": "https://schema.org",
+  //   "@type": "WebPage",
+  //   "@id": `${PAGE_URL}#webpage`,
+  //   url: PAGE_URL,
+  //   name: "Our Partners — Dreamtime Learning | The Trium School",
+  //   description:
+  //     "Discover The Trium School's pre-primary curriculum partnership with Dreamtime Learning and its approach to early childhood education.",
+  //   isPartOf: { "@id": `${SITE}/#website` },
+  //   about: { "@id": `${SITE}/#organization` },
+  // };
 
   return (
     <>
@@ -225,18 +225,45 @@ export default function OurPartnersPage() {
           name="description"
           content="Explore The Trium School's partnership with Dreamtime Learning for pre-primary education, brain-based learning, creativity and future-ready foundations in Nashik."
         />
-        <link rel="canonical" href={PAGE_URL} />
+        <link rel="canonical" href="https://triumschool.in/our-partners" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Our Partners | The Trium School" />
+        <meta property="og:locale" content="en_IN" />
+        <meta property="og:site_name" content="The Trium School" />
+        <meta property="og:url" content="https://triumschool.in/our-partners" />
+        <meta
+          property="og:title"
+          content="Our Educational Partners | The Trium School"
+        />
         <meta
           property="og:description"
-          content="Building strong foundations with global expertise through our pre-primary curriculum partnership with Dreamtime Learning."
+          content="Discover The Trium School's partnership with Dreamtime Learning, bringing brain-based learning, creativity, confidence and future-ready skills to early education."
         />
-        <meta property="og:url" content={PAGE_URL} />
-        <meta name="twitter:card" content="summary" />
-        <script type="application/ld+json">
-          {JSON.stringify(jsonLd).replace(/</g, "\\u003c")}
-        </script>
+        <meta
+          property="og:image"
+          content="https://triumschool.in/media/Dreamtime-Learning-Logo.avif"
+        />
+        <meta
+          property="og:image:alt"
+          content="Dreamtime Learning logo, curriculum partner of The Trium School"
+        />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Our Educational Partners | The Trium School"
+        />
+        <meta
+          name="twitter:description"
+          content="Discover The Trium School's partnership with Dreamtime Learning, bringing brain-based learning, creativity, confidence and future-ready skills to early education."
+        />
+        <meta
+          name="twitter:image"
+          content="https://triumschool.in/media/Dreamtime-Learning-Logo.avif"
+        />
+        <meta
+          name="twitter:image:alt"
+          content="Dreamtime Learning logo, curriculum partner of The Trium School"
+        />
       </Helmet>
 
       <main className="overflow-hidden bg-white text-[#17254A]">

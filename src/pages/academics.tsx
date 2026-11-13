@@ -1,37 +1,52 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
-import { Helmet } from '@dr.pogodin/react-helmet';
-import { motion } from 'motion/react';
+import { Helmet } from "@dr.pogodin/react-helmet";
+import { motion } from "motion/react";
 import { useNavigate } from "react-router";
-import { CheckCircle2, ArrowRight, BookOpen, Users, Lightbulb, BarChart2 } from 'lucide-react';
-import { academics } from 'virtual:content';
-const site = 'https://triumschool.in';
-const url = `${site}/academics`;
+import {
+  CheckCircle2,
+  ArrowRight,
+  BookOpen,
+  Users,
+  Lightbulb,
+  BarChart2,
+} from "lucide-react";
+import { academics } from "virtual:content";
+// const site = "https://triumschool.in";
+// const url = `${site}/academics`;
 function FadeUp({
   children,
   delay = 0,
-  className = ''
+  className = "",
 }: {
   children: React.ReactNode;
   delay?: number;
   className?: string;
 }) {
-  return <motion.div initial={{
-    opacity: 0,
-    y: 24
-  }} whileInView={{
-    opacity: 1,
-    y: 0
-  }} viewport={{
-    once: true,
-    margin: '-60px'
-  }} transition={{
-    duration: 0.6,
-    delay,
-    ease: 'easeOut' as const
-  }} className={className}>
+  return (
+    <motion.div
+      initial={{
+        opacity: 0,
+        y: 24,
+      }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+      viewport={{
+        once: true,
+        margin: "-60px",
+      }}
+      transition={{
+        duration: 0.6,
+        delay,
+        ease: "easeOut" as const,
+      }}
+      className={className}
+    >
       {children}
-    </motion.div>;
+    </motion.div>
+  );
 }
 const pillarIcons = [BookOpen, Users, Lightbulb, BarChart2];
 
@@ -58,49 +73,49 @@ export default function AcademicsPage() {
   const [activeTab, setActiveTab] = useState(0);
   const location = useLocation();
 
-useEffect(() => {
-  const params = new URLSearchParams(location.search);
-  const programmeId = params.get("programme");
+  useEffect(() => {
+    const params = new globalThis.URLSearchParams(location.search);
+    const programmeId = params.get("programme");
 
-  if (!programmeId) return;
+    if (!programmeId) return;
 
-  const index = academics.programmes.findIndex(
-    (prog) => String(prog.id) === programmeId
-  );
+    const index = academics.programmes.findIndex(
+      (prog) => String(prog.id) === programmeId,
+    );
 
-  if (index !== -1) {
-    setActiveTab(index);
-  }
-}, [location.search]);
-useEffect(() => {
-  if (location.hash !== "#programmes") return;
-
-  const element = document.getElementById("programmes");
-
-  if (!element) return;
-
-  const frame = requestAnimationFrame(() => {
-    element.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  });
-
-  return () => cancelAnimationFrame(frame);
-}, [location.pathname, location.hash, location.search]);
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    '@id': `${url}#webpage`,
-    name: 'Academics — The Trium School',
-    url,
-    isPartOf: {
-      '@id': `${site}/#website`
-    },
-    about: {
-      '@id': `${site}/#organization`
+    if (index !== -1) {
+      setActiveTab(index);
     }
-  };
+  }, [location.search]);
+  // useEffect(() => {
+  //   if (location.hash !== "#programmes") return;
+
+  //   const element = document.getElementById("programmes");
+
+  //   if (!element) return;
+
+  //   const frame = requestAnimationFrame(() => {
+  //     element.scrollIntoView({
+  //       behavior: "smooth",
+  //       block: "start",
+  //     });
+  //   });
+
+  //   return () => cancelAnimationFrame(frame);
+  // }, [location.pathname, location.hash, location.search]);
+  //   const jsonLd = {
+  //     '@context': 'https://schema.org',
+  //     '@type': 'WebPage',
+  //     '@id': `${url}#webpage`,
+  //     name: 'Academics — The Trium School',
+  //     url,
+  //     isPartOf: {
+  //       '@id': `${site}/#website`
+  //     },
+  //     about: {
+  //       '@id': `${site}/#organization`
+  //     }
+  //   };
   return (
     <>
       <Helmet>
@@ -109,26 +124,45 @@ useEffect(() => {
           name="description"
           content="Explore The Trium School's K-12 curriculum, teaching philosophy, co-curricular activities, and faculty. Inquiry-based learning for Early Years through Primary School."
         />
-        <link rel="canonical" href={url} />
-        <meta property="og:title" content="Academics — The Trium School" />
+        <link rel="canonical" href="https://triumschool.in/academics" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="en_IN" />
+        <meta property="og:site_name" content="The Trium School" />
+        <meta property="og:url" content="https://triumschool.in/academics" />
+        <meta
+          property="og:title"
+          content="Academics | Curriculum at The Trium School"
+        />
         <meta
           property="og:description"
-          content="Inquiry-based K-12 curriculum, co-curricular activities, and expert faculty at The Trium School, Nashik."
+          content="Explore the academic programmes at The Trium School, where inquiry-based learning, creativity, critical thinking and real-world experiences help every child thrive."
         />
-        <meta property="og:url" content={url} />
-        <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content={`${site}/airo-assets/images/pages/academics/hero`}
+          content="https://triumschool.in/media/Sports.png"
         />
+        <meta
+          property="og:image:alt"
+          content="Students playing sports at The Trium School"
+        />
+
         <meta name="twitter:card" content="summary_large_image" />
         <meta
-          name="twitter:image"
-          content={`${site}/airo-assets/images/pages/academics/hero`}
+          name="twitter:title"
+          content="Academics | Curriculum at The Trium School"
         />
-        <script type="application/ld+json">
-          {JSON.stringify(jsonLd).replace(/</g, "\\u003c")}
-        </script>
+        <meta
+          name="twitter:description"
+          content="Explore the academic programmes at The Trium School, where inquiry-based learning, creativity, critical thinking and real-world experiences help every child thrive."
+        />
+        <meta
+          name="twitter:image"
+          content="https://triumschool.in/media/Sports.png"
+        />
+        <meta
+          name="twitter:image:alt"
+          content="Students playing sports at The Trium School"
+        />
       </Helmet>
 
       <main>

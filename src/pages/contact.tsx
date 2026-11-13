@@ -4,8 +4,8 @@ import { motion } from 'motion/react';
 import { MapPin, Phone, Mail, Clock, CheckCircle2, Send } from 'lucide-react';
 import { contact } from 'virtual:content';
 
-const site = 'https://triumschool.in';
-const url = `${site}/contact`;
+// const site = 'https://triumschool.in';
+// const url = `${site}/contact`;
 
 function FadeUp({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
   return (
@@ -35,7 +35,7 @@ export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+  function handleChange(e: React.ChangeEvent<HTMLInputElement | globalThis.HTMLTextAreaElement>) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
@@ -61,15 +61,15 @@ export default function ContactPage() {
     }
   }
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'ContactPage',
-    '@id': `${url}#webpage`,
-    name: 'Contact — The Trium School',
-    url,
-    isPartOf: { '@id': `${site}/#website` },
-    about: { '@id': `${site}/#organization` },
-  };
+  // const jsonLd = {
+  //   '@context': 'https://schema.org',
+  //   '@type': 'ContactPage',
+  //   '@id': `${url}#webpage`,
+  //   name: 'Contact — The Trium School',
+  //   url,
+  //   isPartOf: { '@id': `${site}/#website` },
+  //   about: { '@id': `${site}/#organization` },
+  // };
 
   const detailItems = [
     { icon: MapPin, label: contact.details.address_label, value: contact.details.address },
@@ -86,26 +86,21 @@ export default function ContactPage() {
           name="description"
           content="Get in touch with The Trium School in Makhmalabad, Nashik. Call, email, or send us a message about admissions, campus visits, or any enquiry."
         />
-        <link rel="canonical" href={url} />
-        <meta property="og:title" content="Contact Us — The Trium School" />
-        <meta
-          property="og:description"
-          content="Reach The Trium School in Nashik. We're happy to answer your questions about admissions and campus visits."
-        />
-        <meta property="og:url" content={url} />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:image"
-          content={`${site}/airo-assets/images/pages/contact/hero`}
-        />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:image"
-          content={`${site}/airo-assets/images/pages/contact/hero`}
-        />
-        <script type="application/ld+json">
-          {JSON.stringify(jsonLd).replace(/</g, "\\u003c")}
-        </script>
+        <link rel="canonical" href="https://triumschool.in/contact" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:locale" content="en_IN"/>
+        <meta property="og:site_name" content="The Trium School"/>
+        <meta property="og:url" content="https://triumschool.in/contact"/>
+        <meta property="og:title" content="Contact The Trium School | Get in Touch"/>
+        <meta property="og:description" content="Get in touch with The Trium School in Makhmalabad, Nashik. Contact our team for admissions enquiries, campus visits and information about our school."/>
+        <meta property="og:image" content="https://triumschool.in/airo-assets/images/layouts/header/the-trium-school"/>
+        <meta property="og:image:alt" content="The Trium School logo"/>
+
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:title" content="Contact The Trium School | Get in Touch"/>
+        <meta name="twitter:description" content="Get in touch with The Trium School in Makhmalabad, Nashik. Contact our team for admissions enquiries, campus visits and information about our school."/>
+        <meta name="twitter:image" content="https://triumschool.in/airo-assets/images/layouts/header/the-trium-school"/>
+        <meta name="twitter:image:alt" content="The Trium School logo"/>
       </Helmet>
 
       <main>
