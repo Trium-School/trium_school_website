@@ -12,7 +12,7 @@ import careers__post from "./api/careers/POST";
 import contact__post from "./api/contact/POST";
 import health__get from "./api/health/GET";
 // </api-imports>
-import { seoRoutes } from "../lib/seo-routes";
+// import { seoRoutes } from "../lib/seo-routes";
 import {
 	loadAdSenseRuntimeConfig,
 	resolveAdSenseTextFile,
@@ -151,9 +151,9 @@ app.use("/api", (err: unknown, req: Request, res: Response, _next: NextFunction)
 	res.status(500).json({ error: "Internal server error" });
 });
 
-function baseUrl(req: Request): string {
-	return `${req.protocol}://${req.hostname}`;
-}
+// function baseUrl(req: Request): string {
+// 	return `${req.protocol}://${req.hostname}`;
+// }
 
 function escapeXml(s: string): string {
 	return s.replace(/[&<>"']/g, (c) =>
@@ -180,28 +180,28 @@ function escapeXml(s: string): string {
 // 	res.type("text/plain").set("Cache-Control", "public, max-age=60, must-revalidate").set("Vary", "Host").send(body);
 // });
 
-app.get("/sitemap.xml", (req, res) => {
-	if (isSystemHost(req)) {
-		const empty = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"/>\n`;
-		res.type("application/xml").set("Cache-Control", "public, max-age=60, must-revalidate").set("Vary", "Host").send(empty);
-		return;
-	}
-	const base = baseUrl(req);
-	const urls = seoRoutes
-		.filter((r) => typeof r.path === "string" && r.path.startsWith("/"))
-		.map((r) => {
-			const loc = `${base}${r.path}`;
-			const parts = [`    <loc>${escapeXml(loc)}</loc>`];
-			if (r.lastmod) parts.push(`    <lastmod>${escapeXml(r.lastmod)}</lastmod>`);
-			if (r.changefreq) parts.push(`    <changefreq>${r.changefreq}</changefreq>`);
-			if (r.priority !== undefined)
-				parts.push(`    <priority>${r.priority.toFixed(1)}</priority>`);
-			return `  <url>\n${parts.join("\n")}\n  </url>`;
-		})
-		.join("\n");
-	const body = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
-	res.type("application/xml").set("Cache-Control", "public, max-age=60, must-revalidate").set("Vary", "Host").send(body);
-});
+// app.get("/sitemap.xml", (req, res) => {
+// 	if (isSystemHost(req)) {
+// 		const empty = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"/>\n`;
+// 		res.type("application/xml").set("Cache-Control", "public, max-age=60, must-revalidate").set("Vary", "Host").send(empty);
+// 		return;
+// 	}
+// 	const base = baseUrl(req);
+// 	const urls = seoRoutes
+// 		.filter((r) => typeof r.path === "string" && r.path.startsWith("/"))
+// 		.map((r) => {
+// 			const loc = `${base}${r.path}`;
+// 			const parts = [`    <loc>${escapeXml(loc)}</loc>`];
+// 			if (r.lastmod) parts.push(`    <lastmod>${escapeXml(r.lastmod)}</lastmod>`);
+// 			if (r.changefreq) parts.push(`    <changefreq>${r.changefreq}</changefreq>`);
+// 			if (r.priority !== undefined)
+// 				parts.push(`    <priority>${r.priority.toFixed(1)}</priority>`);
+// 			return `  <url>\n${parts.join("\n")}\n  </url>`;
+// 		})
+// 		.join("\n");
+// 	const body = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
+// 	res.type("application/xml").set("Cache-Control", "public, max-age=60, must-revalidate").set("Vary", "Host").send(body);
+// });
 
 
 function servePublicSeoFile(
