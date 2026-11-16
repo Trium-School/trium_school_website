@@ -243,13 +243,13 @@
   },
   "logo/favicon": {
     "mediaType": "logo",
-    "currentUrl": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/bd6a501b-b511-4453-908f-8175982e913c/session/bd2e2772-054b-4248-8862-b3e20e56573a/favicon-transparent-25400685-b177-4832-baa7-730bce141f55/logo-logo.png",
+    "currentUrl": "/assets/The-Trium-School-Final-Logo.png",
     "searchQuery": "favicon",
     "alternatives": [
       "/airo-assets/uploads/airo-logo-shimmer-square.svg"
     ],
     "logoSourceMap": {
-      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/bd6a501b-b511-4453-908f-8175982e913c/session/bd2e2772-054b-4248-8862-b3e20e56573a/favicon-transparent-25400685-b177-4832-baa7-730bce141f55/logo-logo.png": {
+      "/assets/The-Trium-School-Final-Logo.png": {
         "sessionId": "bd2e2772-054b-4248-8862-b3e20e56573a",
         "logoId": "25400685-b177-4832-baa7-730bce141f55",
         "groupId": "e1c27197-b183-4f61-8933-178b393cba9f"
